@@ -6,7 +6,7 @@ df1 = pd.read_csv("../database/youngs_modulus.csv", encoding="gbk")
 df2 = pd.read_csv("../database/swelling_ratio.csv", encoding="gbk")
 
 # Add missing columns to df2
-for col in ["Young's Modulus (kPa) log10", "来源"]:
+for col in ["Young's Modulus (kPa) log10", "Source"]:
     if col not in df2.columns:
         df2[col] = pd.NA
 
