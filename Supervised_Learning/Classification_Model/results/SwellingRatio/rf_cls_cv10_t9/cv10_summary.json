@@ -1,0 +1,16 @@
+{
+  "cv": "StratifiedKFold(10, shuffle=True)",
+  "F1_macro_mean": 0.686171661529707,
+  "F1_macro_std": 0.04459677208581761,
+  "BalAcc_mean": 0.6916666666666667,
+  "BalAcc_std": 0.0479116341962787,
+  "Acc_mean": 0.7194444444444446,
+  "Acc_std": 0.04620361092546165,
+  "ROC_AUC_mean": 0.7923611111111111,
+  "ROC_AUC_ovr_mean": null,
+  "n_folds": 10,
+  "Acc_class_0_mean": 0.775,
+  "Acc_class_0_std": 0.09043789220055394,
+  "Acc_class_1_mean": 0.6083333333333333,
+  "Acc_class_1_std": 0.12453617650811052
+}
