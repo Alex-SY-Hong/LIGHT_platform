@@ -9,8 +9,8 @@ import pandas as pd
 import sys
 
 # ===== Basic Configuration =====
-LLM_API_KEY = os.getenv("LLM_API_KEY", "sk-4x7BMQyP3IBNlnmOuOIRTg")
-LLM_BASE_URL = os.getenv("LLM_BASE_URL", "https://llmapi.paratera.com/v1")
+LLM_API_KEY = os.getenv("LLM_API_KEY", "YOUR_KEY")
+LLM_BASE_URL = os.getenv("LLM_BASE_URL", "YOUR_URL")
 LLM_MODEL_NAME = os.getenv("LLM_MODEL_NAME", "DeepSeek-R1")
 
 
