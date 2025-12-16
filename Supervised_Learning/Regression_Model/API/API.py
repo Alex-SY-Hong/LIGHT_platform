@@ -11,8 +11,8 @@ import openai
 #   LLM_API_KEY   = Your API Key
 #   LLM_BASE_URL  = https://your-proxy-domain/v1
 #   LLM_MODEL_NAME= DeepSeek-R1  (or other model names)
-LLM_API_KEY = os.getenv("LLM_API_KEY", "sk-4x7BMQyP3IBNlnmOuOIRTg")
-LLM_BASE_URL = os.getenv("LLM_BASE_URL", "https://llmapi.paratera.com/v1")
+LLM_API_KEY = os.getenv("LLM_API_KEY", "YOUR_KEY")
+LLM_BASE_URL = os.getenv("LLM_BASE_URL", "YOUR_URL")
 LLM_MODEL_NAME = os.getenv("LLM_MODEL_NAME", "DeepSeek-R1")
 
 # Initialize client (Create only once)
@@ -124,4 +124,5 @@ def choose_best_with_llm(candidates_simple):
             "selection_source": "local_fallback",
             "selection_method": "local_fallback_after_api_failure",  # Explicitly mark local fallback
             "error": str(e)[:100]  # Limit error message length
+
         }
