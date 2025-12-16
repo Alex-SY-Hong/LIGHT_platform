@@ -2,7 +2,7 @@
 
 ## Features
 
-### 1. LIGHT_platform Agent for Automated Processes.、
+### 1. LIGHT_platform Agent for Automated Processes.
 
 The LIGHT_platform Agent encompasses three core tasks/functionalities for machine learning model training and results generation, covering Unsupervised Learning, Supervised Learning (Regression & Classification), and the entire process of Best Agent Selection.
 
@@ -295,6 +295,7 @@ China, Donghua University.
 
 ## License
 This project is licensed under the MIT License.
+
 
 
 
