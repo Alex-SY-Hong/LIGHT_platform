@@ -2,9 +2,9 @@
 
 ## Features
 
-### 1. Agent-Driven Automated Modeling and High-Throughput Screening
+### 1. LIGHT_platform Agent for Automated Processes.、
 
-* The LIGHT_platform Agent encompasses four core tasks/functionalities for machine learning model training and results generation, covering Unsupervised Learning, Supervised Learning (Regression & Classification), Best Agent Selection, and Sequential Execution of the entire workflow.
+The LIGHT_platform Agent encompasses four core tasks/functionalities for machine learning model training and results generation, covering Unsupervised Learning, Supervised Learning (Regression & Classification), Best Agent Selection, and Sequential Execution of the entire workflow.
 
 ### 2. Database Construction Module (Automated Data Extraction)
 
@@ -304,5 +304,6 @@ China, Donghua University.
 
 ## License
 This project is licensed under the MIT License.
+
 
 
