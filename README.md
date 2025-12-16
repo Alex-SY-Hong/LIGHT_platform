@@ -61,13 +61,13 @@ pip install -r requirements.txt
 ### LIGHT_platform Agent
 Automated screening of hydrogel candidate components using a program and an LLM.
  
-### Automated\_Data\_Extraction
+### Automated_Data_Extraction
 Use the DeepSeek API to extract information from literature. See README inside Automated\_Data\_Extraction for details.
 
-### Unsupervised\_Learning
+### Unsupervised_Learning
 Use automatically extracted data to perform unsupervised learning and determine combinations. See README in Unsupervised\_Learning.
 
-### Supervised\_Learning
+### Supervised_Learning
 Use automatically extracted data to train regression and classification models to predict Young’s modulus and swelling ratio. See README in Supervised\_Learning.
 
 ## File Structure
@@ -295,6 +295,7 @@ China, Donghua University.
 
 ## License
 This project is licensed under the MIT License.
+
 
 
 
