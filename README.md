@@ -4,17 +4,15 @@
 
 ### 1. LIGHT_platform Agent for Automated Processes.、
 
-The LIGHT_platform Agent encompasses four core tasks/functionalities for machine learning model training and results generation, covering Unsupervised Learning, Supervised Learning (Regression & Classification), Best Agent Selection, and Sequential Execution of the entire workflow.
+The LIGHT_platform Agent encompasses three core tasks/functionalities for machine learning model training and results generation, covering Unsupervised Learning, Supervised Learning (Regression & Classification), and the entire process of Best Agent Selection.
 
 ### 2. Database Construction Module (Automated Data Extraction)
 
-This project builds a high-throughput literature data extraction system using the DeepSeek-32B model and PDF/HTML parsing tools (such as pdfplumber).
-
-All extracted results are stored in standardized JSON format, ensuring semantic consistency, traceability, and convenience for downstream modeling and processing.
+This project builds a high-throughput literature data extraction system using the DeepSeek-32B model and PDF parsing tools (such as pdfplumber).
 
 ### 3. Final prediction
 
-This module explores the distribution and clustering patterns of hydrogels in the “structure–property space.”
+Hydrogel candidate components screened automatically by the LIGHT_platform.
 
 ### 4. Supervised Learning Module
 
@@ -25,7 +23,6 @@ Using automatically extracted data, we train regression and classification model
 ### 5. Unsupervised Learning Module
 
 This module explores the distribution and clustering patterns of hydrogels in the “structure–property space.”
-
 
 ## Installation
 
@@ -59,15 +56,6 @@ cd Supervised_Learning
 pip install -r requirements.txt
 ```
 
-### 3. Configure your API and URL in Automated\_Data\_Extraction
-
-```python
-def call_deepseek_llm(prompt):
-    client = OpenAI(
-        api_key="Your_API_KEY",
-        base_url="Your_API_URL"
-    )
-```
 ## Usage
 
 ### Automated\_Data\_Extraction
@@ -304,6 +292,7 @@ China, Donghua University.
 
 ## License
 This project is licensed under the MIT License.
+
 
 
 
