@@ -1,0 +1,8 @@
+{
+  "model_type": "rf",
+  "best_fold": 8,
+  "best_score": 0.6384,
+  "api_status": "success",
+  "selection_source": "llm_api",
+  "selection_method": "llm_api_success_attempt_1"
+}
