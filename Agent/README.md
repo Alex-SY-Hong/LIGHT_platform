@@ -23,7 +23,7 @@
 
 ### Exit — quit the program
 
-### Usage:
+### How to run:
 ```bash
 python Agent_workflow.py
 ```
