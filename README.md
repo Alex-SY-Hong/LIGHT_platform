@@ -58,6 +58,8 @@ pip install -r requirements.txt
 
 ## Usage
 
+### LIGHT_platform
+ 
 ### Automated\_Data\_Extraction
 Use the DeepSeek API to extract information from literature. See README inside Automated\_Data\_Extraction for details.
 
@@ -292,6 +294,7 @@ China, Donghua University.
 
 ## License
 This project is licensed under the MIT License.
+
 
 
 
