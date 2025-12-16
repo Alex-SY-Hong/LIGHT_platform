@@ -1,0 +1,20 @@
+{
+  "train": {
+    "R2": 0.5644194085435867,
+    "RMSE": 0.7692561218383859,
+    "MAE": 0.5975339666024734
+  },
+  "valid": {
+    "R2": 0.2941951063897691,
+    "RMSE": 0.9166219273364515,
+    "MAE": 0.6794334706328473
+  },
+  "meta": {
+    "use_group": false,
+    "group_col": null,
+    "n_splits": null,
+    "fold_idx": null,
+    "y_log1p": false,
+    "model_name": "mlp"
+  }
+}
