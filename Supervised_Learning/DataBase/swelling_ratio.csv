@@ -1,0 +1,361 @@
+SMILE A,SMILE B,SMILE C,Swelling Ratio (times),Source
+[*]CC=CCCC(C#N)[*],,,0.7523000000000001,10.1002_app.47851_part_1.txt_段1_Material1
+[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,,0.9115,10.1007_s12221-017-1230-6_part_1.txt_段1_Material1
+[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,,4,10.1007_s13233-014-2001-5_part_1.txt_段1_Material1
+[*]C1C(OC(C(C1O)O)OC2C(OC(C(C2O)O)OC3C(OC(C(C3O)O)O[*])CO)CO)CO,[*]CC=CCCC(C1=CC=CC=C1)[*],,2,10.1007_s00289-018-2273-6_part_1.txt_段1_Material1
+O=C(C(C[*])[*])N,[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,,16.54,10.1007_s00289-021-03592-2_part_1.txt_段1_Material1
+[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,[*]OC1OC(CO)C(O)C(OC2OC(C(NC(CS)C(OC)=O)=O)C(OC[*])C(O)C2O)C1NC(C)=O,,0.027,10.1002_app.46071_10.1002_app.46071_part_1.txt_段1_Material1
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,[*]C(C)C(OCC(O[*])=O)=O,[*]OCC[*],15,10.1002_mabi.201000389_10.1002_mabi.201000389_part_2.txt_段1_Material1
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,8.6,10.1088_1748-605x_ab8721_part_3.txt_段1_Material1
+[*]CCCC([*])OC(C)=O,C/C(C[*])=C/C[*],,10.645,10.3390_polym13091397_part_1.txt_段1_Material1
+[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,30,10.3390_ma13153433_part_1.txt_段1_Material1
+OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]OCC[*],14.1,10.1007_s10570-019-02940-w_part_1.txt_段1_Material1
+[*]OC(C(C1O)O)OC(COC)C1OC(OC(C(C2O)OC3OC(C(C(C3OC)O)OC4OC(C(C(C4OC)O)[*])COC)CO)COC)C2OCC(OC)C,OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,4.78,10.7897_2230-8407.0509144_part_1.txt_段1_Material1
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,[*]OC1C(C(C(OC1C)OC2C(C(OC(C2O)COC(C)=O)OC3C(C(C(OC3C(O)=O)OC4C(C(C(OC4CO)O[*])O)O)O)O)OC(C(O)CO)=O)O)O,,1.86,10.1002_app.40557_part_2.txt_段1_Material1
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]OC(C(C1O)O)OC(COC)C1OC(OC(C(C2O)OC3OC(C(C(C3OC)O)OC4OC(C(C(C4OC)O)[*])COC)CO)COC)C2OCC(OC)C,,1.3057,10.4103_2230-973x.119215_part_1.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],O=C(O)C([*])C[*],,0.91051,10.1007_s13726-013-0180-0_part_2.txt_段1_Material1
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,O=C(C(C[*])[*])N,,53,10.1007_s00289-011-0643-4_10.1007_s00289-011-0643-4_part_1.txt_段1_Material1
+O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,36.8,10.3390_polym10040456_part_2.txt_段1_Material1
+[*]C1C(O)C(O)C(OC2C(O)C(O)C(O[*])OC2COC(C)=O)OC1COC(C)=O,O=C(C(C[*])[*])N,,0.026,10.1080_03602559.2018.1482923_part_3.txt_段1_Material1
+[*]CC(OC(O[*])=O)C,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,,0.42,10.1002_slct.201800913_part_1.txt_段1_Material1
+O=C(C1=CC=C(C=C1)C(OCC[*])=O)O[*],[*]CC([*])N1CCCC1=O,,2.63,10.1039_c6ra15093d_part_3.txt_段1_Material1
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,,1.5,10.1007_s10570-015-0650-y_part_1.txt_段1_Material1
+[*]CCN[*],[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,,11.18,10.1111_j.1365-2230.2011.04331.x_part_1.txt_段1_Material1
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,OC(COCC1OC(OC2C(COCC(O)=O)OC([*])C(O)C2O)C(O)C(O)C1O[*])=O,,0.018,10.1016_j.colsurfb.2010.08.020_part_1.txt_段1_Material5
+O=C(C(C[*])[*])N,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,,120,10.1016_j.carbpol.2018.05.082_part_2.txt_段1_Material1
+O=C(C1=CC=C(C=C1)C(OCC[*])=O)O[*],,,2,10.1016_j.ijbiomac.2018.11.093_part_4.txt_段1_Material1
+[*]CC([*])N1CCCC1=O,[*]C([H])([H])C(O)([H])[*],,15.6,10.1038_s41598-024-80024-x_OA_part_1.txt_段1_Material1
+COCC1OC(OC2C(CO)OC(O[*])C(OC)C2OC)C(OC)C(O)C1O[*],[*]NC(CCCCNC(C(C)=C)=O)C(N1CCCC1C(NCC(N2CC(O)CC2C(NC(COC(C(C)=C)=O)C(NCC([*])=O)=O)=O)=O)=O)=O,,1.6,10.1021_acsabm.0c00169_part_1.txt_段1_Material1
+O=C(O)C([*])C[*],[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,,8,10.4028_www.scientific.net_amr.746.88_part_1.txt_段1_Material1
+OC(COCC1OC(OC2C(COCC(O)=O)OC([*])C(O)C2O)C(O)C(O)C1O[*])=O,OCC1OC(C(C(C1O[*])O)O)[*],,10.75,10.1007_s10570-016-1014-y_part_1.txt_段1_Material1
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,11,10.1016_j.actbio.2016.03.016_part_1.txt_段1_Material1
+[*]C1C(OC(C(C1O)O)OC2C(OC(C(C2O)O)OC3C(OC(C(C3O)O)O[*])CO)CO)CO,O=C(C(C[*])[*])N,,6.026599999999999,10.5109_7160873_OA_part_1.txt_段1_Material1
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]OC1C(C(OC(C1O)OC2C3C(C(OC2CO3)[*])O)CO)O,,0.15,10.1080_10717544.2021.1938752_part_1.txt_段1_Material1
+[*]CCC(CCCC(CCCC(C[*])C)C)C,,,10.78,10.1016_j.polymer.2021.124015_part_1.txt_段1_Material1
+[*]C(C(OC1O[*])COC(C)=O)C(O)C1NC(C)=O,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,,1.915,10.1002_app.34041_part_1.txt_段1_Material1
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,O=C(C(C[*])[*])N,,13.28,10.1016_j.colcom.2021.100413_part_1.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],,,59.59,10.1002_pi.5741_part_2.txt_段1_Material1
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,,0.015,10.1016_j.actbio.2011.01.016_part_1.txt_段1_Material1
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]C(CCCCCO[*])=O,O=C(O)C([*])C[*],0.48,10.1002_app.33074_part_1.txt_段1_Material1
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]C([H])([H])C(O)([H])[*],,13.31,10.1007_s12221-018-7816-9_part_2.txt_段1_Material1
+C[Si](O[*])(C)[*],OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]C([H])([H])C(O)([H])[*],0.157,10.1007_s00339-023-06821-9_OA_part_2.txt_段1_Material1
+O=C(O)C([*])C[*],OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,,0.7,10.1007_s10570-019-02490-1_10.1007_s10570-019-02490-1_part_2.txt_段1_Material1
+COC(C(C[*])([*])C)=O,,,0.618,10.1002_app.49567_part_1.txt_段1_Material1
+[*]C(CCCCCO[*])=O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,0.6025,10.1155_2015_357372_part_1.txt_段1_Material3
+O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,,0.9,10.1002_app.49285_10.1002_app.49285_part_1.txt_段1_Material1
+OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]OCC[*],7.35,10.1007_s10570-017-1412-9_10.1007_s10570-017-1412-9_part_2.txt_段1_Material1
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,,5.7,10.1007_s00289-017-2253-2_part_1.txt_段1_Material1
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,,11.2,10.1002_pen.24050_10.1002_pen.24050_part_2.txt_段1_Material1
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,,25.95,10.1016_j.colsurfb.2021.111725_part_1.txt_段1_Material1
+[*]CC([*])N1CCCC1=O,,,4.456,10.2478_v10176-012-0046-6_part_2.txt_段1_Material1
+OCC1OC(C(C(C1O[*])O)O)[*],[*]C([H])([H])C(O)([H])[*],,3.1,10.1016_j.carbpol.2015.11.042_part_1.txt_段1_Material1
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]OC(C(C1O)O)OC(COC)C1OC(OC(C(C2O)OC3OC(C(C(C3OC)O)OC4OC(C(C(C4OC)O)[*])COC)CO)COC)C2OCC(OC)C,,1,10.1007_s10570-014-0442-9_10.1007_s10570-014-0442-9_part_2.txt_段1_Material1
+O=C([*])OC1=CC=C(C=C1)C(C)(C)C2=CC=C(C=C2)O[*],,,0.77,10.1021_bm501836z_part_4.txt_段1_Material1
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,,22.33,10.1016_j.carbpol.2018.07.023_part_1.txt_段1_Material1
+[*]C([C@H](C)OC([C@H](C)O[*])=O)=O,[*]C1=C(C=CN2)C2=C([*])C(O)=C1O,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,0.48,10.3390_ijms21186544_part_3.txt_段1_Material1
+[*]NC(C(O)=O)CCC([*])=O,[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,,6.9858,10.1002_app.33249_part_2.txt_段1_Material1
+OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,[*]C1=CC=C([*])N1,,0.1,10.3390_ma6030738_part_6.txt_段1_Material5
+[*]C1C(OC(C(C1O)O)OC2C(OC(C(C2O)O)OC3C(OC(C(C3O)O)O[*])CO)CO)CO,[*]C([H])([H])C(O)([H])[*],OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,17.15,10.1002_mame.200900212_part_1.txt_段1_Material1
+[*]C(CCCCCO[*])=O,[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,12.7,10.1016_j.msec.2019.110618_part_1.txt_段1_Material1
+[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,[*]C(C(OC1O[*])COC(C)=O)C(O)C1NC(C)=O,,0.919,10.1016_j.ijbiomac.2019.06.245_part_1.txt_段1_Material1
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,O=C(O)C([*])C[*],,0.4446,10.1007_s10965-018-1568-5_part_2.txt_段1_Material1
+[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,[*]C(CCCCCO[*])=O,,1.535,10.1002_mabi.201300497_10.1002_mabi.201300497_part_1.txt_段1_Material1
+[*]C1C(OC(C(C1O)O)OC2C(OC(C(C2O)O)OC3C(OC(C(C3O)O)O[*])CO)CO)CO,[*]C([H])([H])C(O)([H])[*],,2.1293,10.1016_j.ijbiomac.2020.07.065_part_4.txt_段1_Material1
+[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,,0.95,10.1016_j.eurpolymj.2021.110267_part_2.txt_段1_Material1
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,O=C(C(C[*])[*])N,,8,10.1016_j.carbpol.2018.05.078_part_4.txt_段1_Material1
+[*]NC(C(O)=O)CCC([*])=O,O=C(C(C[*])[*])N,,14.7,10.2147_ijn.s235609_part_1.txt_段1_Material1
+[*]C(CCCCCO[*])=O,O=C(O)C([*])C[*],,0.3781,10.1016_j.ijbiomac.2019.09.101_part_4.txt_段1_Material1
+C/C(C[*])=C/C[*],O=S(C(C=C1)=CC=C1OC(C=C2)=CC=C2C(C)(C)C(C=C3)=CC=C3O[*])(C4=CC=C([*])C=C4)=O,C/C(C[*])=C/C[*],0.024,10.4028_www.scientific.net_amr.844.57_part_1.txt_段1_Material1
+[*]OCC[*],[*]CC(C)(C(OCCO)=O)[*],[*]CC([*])N1CCCC1=O,3.1573,10.1002_app.36683_part_2.txt_段1_Material1
+[*]CC[*],[*]CC=CCCC(C#N)[*],,9.567,10.1080_03602559.2014.974191_part_2.txt_段1_Material1
+OCC1OC(C(C(C1O)O[*])O)OC2C(C(C(OC2COS(=O)(O)=O)[*])NC(C)=O)O,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,,7,10.1002_term.2159_10.1002_term.2159_part_2.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],[*]OCC[*],OC(COCC1OC(OC2C(COCC(O)=O)OC([*])C(O)C2O)C(O)C(O)C1O[*])=O,9.52,10.1002_app.39144_part_1.txt_段1_Material2
+OCC1OC(C(C(C1O[*])O)O)[*],[*]CC(COC1=CC=C(C=C1)C(C)(C)C2=CC=C(C=C2)O[*])O,,0.017,10.1007_s10570-013-9877-7_10.1007_s10570-013-9877-7_part_2.txt_段1_Material1
+[*]OCC[*],[*]C(CCCCCO[*])=O,O=C(O)C([*])C[*],1.5,10.1016_j.biomaterials.2014.04.099_part_2.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,,16.9,10.1002_app.42272_10.1002_app.42272_part_1.txt_段1_Material1
+O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,28.38,10.1016_j.scp.2020.100218_part_1.txt_段1_Material1
+OC(COCC1OC(OC2C(COCC(O)=O)OC([*])C(O)C2O)C(O)C(O)C1O[*])=O,O=C(C(C[*])[*])N,,23.1255,10.1002_app.38788_part_2.txt_段1_Material1
+[*]C1=CC(C2=NC3=CC(C4=CC=C5N=C([*])NC5=C4)=CC=C3N2)=CC=C1,,,0.09,10.1177_0954008317711235_part_2.txt_段1_Material1
+[*]C1=CC(C2=NC3=CC(C4=CC=C5N=C([*])NC5=C4)=CC=C3N2)=CC=C1,[*]CC([*])N1CCCC1=O,,0.252,10.1016_j.bej.2016.03.003_part_1.txt_段1_Material3
+[*]C1=CC=C([*])N1,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,10,10.1016_j.carbpol.2018.10.037_part_5.txt_段1_Material1
+[*]OCC[*],,,27,10.1021_bm401712q_part_1.txt_段1_Material1
+O=C(C(C[*])[*])N,OC1C(OC(C(C1O)O)[*])CO[*],,1.75,10.1002_pi.3035_part_1.txt_段1_Material1
+[*]C(C(OC1O[*])COC(C)=O)C(O)C1NC(C)=O,O=C(C(C[*])[*])N,,8,10.1002_app.38788_part_1.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],O=C(C(C[*])[*])N,[*]C([H])([H])C(O)([H])[*],12.72,10.1016_j.polymer.2017.05.002_part_4.txt_段1_Material1
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,,21.9,10.3390_polym12091926_part_2.txt_段1_Material1
+O=C(O)C([*])C[*],[*]C([H])([H])C(O)([H])[*],,0.6437999999999999,10.1016_j.carbpol.2017.03.070_part_2.txt_段1_Material1
+[*]CC(COC1=CC=C(C=C1)C(C)(C)C2=CC=C(C=C2)O[*])O,OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,,0.01,10.1007_s10570-018-2164-x_10.1007_s10570-018-2164-x_part_2.txt_段1_Material1
+[*]CC(C)(C(OCCO)=O)[*],C[Si](O[*])(C)[*],,0.58,10.1039_c7py00563f_part_2.txt_段1_Material1
+C/C(C[*])=C/C[*],[*]CCN[*],,0.27,10.1080_03602559.2010.482079_part_1.txt_段1_Material1
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,9,10.1007_s00289-020-03280-7_part_2.txt_段1_Material1
+OC1C(OC(C(C1O)O)C[*])COCC(OC(C(O)C=O)CO[*])C=O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,10.56,10.1016_j.carbpol.2020.117598_part_2.txt_段1_Material1
+[*]CC=CCCC(C1=CC=CC=C1)[*],[*]C1C(OC(C(C1O)O)OC2C(OC(C(C2O)O)OC3C(OC(C(C3O)O)O[*])CO)CO)CO,,3.5845,10.1007_s13233-013-1088-4_part_2.txt_段1_Material1
+[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,,2.25,10.1080_14658011.2018.1447340_part_1.txt_段1_Material1
+O=C(C(C[*])[*])N,O=C(O)C([*])C[*],,0.91,10.1016_j.fuel.2018.03.103_part_1.txt_段1_Material1
+[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,OC(COCC1OC(OC2C(COCC(O)=O)OC([*])C(O)C2O)C(O)C(O)C1O[*])=O,,3.89,10.1080_09205063.2018.1523525_part_3.txt_段1_Material1
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,,84.22370000000001,10.1038_s41598-024-62926-y_OA_part_2.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],[*]CC([*])N1CCCC1=O,O=C(O)C([*])C[*],0.4,10.1007_s13726-021-00949-2_part_1.txt_段1_Material1
+O=C(O)C([*])C[*],[*]CC(C#N)[*],,0.0616,10.1016_j.radphyschem.2013.04.001_part_1.txt_段1_Material1
+[*]C1=CC=C([*])N1,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,0.21,10.1038_s41598-020-78650-2_part_2.txt_段1_Material1
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,[*]CC(C1=CC=C(C=C1)S(O)(=O)=O)[*],,7.318,10.1021_acsbiomaterials.8b00135_part_4.txt_段1_Material1
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]C1C(OC(C(C1O)O)OC2C(OC(C(C2O)O)OC3C(OC(C(C3O)O)O[*])CO)CO)CO,,3,10.1016_j.foodhyd.2014.12.026_part_4.txt_段1_Material2
+CC(NC(C([*])C)=O)C(NC(C)C(NC(C)C(N[*])=O)=O)=O,[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,,8.2277,10.1080_09205063.2021.1952383_part_1.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],[*]C(CCCCCO[*])=O,,5.21,10.1002_app.43309_part_1.txt_段1_Material1
+[*]CC(C)(C(OCCO)=O)[*],,,25,10.1002_macp.201500230_10.1002_macp.201500230_part_1.txt_段1_Material1
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,,12,10.1002_app.36590_part_2.txt_段1_Material1
+[*]O[C@H](C)CC([*])=O,[*]C(CCCCCO[*])=O,,1,10.1007_s10965-010-9525-y_part_2.txt_段1_Material1
+OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,,2.2,10.1007_s10570-017-1491-7_part_2.txt_段1_Material1
+[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,[*]CCN[*],0.6,10.3390_ma13122750_part_2.txt_段1_Material3
+[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,0.2,10.1007_s10856-009-3876-0_part_1.txt_段1_Material1
+[*]CC([*])Cl,,,24,10.1080_00222348.2013.764202_part_2.txt_段1_Material1
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,,0.56,10.1038_s41598-024-54912-1_OA_part_1.txt_段1_Material1
+[*]C1C(OC(C(C1O)O)OC2C(OC(C(C2O)O)OC3C(OC(C(C3O)O)O[*])CO)CO)CO,[*]OC1C(C(OC(C1O)OC2C3C(C(OC2CO3)[*])O)CO)O,,0.08,10.1016_j.ijbiomac.2016.05.028_part_3.txt_段1_Material1
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]CC([*])N1CCCC1=O,,3.5025,10.1007_s00289-013-1067-0_part_4.txt_段1_Material1
+[*]NC(C(O)=O)CCC([*])=O,,,6,10.1002_jbm.b.34830_part_2.txt_段1_Material1
+[*]CC(C#N)[*],[*]CC(C#N)[*],,1.0244,10.1016_j.cej.2018.06.127_part_4.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],O=C(C(C[*])[*])N,,7,10.1007_s00289-018-2615-4_part_2.txt_段1_Material1
+[*]NC(C(O)=O)CCC([*])=O,[*]CC(C1=CC=CC=C1)[*],OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,13.04,10.1016_j.reactfunctpolym.2021.104864_part_1.txt_段1_Material1
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]C(CCCCCO[*])=O,,7.93,10.2147_ijn.s177256_part_2.txt_段1_Material1
+[*]OC1OC(CO)C(O)C(OC2OC(C(NC(CS)C(OC)=O)=O)C(OC[*])C(O)C2O)C1NC(C)=O,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,,2.4011,10.4028_www.scientific.net_msf.982.59_part_1.txt_段1_Material1
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,,0.9,10.1016_j.ijbiomac.2017.02.095_part_3.txt_段1_Material1
+[*]C1C(OC(C(C1O)O)OC2C(OC(C(C2O)O)OC3C(OC(C(C3O)O)O[*])CO)CO)CO,,,17,10.1016_j.foodhyd.2021.106956_part_1.txt_段1_Material1
+OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,15,10.1007_s10570-019-02357-5_10.1007_s10570-019-02357-5_part_1.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],OC(COCC1OC(OC2C(COCC(O)=O)OC([*])C(O)C2O)C(O)C(O)C1O[*])=O,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,0.061,10.1080_1539445x.2021.1926281_part_2.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,7.75,10.1007_s10570-014-0339-7_part_3.txt_段1_Material1
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,,,51.33,10.3109_03639045.2012.696655_part_2.txt_段1_Material1
+[*]CC(C#N)[*],[*]CC(C1=CC=C(C=C1)S(O)(=O)=O)[*],,0.05,10.1002_app.45411_part_1.txt_段1_Material3
+O=C([*])C(C)O[*],[*]C(CCCCCO[*])=O,,0.95,10.1016_j.matchemphys.2017.03.051_part_5.txt_段1_Material1
+O=C([*])C(C)O[*],,,7.638999999999999,10.1016_j.polymdegradstab.2019.05.024_part_4.txt_段1_Material1
+OC(COCC1OC(OC2C(COCC(O)=O)OC([*])C(O)C2O)C(O)C(O)C1O[*])=O,O=C(C(C[*])[*])N,OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,15.56,10.1016_j.carbpol.2019.114977_part_2.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],C/C(C[*])=C/C[*],,3.5,10.1007_s10924-021-02258-4_part_2.txt_段1_Material1
+[*]CC(C#N)[*],,,20,10.1002_app.47968_10.1002_app.47968_part_1.txt_段1_Material1
+[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,16,10.1080_1023666x.2020.1786271_part_2.txt_段1_Material1
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]NC(C(O)=O)CCC([*])=O,,6.17,10.2174_156720112798376041_part_2.txt_段1_Material1
+OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,,,20,10.1007_s10570-015-0851-4_part_2.txt_段1_Material2
+[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,0.12,10.37349_ebmx.2025.101339_OA_part_3.txt_段1_Material1
+OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,O=C(C(C[*])[*])N,,0.01,10.1007_s10570-017-1585-2_10.1007_s10570-017-1585-2_part_4.txt_段1_Material1
+[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,[*]OCC[*],,1.8142,10.1002_app.39611_part_2.txt_段1_Material1
+[H]N(C(O[*])=O)CCCCCCN(C(OCCCCO[*])=O)[H],[*]OCC[*],,6.07,10.1016_j.reactfunctpolym.2019.104433_part_4.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,,7,10.1021_acsapm.1c00447_part_1.txt_段1_Material1
+O=C(C(C[*])[*])N,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,0.1,10.1002_app.39417_part_1.txt_段1_Material1
+[*]C(C)C(OCC(O[*])=O)=O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,15,10.1002_mabi.201000389_10.1002_mabi.201000389_part_2.txt_段1_Material1
+O=C(O)C([*])C[*],[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,0.24,10.1002_app.39417_part_1.txt_段1_Material2
+O=S(C(C=C1)=CC=C1OC(C=C2)=CC=C2C(C)(C)C(C=C3)=CC=C3O[*])(C4=CC=C([*])C=C4)=O,[*]CC([*])N1CCCC1=O,,0.84,10.1002_cplu.201800243_part_1.txt_段1_Material2
+[*]CCN[*],,,0.204,10.1039_d0py00757a_part_1.txt_段1_Material1
+[H]N(C(O[*])=O)CCCCCCN(C(OCCCCO[*])=O)[H],C[Si](O[*])(C)[*],,0.1375,10.1007_s00289-018-2666-6_part_3.txt_段1_Material1
+[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,O=C(O)C([*])C[*],2.4,10.1007_s10570-021-04155-4_part_2.txt_段1_Material1
+[*]CC([*])N1CCCC1=O,O=S(C(C=C1)=CC=C1OC(C=C2)=CC=C2C(C)(C)C(C=C3)=CC=C3O[*])(C4=CC=C([*])C=C4)=O,,0.015,10.1016_j.jpowsour.2016.07.081_part_1.txt_段1_Material1
+[*]CC(COC1=CC=C(C=C1)C(C)(C)C2=CC=C(C=C2)O[*])O,,,1.47,10.1016_j.eurpolymj.2021.110296_part_2.txt_段1_Material2
+[*]NC(C(O)=O)CCC([*])=O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,0.408,10.1007_s12221-020-1364-9_part_1.txt_段1_Material1
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,[*]OCC[*],,8,10.1080_09205063.2020.1725861_part_4.txt_段1_Material1
+O=C(C1=CC=C(C=C1)C(OCC[*])=O)O[*],[*]NC(C(O)=O)CCC([*])=O,,0.1928,10.1021_acsami.9b01200_part_2.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],[*]C1C(OC(C(C1O)O)OC2C(OC(C(C2O)O)OC3C(OC(C(C3O)O)O[*])CO)CO)CO,,0.9,10.3390_polym13121962_part_3.txt_段1_Material6
+[*]CC([*])N1CCCC1=O,C[Si](O[*])(C)[*],,0.7,10.1002_app.42985_part_2.txt_段1_Material1
+[*]C(C)C[*],[*]C(CCCCCO[*])=O,,3.9,10.1002_adfm.201500105_part_1.txt_段1_Material1
+[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,,,18,10.1016_j.eurpolymj.2021.110411_part_2.txt_段1_Material1
+[H]N(C(O[*])=O)CCCCCCN(C(OCCCCO[*])=O)[H],O=C(C(C[*])[*])N,[*]C1C(OC(C(C1O)O)OC2C(OC(C(C2O)O)OC3C(OC(C(C3O)O)O[*])CO)CO)CO,3.6,10.37358_mp.23.1.5649_OA_part_2.txt_段1_Material4
+OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,O=C(C1=CC=C(C=C1)C(OCC[*])=O)O[*],,0.188,10.1007_s10570-010-9443-5_part_2.txt_段1_Material3
+OC(C(C1OC2OC(C(C(C2O)O)OC3OC(C(C(C3O)O)O)COC4OC(C(C(C4O)O)OC5OC(C(C(C5O)O)OC6OC(C(C(C6O)O[*])O)C)CO)CO)CO)O[*])COC1CO,[*]C1=C(C=CN2)C2=C([*])C(O)=C1O,,0.69,10.1016_j.ijbiomac.2020.06.283_part_3.txt_段1_Material1
+[H]N(C(O[*])=O)CCCCCCN(C(OCCCCO[*])=O)[H],[*]CC([*])N1CCCC1=O,,3.408,10.1002_adv.20254_part_2.txt_段1_Material1
+[*]CC=CCCC(C1=CC=CC=C1)[*],,,7.6323,10.1016_j.eurpolymj.2015.04.035_part_3.txt_段1_Material1
+O=C(C(C[*])[*])N,O=C(C(C[*])[*])N,,26.6,10.1016_j.eurpolymj.2015.04.019_part_1.txt_段1_Material2
+[*]CC(C)(C(OCCO)=O)[*],[*]CC([*])(C)C(OCC[N+](C)(C)CCCS(=O)([O-])=O)=O,,0.715,10.1002_app.41041_part_1.txt_段1_Material3
+[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,,21.02,10.3390_polym12020372_part_2.txt_段1_Material4
+[*]OCC[*],[*]C(CCCCCO[*])=O,,2.805,10.1016_j.jiec.2021.05.051_part_8.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,15,10.1080_09205063.2016.1262164_part_3.txt_段1_Material1
+OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,,0.6462,10.1016_j.ejpb.2015.02.025_part_2.txt_段1_Material1
+[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,,3.5,10.1007_s13233-011-0513-9_part_1.txt_段1_Material1
+O=C(C(C[*])[*])N,[*]C(C1=CC=CC=C1)CC2C(OC(C2[*])=O)=O,[*]OCC[*],19.8,10.1002_app.36586_10.1002_app.36586_part_2.txt_段1_Material2
+O=C(C(C[*])[*])N,CC(NC(C([*])C)=O)C(NC(C)C(NC(C)C(N[*])=O)=O)=O,,1.12,10.1016_j.biomaterials.2012.06.091_part_1.txt_段1_Material1
+[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,1.2,10.1002_adhm.201600136_part_2.txt_段1_Material2
+[*]C(CCCCCO[*])=O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,2.7,10.1016_j.eurpolymj.2021.110357_part_1.txt_段1_Material3
+[*]OCC[*],CC(CO[*])[*],[*]O[C@H](C)CC([*])=O,4.99,10.1002_mame.201700656_part_3.txt_段1_Material1
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,OC1C(OC(C(C1O)O)[*])CO[*],,6.41,10.1002_mds3.10151_10.1002_mds3.10151_part_3.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,,13.74,10.1007_s10570-020-03396-z_part_3.txt_段1_Material1
+[*]C(CCCCCO[*])=O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,1.32,10.1111_aor.13474_part_4.txt_段1_Material4
+[*]OC(C(C1O)O)OC(COC)C1OC(OC(C(C2O)OC3OC(C(C(C3OC)O)OC4OC(C(C(C4OC)O)[*])COC)CO)COC)C2OCC(OC)C,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,0.55,10.1007_s10965-018-1546-y_part_2.txt_段1_Material1
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]C([H])([H])C(O)([H])[*],,6.77,10.1016_j.ecoenv.2020.110935_part_1.txt_段1_Material1
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]CC([*])Cl,,3.507,10.1007_s10570-013-9897-3_part_2.txt_段1_Material1
+[*]CC(C)(C(OCCO)=O)[*],[*]C([H])([H])C(O)([H])[*],,9,10.1016_j.egypro.2014.07.171_part_2.txt_段1_Material1
+[*]C(C)C(OCC(O[*])=O)=O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,0.1548,10.1039_c5tb02113h_part_5.txt_段1_Material1
+[*]OC1OC(CO)C(O)C(OC2OC(C(NC(CS)C(OC)=O)=O)C(OC[*])C(O)C2O)C1NC(C)=O,,,0.5,10.37256_fce.4220232705_OA_part_2.txt_段1_Material1
+[H]N(C(O[*])=O)CCCCCCN(C(OCCCCO[*])=O)[H],,,1.5651,10.1039_c3cp54429j_part_2.txt_段1_Material1
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]CC=CCCC(C1=CC=CC=C1)[*],,0.5,10.1007_s00289-018-2273-6_part_3.txt_段1_Material1
+O=C(C(C[*])[*])N,[*]CC([*])N1CCCC1=O,,0.182,10.1016_j.polymer.2012.12.069_part_2.txt_段1_Material4
+[*]C(CCCCCO[*])=O,[*]C1=C(C=CN2)C2=C([*])C(O)=C1O,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,0.7,10.3390_ijms21186544_part_3.txt_段1_Material2
+[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,[*]OCC[*],[*]C([H])([H])C(O)([H])[*],1.2589,10.1007_s10856-020-06422-5_part_2.txt_段1_Material2
+[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,[*]CC([*])N1CCCC1=O,,2.5,10.1007_s13233-011-0513-9_part_1.txt_段1_Material2
+O=C(C(C[*])[*])N,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,,18,10.1177_0883911509357863_part_2.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,O=C(O)C([*])C[*],0.025,10.1016_j.msec.2018.05.080_part_6.txt_段1_Material2
+[*]C(C)C[*],OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,0.3467,10.1016_j.desal.2011.06.032_part_1.txt_段1_Material1
+O=C(C(C[*])[*])N,[*]OCC[*],,5.39,10.19080_ajop.2019.03.555614_OA_part_1.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,,10,10.1088_1748-6041_9_6_065002_part_1.txt_段1_Material1
+O=C(C(C[*])[*])N,[*]OC1C(C(OC(C1O)OC2C3C(C(OC2CO3)[*])O)CO)O,,37.52,10.1016_j.nanoso.2020.100507_part_2.txt_段1_Material2
+[*]C([H])([H])C(O)([H])[*],[*]OC1C(C(OC(C1O)OC2C3C(C(OC2CO3)[*])O)CO)O,,0,10.1002_app.50979_part_2.txt_段1_Material1
+O=C(O)C([*])C[*],O=C(C(C[*])[*])N,,0.15,10.1021_ma301025a_part_1.txt_段1_Material1
+[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,[*]NC(C(O)=O)CCC([*])=O,,0.7,10.1016_j.carbpol.2017.09.071_part_1.txt_段1_Material1
+[*]CC([*])N1CCCC1=O,O=C(O)C([*])C[*],,0.27,10.5897_ajb-11-2333_part_1.txt_段1_Material1
+OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,,2,10.1021_acsami.8b21268_part_5.txt_段1_Material1
+[*]CC(C1=CC=CC=C1)[*],,,0.015,10.1002_polb.23997_part_1.txt_段1_Material1
+O=C(C(C[*])[*])N,[*]C1C(OC(C(C1O)O)OC2C(OC(C(C2O)O)OC3C(OC(C(C3O)O)O[*])CO)CO)CO,,17.84,10.37358_mp.23.1.5649_OA_part_2.txt_段1_Material2
+[*]C(C)C(OCC(O[*])=O)=O,[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,,6.5,10.4028_www.scientific.net_amm.467.108_part_1.txt_段1_Material1
+[*]C1=CC=C([*])N1,,,0.1,10.1109_tmech.2010.2049366_part_1.txt_段1_Material1
+CC(NC(C([*])C)=O)C(NC(C)C(NC(C)C(N[*])=O)=O)=O,[*]C([H])([H])C(O)([H])[*],[*]C1=C(C=CN2)C2=C([*])C(O)=C1O,1.7,10.3390_molecules22050721_part_2.txt_段1_Material2
+[*]C([H])([H])C(O)([H])[*],OC(COCC1OC(OC2C(COCC(O)=O)OC([*])C(O)C2O)C(O)C(O)C1O[*])=O,,0.4,10.1002_pc.23823_10.1002_pc.23823_part_1.txt_段1_Material1
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,,,31,10.1163_092050611x568430_part_3.txt_段1_Material1
+[*]OC(C(C1O)O)OC(COC)C1OC(OC(C(C2O)OC3OC(C(C(C3OC)O)OC4OC(C(C(C4OC)O)[*])COC)CO)COC)C2OCC(OC)C,[*]C([H])([H])C(O)([H])[*],,4.25,10.1007_s10570-015-0624-0_part_3.txt_段1_Material1
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,,7,10.1021_acsabm.0c01630_part_3.txt_段1_Material5
+O=S(C(C=C1)=CC=C1OC(C=C2)=CC=C2C(C)(C)C(C=C3)=CC=C3O[*])(C4=CC=C([*])C=C4)=O,C[Si](O[*])(C)[*],,0.6579999999999999,10.1002_cjce.23108_part_1.txt_段1_Material1
+CC(NC(C([*])C)=O)C(NC(C)C(NC(C)C(N[*])=O)=O)=O,[*]OCC[*],,18,10.1016_j.polymertesting.2019.05.006_part_1.txt_段1_Material1
+O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,8.969299999999999,10.1111_jfbc.12214_part_2.txt_段1_Material2
+C[Si](C)(C[*])O[*],,,9.75,10.1016_j.polymer.2019.03.075_part_6.txt_段1_Material3
+O=C(C(C[*])[*])N,OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,,0.83,10.1007_s10570-017-1585-2_10.1007_s10570-017-1585-2_part_2.txt_段1_Material1
+[*]OC1C(C(OC(C1O)OC2C3C(C(OC2CO3)[*])O)CO)O,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,,7.1,10.1007_s00289-021-03797-5_part_3.txt_段1_Material1
+[*]C(C)C(OCC(O[*])=O)=O,[*]C(CCCCCO[*])=O,,12,10.1039_c8bm00705e_part_1.txt_段1_Material1
+[*]C(CCCCCO[*])=O,[H]N(C(O[*])=O)CCCCCCN(C(OCCCCO[*])=O)[H],,0.0515,10.4028_www.scientific.net_amr.879.119_part_2.txt_段1_Material1
+OC(COCC1OC(OC2C(COCC(O)=O)OC([*])C(O)C2O)C(O)C(O)C1O[*])=O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,44,10.1007_s10570-019-02378-0_10.1007_s10570-019-02378-0_part_2.txt_段1_Material1
+[*]C(N(CN(C(OCOC(N(CN(C(OCCO[*])=O)[H])[H])=O)=O)[H])[H])=O,,,0.65,10.1021_ie303208p_part_1.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],[*]NC(C(O)=O)CCC([*])=O,,0.0395999999999999,10.4028_www.scientific.net_amr.1095.423_part_1.txt_段1_Material1
+O=C(C(C[*])[*])N,[*]C1=C(C=CN2)C2=C([*])C(O)=C1O,,6.3215,10.1038_s41598-017-08220-6_part_1.txt_段1_Material1
+[*]CC(C1=CC=CC=C1)[*],COC(C(C[*])([*])C)=O,,0.0197999999999999,10.1002_slct.201902351_part_3.txt_段1_Material1
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]OC1C(C(OC(C1O)OC2C3C(C(OC2CO3)[*])O)CO)O,,12,10.1016_j.carbpol.2018.10.002_part_3.txt_段1_Material1
+[*]C([C@H](C)OC([C@H](C)O[*])=O)=O,[*]NC(C(O)=O)CCC([*])=O,,3.21,10.1007_s10965-018-1488-4_part_1.txt_段1_Material1
+[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,,10.75,10.3390_polym13142302_part_3.txt_段1_Material1
+OCC1OC(OC2C(O)C(O)C(O[*])OC2CO)C(O)C(O)C1[*],[*]C([H])([H])C(O)([H])[*],,14.0424,10.1007_s10570-020-03249-9_part_2.txt_段1_Material1
+O=C(C(C[*])[*])N,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]OCC[*],135.4,10.1002_adv.20245_part_3.txt_段1_Material1
+[*]CC(C)(C(OCCO)=O)[*],O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,,0.9,10.1007_s00289-014-1235-x_part_2.txt_段1_Material2
+O=C(C(C[*])[*])N,O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,,7.7,10.1007_s00289-014-1235-x_part_2.txt_段1_Material1
+O=C(O)C([*])C[*],,,14,10.1139_cjc-2019-0337_part_2.txt_段1_Material1
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,10,10.1021_acsami.7b18859_part_2.txt_段1_Material1
+O=C(C(C[*])[*])N,[*]NC(C(O)=O)CCC([*])=O,,1.5,10.1007_s00289-011-0549-1_10.1007_s00289-011-0549-1_part_2.txt_段1_Material1
+O=C([*])C(C)O[*],[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,,3.88,10.1002_cbin.10178_part_1.txt_段1_Material2
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,O=C(O)C([*])C[*],OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,1.68,10.1021_acsami.9b15817_part_3.txt_段1_Material1
+[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,,,14,10.1021_bm401712q_part_1.txt_段1_Material2
+O=C([*])C(C)O[*],[*]OCC[*],,1.38,10.4028_www.scientific.net_msf.789.130_part_1.txt_段1_Material1
+[*]C/C=C(C[*])\Cl,,,10.96,10.1002_app.36249_10.1002_app.36249_part_1.txt_段1_Material1
+[*]C(CCCCCO[*])=O,[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,,1.86,10.1002_app.41653_part_2.txt_段1_Material3
+[*]OC(C(C1O)O)OC(COC)C1OC(OC(C(C2O)OC3OC(C(C(C3OC)O)OC4OC(C(C(C4OC)O)[*])COC)CO)COC)C2OCC(OC)C,,,3,10.1007_s10570-015-0757-1_10.1007_s10570-015-0757-1_part_3.txt_段1_Material1
+O=C(C(C[*])[*])N,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,53,10.1007_s00289-011-0643-4_10.1007_s00289-011-0643-4_part_4.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],[*]OCC[*],,5.8,10.1080_10601325.2019.1607377_part_2.txt_段1_Material2
+[*]C1C(C(C(OC1C(O[Ca]OC2=O)=O)OC3C2OC(O[*])C(O)C3O)O)O,O=C(C(C[*])[*])N,,11.9,10.1007_s00289-017-2138-4_part_2.txt_段1_Material1
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]CC([*])N1CCCC1=O,,22.89,10.3390_polym13121962_part_3.txt_段1_Material8
+[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,[*]C([H])([H])C(O)([H])[*],,0.998,10.1088_1748-6041_9_6_065002_part_2.txt_段1_Material3
+OC(COCC1OC(OC2C(COCC(O)=O)OC([*])C(O)C2O)C(O)C(O)C1O[*])=O,,,44.88,10.1016_j.indcrop.2018.05.047_part_2.txt_段1_Material2
+[*]C(C)C(OCC(O[*])=O)=O,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,,0.85,10.1021_bm501313t_part_4.txt_段1_Material1
+C/C(C[*])=C/C[*],,,10.33,10.1016_j.compositesa.2021.106601_part_1.txt_段1_Material1
+[H]N(C(O[*])=O)CCCCCCN(C(OCCCCO[*])=O)[H],C[Si](C)(C[*])O[*],,0.073,10.1016_j.colsurfa.2020.124994_part_3.txt_段1_Material1
+[*]C1=C(C=CN2)C2=C([*])C(O)=C1O,,,10.272,10.1016_j.compositesb.2020.107877_part_2.txt_段1_Material1
+OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,,4.104,10.1007_s10570-017-1366-y_part_2.txt_段1_Material1
+[*]C(CCCCCO[*])=O,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,,0.057,10.1016_j.reactfunctpolym.2018.09.016_part_1.txt_段1_Material1
+[*]C(C)C(OCC(O[*])=O)=O,[*]C([H])([H])C(O)([H])[*],,2.8,10.1016_j.jconrel.2016.03.011_part_3.txt_段1_Material1
+O=C([*])C(C)O[*],[*]NC(C(O)=O)CCC([*])=O,,0.4134,10.1007_s12221-021-9320-x_part_2.txt_段1_Material1
+O=C([*])OC1=CC=C(C=C1)C(C)(C)C2=CC=C(C=C2)O[*],[*]C([H])([H])C(O)([H])[*],,0.25714,10.1002_app.48477_part_2.txt_段1_Material3
+[*]C(C)(C(OCCN(C)C)=O)C[*],,,0.6,10.1002_macp.201800576_10.1002_macp.201800576_part_3.txt_段1_Material1
+[*]NC(C(O)=O)CCC([*])=O,OCC1OC(C(C(C1O)O[*])O)OC2C(C(C(OC2COS(=O)(O)=O)[*])NC(C)=O)O,,24.5,10.1016_j.ijbiomac.2019.10.020_part_5.txt_段1_Material1
+O=C(C1=CC=C(C=C1)C(OCC[*])=O)O[*],[*]C1=CC(C2=NC3=CC(C4=CC=C5N=C([*])NC5=C4)=CC=C3N2)=CC=C1,,0.118,10.1016_j.jiec.2015.03.022_part_2.txt_段1_Material1
+O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,,,63.49,10.1021_acsbiomaterials.8b00490_part_1.txt_段1_Material1
+[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,,0.0149,10.1007_s10439-016-1636-0_part_2.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],[*]CC([*])N1CCCC1=O,,25,10.1007_s13726-021-00949-2_part_2.txt_段1_Material2
+CC(NC(C([*])C)=O)C(NC(C)C(NC(C)C(N[*])=O)=O)=O,[*]C([H])([H])C(O)([H])[*],,1.7,10.3390_molecules22050721_part_2.txt_段1_Material1
+[*]C1C(C(C(OC1C(O[Ca]OC2=O)=O)OC3C2OC(O[*])C(O)C3O)O)O,[*]O[C@H](C)CC([*])=O,,0.7565999999999999,10.1016_j.seppur.2021.118761_part_2.txt_段1_Material3
+O=S(C(C=C1)=CC=C1OC(C=C2)=CC=C2C(C)(C)C(C=C3)=CC=C3O[*])(C4=CC=C([*])C=C4)=O,,,2.4841,10.1002_pen.22158_part_1.txt_段1_Material1
+[*]C1C(C(C(OC1C(O[Ca]OC2=O)=O)OC3C2OC(O[*])C(O)C3O)O)O,O=C(C1=CC=C(C=C1)C(OCC[*])=O)O[*],,0.6962999999999999,10.1016_j.seppur.2021.118761_part_2.txt_段1_Material1
+[*]C(C)C(OCC(O[*])=O)=O,,,30,10.1016_j.actbio.2017.01.043_part_5.txt_段1_Material1
+[*]C1C(C(C(OC1C(O[Ca]OC2=O)=O)OC3C2OC(O[*])C(O)C3O)O)O,[*]C(C)C[*],,0.7746,10.1016_j.seppur.2021.118761_part_2.txt_段1_Material2
+[*]C([H])([H])C(O)([H])[*],[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,,3.14,10.1016_j.memsci.2014.01.034_part_2.txt_段1_Material1
+[*]CC(C1=CC=CC=C1)[*],C[Si](O[*])(C)[*],,4.17,10.1016_j.polymer.2012.11.057_part_2.txt_段1_Material1
+[*]C([H])([H])C(O)([H])[*],[*]C1=CC(C2=NC3=CC(C4=CC=C5N=C([*])NC5=C4)=CC=C3N2)=CC=C1,,0.83,10.1016_j.memsci.2017.04.021_part_5.txt_段1_Material2
+OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,[*]CC(C1=CC=CC=C1)[*],,3.0286,10.1016_j.foodhyd.2021.106956_part_2.txt_段1_Material2
+[H]N(C(O[*])=O)CCCCCCN(C(OCCCCO[*])=O)[H],[*]OC(C(C1O)O)OC(COC)C1OC(OC(C(C2O)OC3OC(C(C(C3OC)O)OC4OC(C(C(C4OC)O)[*])COC)CO)COC)C2OCC(OC)C,,1.668,10.1007_s12205-019-0086-2_part_2.txt_段1_Material1
+[*]CC(C(OCC)=O)[*],,,1.3,10.1007_s00289-019-03040-2_10.1007_s00289-019-03040-2_part_3.txt_段1_Material1
+O=C(C(C[*])[*])N,[*]C(C1=CC=CC=C1)CC2C(OC(C2[*])=O)=O,,22.6,10.1002_app.36586_10.1002_app.36586_part_2.txt_段1_Material1
+[*]C1C(O)C(O)C(OC2C(O)C(O)C(O[*])OC2COC(C)=O)OC1COC(C)=O,,,0.037,10.1007_s10570-018-2032-8_part_2.txt_段1_Material1
+O=C(C(C[*])[*])N,,,38,10.1016_j.ijbiomac.2015.03.059_part_2.txt_段1_Material1
+[*]OCC[*],OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,1,在小鼠皮肤伤口缺损模型中评估增强聚乙二醇壳聚糖水凝胶作为敷料的效果
+[*]O[C@H](C)CC([*])=O,,,2.03,10.1002_app.38735_part_2.txt_段1_Material1
+[*]OC1C(C(OC(C1O)OC2C3C(C(OC2CO3)[*])O)CO)O,,,1.2,10.1021_acsami.6b08285_part_4.txt_段1_Material1
+[*]C([C@H](C)OC([C@H](C)O[*])=O)=O,,,4.165,10.1080_10601325.2021.1880935_part_2.txt_段1_Material5
+C[Si](O[*])(C)[*],,,2.52,10.1016_j.memsci.2013.01.053_part_1.txt_段1_Material1
+O=C(CCCCC(N(CCCCCCN([*])[H])[H])=O)[*],,,0.1,10.1002_pc.21054_10.1002_pc.21054_part_1.txt_段1_Material1
+[*]C(C)C[*],,,0.486,10.1002_polb.24284_10.1002_polb.24284_part_1.txt_段1_Material2
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,,101.7115,10.1039_c6sm01994c_part_2.txt_段1_Material1
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,,8,合成、优化和细胞反应研究的天然基、热响应、可注射水凝胶：用于3D肝细胞封装和细胞治疗的态度.pdf
+OC1C(O[*])C(C(O[Ca]O2)=O)OC(OC3C(O)C(O)C(OC4C(C(O[Ca]O5)=O)OC(OC6C(O)C(O)C(OC7C(C(O[Ca]O8)=O)OC(OC9C(O)C(O)C([*])OC9C8=O)C(O)C7O)OC6C5=O)C(O)C4O)OC3C2=O)C1O,O=C(N)C([*])C[*],[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,0,具有高韧性和刚度的离子连接双网络水凝胶.pdf
+[*]OC1C(C(C(OC1C)OC2C(C(OC(C2O)COC(C)=O)OC3C(C(C(OC3C(O)=O)OC4C(C(C(OC4CO)O[*])O)O)O)O)OC(C(O)CO)=O)O)O,OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,,30,纳米纤维素增强结冷胶水凝胶作为环状纤维组织再生的潜在生物替代物.pdf
+OC1C(O[*])C(NC(C)=O)C(OC2C(O)C(O)C([*])OC2C(O)=O)OC1COC(C(C)=C)=O,COC(C(C[*])([*])C)=O,[*]OCC[*],27,含有可促进与宿主组织粘合的化学基团的改性透明质酸水凝胶可促进软骨再生.pdf
+[*]NC(CCCCNC(C(C)=C)=O)C(N1CCCC1C(NCC(N2CC(O)CC2C(NC(COC(C(C)=C)=O)C(NCC([*])=O)=O)=O)=O)=O)=O,O=C(N([*])C([*])=O)CC=C,,2.49,用三维打印生物可降解高强度超分子聚合物强化明胶水凝胶支架实现骨软骨再生.pdf
+[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,[*]CC(C)(C(OCCO)=O)[*],OC1C(OC(C(C1O)O)[*])CO[*],7,透明质酸和葡聚糖基半 IPN 水凝胶作为生物打印的生物材料.pdf
+[*]C([H])([H])C(O)([H])[*],[*]CCN[*],,1.11,单宁酸交联 PVA PEI 基水凝胶作为具有自修复和高抗菌性能的潜在伤口敷料的研究.pdf
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]C([H])([H])C(O)([H])[*],[*]OCC[*],2.8,冷冻干燥作为多功能工艺在改善医用水凝胶性能中的作用.pdf
+OCC1OC(C(C(C1O[*])O)O)[*],,,2.52,再生纤维素 胶原复合水凝胶膜的制备、表征与评价.pdf
+[*]OCC[*],[*]OCC[*],,25.1,"原位共价交联 PEG 水凝胶,用于眼部药物递送应用.pdf"
+OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,[*]C1C(OC(C(C1O)O)OC2C(OC(C(C2O)O)OC3C(OC(C(C3O)O)O[*])CO)CO)CO,,5.9,茶渣和糖类添加剂制备和表征纤维素复合水凝胶.pdf
+OCC(OCC(COCC(CO[*])O)O)COCC(OCC(COCC(CO)O)O)COCC(COCC(CO[*])O)O,[*]OCC[*],,9.43,使用电子束的超支化聚(缩水甘油) 聚(环氧乙烷)交联水凝胶用于组织工程支架.pdf
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]C1=C(C=CN2)C2=C([*])C(O)=C1O,,0.8,"生物启发的无钙海藻酸盐水凝胶,具有可调节的物理和机械性能以及改进的生物相容性.pdf"
+[*]C(N[*])=O,,,27,人重组弹性蛋白 (HELP) 的酶促交联作为血管组织工程中的仿生方法.pdf
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]C(C(CCCC[NH3+])N[*])=O,,18,通过 Michael 添加基于 PEG-马来酰亚胺修饰多肽的快速原位形成粘合水凝胶.pdf
+OCC1OC(C(C(C1O[*])O)O)[*],O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,,2.52,再生纤维素 胶原复合水凝胶膜的制备、表征与评价.pdf
+[*]OCC[*],[*]OCC[*],[*]OCC[*],17.9,用于危急情况下紧急处理的止血和细菌响应原位水凝胶的合成及其性能.pdf
+[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,[*]OCC[*],,80,光聚合巯基-丙烯酸酯马来基化透明质酸 巯基封端聚乙二醇水凝胶作为潜在的原位可形成支架.pdf
+O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,,0.35,新型透明质酸-酪氨酸 胶原蛋白基注射水凝胶作为组织工程的软填料.pdf
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,[*]C([H])([H])C(O)([H])[*],16,灭菌壳聚糖基复合水凝胶的物理化学表征和体外细胞毒性.pdf
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,O=C(O[Na])COCC1OC(OC2C(COCC(O[Na])=O)OC([*])C(O)C2O)C(O)C(O)C1O[*],30,"辐射交联明胶 海藻酸钠 羧甲基纤维素钠水凝胶,用作清创胶浆.pdf"
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,[*]NC(CCC([*])=O)C(O)=O,,40.65,通过热压预组装和辐射交联制备具有刺激反应的明胶 聚(γ-谷氨酸)水凝胶.pdf
+OC(C(OC(C1O)CO)C[*])C1O[*],,,71,基于 salecan-g-PMAPTAC 的新型阳离子水凝胶的合成与表征.pdf
+[*]NC(CCC([*])=O)C(O)=O,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,3.9,用于骨组织工程应用的可注射胶原蛋白 RGD 系统.pdf
+CC(O[*])CC([*])=O,[*]OCC[*],,60,聚羟基脂肪酸酯有机 水凝胶的合成和表征.pdf
+[*]C(CCCCCO[*])=O,[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,,7.8,"用于组织工程的基于硫酸藻酸盐的水凝胶 纳米纤维复合支架,具有受控的 Kartogenin 递送.pdf"
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]C(CCCCCO[*])=O,,4.2,"用于组织工程的基于硫酸藻酸盐的水凝胶 纳米纤维复合支架,具有受控的 Kartogenin 递送.pdf"
+OC1C(C(OC(C1O)OC2C(OC(C(C2O)O)OC3C(C(C(OC3C(OC)=O)OC4C(OC(C(C4O)O)[*])C(O)=O)O)O)C(OC)=O)C(O)=O)O[*],OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,OC1C(C(OC(C1O)OC2C(OC(C(C2O)O)OC3C(C(C(OC3C(OC)=O)OC4C(OC(C(C4O)O)[*])C(O)=O)O)O)C(OC)=O)C(O)=O)O[*],34.2,"通过 Diels-Alder 反应制备自修复果胶 壳聚糖杂化水凝胶,用于具有高溶胀性、pH 响应性和细胞相容性的药物递送.pdf"
+O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,[*]CC(C1=CC=C(C=C1)S(=O)(O[Na])=O)[*],,18,用水溶性聚合物对胶原衍生物进行改性以开发用于控释的交联水凝胶.pdf
+OC1C(C(OC(C1OC2C(C(C(C(O2)CO)CO[*])O)O)COC3C(C(C(C(O3)CO)O)O)O)C[*])O,[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,[*]C1=C(C=CN2)C2=C([*])C(O)=C1O,10,聚多巴胺和纳米纤维素增强瓜尔豆胶基水凝胶的功能.pdf
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,O=C(N)C([*])C[*],,4.9,壳聚糖丙烯酰胺复合水凝胶作为皮肤扩张剂的合成、表征及应用潜力.pdf
+[*]C(CCCCCO[*])=O,[*]OCC[*],,7.6,用于细胞打印的高弹性可生物降解单网络水凝胶.pdf
+OCC1OC(C(C(C1O)O[*])O)OC2C(C(C(OC2COS(=O)(O)=O)[*])NC(C)=O)O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,2,角蛋白-壳聚糖 n-ZnO纳米复合水凝胶用于烧伤创面的抗菌治疗：表征和生物医学应用.pdf
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,3,"可注射蛋壳衍生的羟基磷灰石掺入丝素-藻酸盐复合水凝胶,用于骨组织工程.pdf"
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,[*]C(C)(C(OCCN(C)C)=O)C[*],,18,"透明质酸和聚乙二醇杂化水凝胶包封具有止血和可持续抗菌特性的纳米凝胶,用于伤口愈合.pdf"
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,,9.8,生物相容性磷酸八钙海藻酸钠丝素蛋白复合骨再生支架.pdf
+[*]CC(CC([*])C(O)=O)C(NC(C)C)=O,[*]NC(CCC([*])=O)C(O)=O,,14.7,"负载超氧化物歧化酶的聚(N-异丙基丙烯酰胺)聚(γ-谷氨酸)热敏水凝胶,用于伤口敷料应用.pdf"
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]NC(CCC([*])=O)C(O)=O,,2,壳聚糖-γ-聚(谷氨酸)聚电解质复合水凝胶的抗菌活性和生物相容性.pdf
+OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,,0.45,碳酸钙微胶囊和纳米羟基磷灰石对热敏化壳聚糖胶原水凝胶性能的影响
+[*]OCC[*],[*]OC1OC(CO)C(O)C(OC2OC(C(NC(CS)C(OC)=O)=O)C(OC[*])C(O)C2O)C1NC(C)=O,,1.9,来自超支化PEG大分子单体的混合可注射水凝胶作为糖尿病伤口愈合的干细胞递送和保留平台
+[*]OCC[*],[*]C([H])([H])C(O)([H])[*],,4.5,用于生物医学应用的基于聚乙二醇(PEG)-聚(N-异丙基丙烯酰胺)(PNIPAAm)的热敏可注射水凝胶。
+O=C(N)C([*])C[*],[H]N(C(O[*])=O)CCCCCCN(C(OCCCCO[*])=O)[H],,0.23,PNIPA 水凝胶复合材料的制备和力学表征.pdf
+[*]C([H])([H])C(O)([H])[*],[*]C(C(OC(O[*])C=O)CO)C=O,,16.3,具有可调性能的生物相容性二醛纤维素 聚乙烯醇水凝胶.pdf
+OCC1OC(C(C(C1O)O[*])O)OC2C(C(C(OC2COS(=O)(O)=O)[*])NC(C)=O)O,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,,17.6,"负载雷奈酸锶的人发角蛋白透明质酸水凝胶具有抗炎和抗氧化特性,可加速伤口修复.pdf"
+OCC1OC(C(C(C1O)O[*])O)OC2C(C(C(OC2COS(=O)(O)=O)[*])NC(C)=O)O,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]C(C(OC1O[*])COC(C)=O)C(O)C1NC(C)=O,15.4,"单宁酸改性角蛋白 海藻酸钠 羧甲基壳聚糖生物复合水凝胶,具有良好的机械性能和溶胀行为.pdf"
+[*]OC1C(C(C(OC1C)OC2C(C(OC(C2O)COC(C)=O)OC3C(C(C(OC3C(O)=O)OC4C(C(C(OC4CO)O[*])O)O)O)O)OC(C(O)CO)=O)O)O,[*]OC1C(C(C(OC1C)OC2C(C(OC(C2O)COC(C)=O)OC3C(C(C(OC3C(O)=O)OC4C(C(C(OC4CO)O[*])O)O)O)O)OC(C(O)CO)=O)O)O,,7.5,"改性 Gellan gum 水凝胶,具有可调的物理和机械性能.pdf"
+OC(C([*])C[*])=O,,,9.17,肽-共聚物偶联物的设计和自组装成纳米颗粒水凝胶用于糖尿病伤口愈合.pdf
+O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,6,"用于心脏组织工程的导电、可注射和自修复胶原蛋白-透明质酸水凝胶,负载细菌纤维素和金纳米颗粒.pdf"
+[*]C([H])([H])C(O)([H])[*],OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,6.8,用于骨再生的工程仿生支架：壳聚糖藻酸盐聚乙烯醇基双网络水凝胶与碳纳米材料.pdf
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,10,"纤维素纳米原纤维作为交联剂,增强海藻酸钠 壳聚糖水凝胶.pdf"
+O=C(N)C([*])C[*],[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]CC([*])(C)C(OCC[N+](C)(C)CCCS(=O)([O-])=O)=O,0.09,"耐用的水凝胶基润滑复合涂层,具有卓越的水下性能.pdf"
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]OCC[*],[*]CC(C)(C(OCCO)=O)[*],2.8,冷冻干燥作为多功能工艺在改善医用水凝胶性能中的作用.pdf
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[*]OCC[*],O=C(N)C([*])C[*],4.9,壳聚糖丙烯酰胺复合水凝胶作为皮肤扩张剂的合成、表征及应用潜力.pdf
+[*]CC(C)(C(OCCO)=O)[*],OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,,0.63,"具有双氯芬酸洗脱能力的低摩擦水凝胶,用于干眼治疗性隐形眼镜.pdf"
+[*]CC(C)(C(OCCO)=O)[*],OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,0.62,"具有双氯芬酸洗脱能力的低摩擦水凝胶,用于干眼治疗性隐形眼镜.pdf"
+O=C(N)C([*])C[*],[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,,1.51,减少射频能量组织焊接中高导电性水凝胶实现的热损伤.pdf
+[*]OCC[*],[H]N(C(O[*])=O)CCCCCCN(C(OCCCCO[*])=O)[H],,3.98,原位水诱导微相分离制备具有多重氢键互锁双连续相结构的坚韧聚氨酯水凝胶.pdf
+OC1C(OC(C(C1O)O)[*])CO[*],[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,,19.47,用于皮肤组织工程的静电纺丝 PLCL 泊洛沙姆纳米纤维和葡聚糖 明胶水凝胶的制备和表征.pdf
+[*]C1C(C(C(OC1C(O[Na])=O)OC2C(C(O[Na])=O)OC(O[*])C(O)C2O)O)O,[H]N(C(O[*])=O)CCCCCCN(C(OCCCCO[*])=O)[H],,5.45,"由海藻酸盐-聚氨酯的互穿网络组成的高吸收性水凝胶,用于生物医学应用.pdf"
+[*]C(CCCCCO[*])=O,,,107,聚(ε-己内酯)二丙烯酸酯的合成用于胶束交联钠 AMPS 水凝胶用作受控药物输送伤口敷料.pdf
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,[*]C([H])([H])C(O)([H])[*],,7,"可注射交联京尼平混合明胶-PVA 水凝胶,未来用作生物墨水以加快皮肤愈合能力：物理化学表征和细胞毒性评估.pdf"
+OC(C(C1OC2OC(C(C(C2O)O)OC3OC(C(C(C3O)O)O)COC4OC(C(C(C4O)O)OC5OC(C(C(C5O)O)OC6OC(C(C(C6O)O[*])O)C)CO)CO)CO)O[*])COC1CO,[*]C(C(CCCCN[*])N)=O,,9,基于两种天然产物普鲁兰多糖和ε-聚-l-赖氨酸的复合抗菌水凝胶用于烧伤伤口愈合.pdf
+[*]C([H])([H])C(O)([H])[*],OC1C(O[*])C(C(O[Ca]O2)=O)OC(OC3C(O)C(O)C(OC4C(C(O[Ca]O5)=O)OC(OC6C(O)C(O)C(OC7C(C(O[Ca]O8)=O)OC(OC9C(O)C(O)C([*])OC9C8=O)C(O)C7O)OC6C5=O)C(O)C4O)OC3C2=O)C1O,,3.1,快速延伸的罗望子木葡萄糖PVA水凝胶与用于生物医学应用的互连大孔结构.pdf
+[*]NC(CCC([*])=O)C(O)=O,[*]C([H])([H])C(O)([H])[*],,5.66,新型聚(γ-谷氨酸)聚乙烯醇水凝胶的血液相容性.pdf
+[*]OCC[*],[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,,12,辣根过氧化物酶催化poly-PEGDMA接枝聚合制备丝胶蛋白复合水凝胶.pdf
+O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,1.35,"一种可注射的基于壳聚糖的水凝胶支架,其中含有金纳米颗粒,用于组织工程应用.pdf"
+[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,O=C(C(OC(C=O)OC1C(C(C(OC1C(O[Na])=O)O[*])O)O)C(C=O)[*])O[Na],,20,一种由硬骨鱼和藻酸盐组成的快速原位可胶凝水凝胶.pdf
+OC(COCC1OC(OC2C(COCC(O)=O)OC([*])C(O)C2O)C(O)C(O)C1O[*])=O,O=C(C(OC(C=O)OC1C(C(C(OC1C(O[Na])=O)O[*])O)O)C(C=O)[*])O[Na],,30,"内含羟基磷灰石和碳酸钙的可注射多糖水凝胶,用于药物输送和骨组织工程.pdf"
+[*]OCC[*],[Na]OS(CC(C)(C)NC(C([*])C[*])=O)(=O)=O,,300,模型水凝胶的网络弹性随膨胀比的函数：从收缩到极端膨胀状态.pdf
+OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,[*]OCC[*],7.2,"明胶-PEG 水凝胶中羟乙基纤维素的降解依赖性应力松弛半互穿网络,具有良好的机械稳定性和可逆性.pdf"
+C[Si](C)(C[*])O[*],[*]OCC[*],,5,光交联 PDMSstar-PEG 水凝胶：组织工程支架的合成、表征和潜在应用.pdf
+[*]NC(CCCCNC(C(C)=C)=O)C(N1CCCC1C(NCC(N2CC(O)CC2C(NC(COC(C(C)=C)=O)C(NCC([*])=O)=O)=O)=O)=O)=O,[*]OCC[*],[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN,29.1,"先进的基于明胶的血管化生物墨水,用于血管化骨等效物的基于挤出的生物打印.pdf"
+[*]OCC[*],O=C(N1C(C([*])=O)CC(O)C1)CNC(C2CCCN2[*])=O,[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,71,声带固有层水凝胶模型中间充质干细胞的培养.pdf
+[*]OCC[*],[*]C(OCCCO[*])=O,,58.8,通过光引发交联制备的生物可吸收水凝胶 二丙烯酸化 PTMC-PEG-PTMC 三嵌段共聚物作为抗肿瘤药物的潜在载体.pdf
+[*]OCC[*],[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,,1.1,Silver doped-silica nanoparticles reinforced poly (ethylene glycol) diacrylatehyaluronic acid hydrogel dressings for synergistically accelerating bacterial-infected wound healing.pdf
+[*]NC(CCCCNC(C(C)=C)=O)C(N1CCCC1C(NCC(N2CC(O)CC2C(NC(COC(C(C)=C)=O)C(NCC([*])=O)=O)=O)=O)=O)=O,[*]OCC[*],[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O,10.09,一种用于骨组织工程的 GelMA-PEGDA-nHA 复合水凝胶.pdf
+[*]OCC[*],[*]NC(CCCCNC(C(C)=C)=O)C(N1CCCC1C(NCC(N2CC(O)CC2C(NC(COC(C(C)=C)=O)C(NCC([*])=O)=O)=O)=O)=O)=O,OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO,14.76,Evaluation of novel biomaterials for cartilage regeneration based on gelatin methacryloyl interpenetrated with extractive chondroitin sulfate or unsulfated biotechnological chondroitin.pdf
+[*]OCC[*],[*]NC(CCCCNC(C(C)=C)=O)C(N1CCCC1C(NCC(N2CC(O)CC2C(NC(COC(C(C)=C)=O)C(NCC([*])=O)=O)=O)=O)=O)=O,[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O,8,3D bioprinting of photo-crosslinkable silk methacrylate (SilMA)-polyethylene glycol diacrylate (PEGDA) bioink for cartilage tissue engineering.pdf
+[*]OCC[*],OCC1OC(C(C(C1[*])O)O)OC2C(C(C(OC2CO)O[*])O)O,,17.47,Designer injectable matrices of photocrosslinkable carboxymethyl cellulose methacrylate based hydrogels as cell carriers for gel type autologous chondrocyte implantation (GACI).pdf
+[*]NC(CCCCNC(C(C)=C)=O)C(N1CCCC1C(NCC(N2CC(O)CC2C(NC(COC(C(C)=C)=O)C(NCC([*])=O)=O)=O)=O)=O)=O,[*]C1=C(C=CN2)C2=C([*])C(O)=C1O,,8.96,原位形成负载聚多巴胺修饰富勒烯纳米复合物的活性氧清除杂化水凝胶促进皮肤伤口愈合.pdf
