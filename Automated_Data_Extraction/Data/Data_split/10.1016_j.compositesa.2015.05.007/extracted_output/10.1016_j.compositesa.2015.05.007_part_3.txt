@@ -1,0 +1,280 @@
+🧾 提取结果：
+```json
+[
+  {
+    "Material Name": "Pure PE",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "PE",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Pure polymer",
+    "Copolymerized/Blended/Crosslinked/Filled With": null,
+    "Other Material(Dopants, Additives or Modifiers)": null,
+    "Component Ratio": null,
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Young's Modulus": {
+        "value": 0.95,
+        "unit": "GPa",
+        "description": "Base modulus of pure PE"
+      },
+      "Flexural Modulus": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Impact Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Stress-Strain": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Hardness": {
+        "value": null,
+        "unit": null,
+        "description": null
+      }
+    },
+    "Glass Transition Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    },
+    "Melting Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    }
+  },
+  {
+    "Material Name": "PE-0.05HARC",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "PE",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": "High aspect ratio CNTs (HARCs)",
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "CNT": {
+        "Name": "CNT",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "wt_percent",
+      "Components": {
+        "CNT": 0.05
+      },
+      "Original": "0.05 wt.% HARC"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Young's Modulus": {
+        "value": 1.2255,
+        "unit": "GPa",
+        "description": "29% improvement over pure PE (0.95 GPa)"
+      },
+      "Flexural Modulus": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Impact Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Stress-Strain": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Hardness": {
+        "value": null,
+        "unit": null,
+        "description": "13% improvement over pure PE"
+      }
+    },
+    "Glass Transition Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    },
+    "Melting Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    }
+  },
+  {
+    "Material Name": "PE-0.05LARC",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "PE",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": "Low aspect ratio CNTs (LARCs)",
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "CNT": {
+        "Name": "CNT",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "wt_percent",
+      "Components": {
+        "CNT": 0.05
+      },
+      "Original": "0.05 wt.% LARC"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Young's Modulus": {
+        "value": 1.026,
+        "unit": "GPa",
+        "description": "8% improvement over pure PE (0.95 GPa)"
+      },
+      "Flexural Modulus": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Impact Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Stress-Strain": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Hardness": {
+        "value": null,
+        "unit": null,
+        "description": "3% improvement over pure PE"
+      }
+    },
+    "Glass Transition Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    },
+    "Melting Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    }
+  },
+  {
+    "Material Name": "PE-0.1HARC",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "PE",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": "High aspect ratio CNTs (HARCs)",
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "CNT": {
+        "Name": "CNT",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "wt_percent",
+      "Components": {
+        "CNT": 0.1
+      },
+      "Original": "0.1 wt.% HARC"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Young's Modulus": {
+        "value": 1.349,
+        "unit": "GPa",
+        "description": "42% improvement over pure PE (0.95 GPa)"
+      },
+      "Flexural Modulus": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Impact Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Stress-Strain": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Hardness": {
+        "value": null,
+        "unit": null,
+        "description": "45% improvement over pure PE"
+      }
+    },
+    "Glass Transition Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    },
+    "Melting Temperature": {
+      "value
+

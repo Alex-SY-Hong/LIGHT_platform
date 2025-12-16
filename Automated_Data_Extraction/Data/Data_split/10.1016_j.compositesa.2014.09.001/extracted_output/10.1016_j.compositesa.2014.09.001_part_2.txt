@@ -1,0 +1,86 @@
+🧾 提取结果：
+```json
+[
+  {
+    "Material Name": "PP/PPMA/EP/SCF composite",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "PP",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": ["SCF (short carbon fibers)"],
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "PPMA",
+        "Type": "Compatibilizer",
+        "Role": "Compatibilizer"
+      },
+      "Material B": {
+        "Name": "EP",
+        "Type": "Crosslinked polymer",
+        "Role": "Modifier"
+      }
+    },
+    "Component Ratio": {
+      "Type": "wt_percent",
+      "Components": {
+        "PPMA": [7.5, 8],
+        "EP": [5, 11.6],
+        "SCF": 26.4
+      },
+      "Original": "PPMA:7.5wt %; SCF:26.4wt %; PP+\1 = \2.1wt % (Figure 7); PPMA:8wt %; EP:11.6wt %; SCF:26.4wt % (Figure 8)"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": null,
+        "unit": null,
+        "description": "Increased with PPMA up to 8 wt% and EP up to 7.5 wt%"
+      },
+      "Elongation at Break": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Young's Modulus": {
+        "value": null,
+        "unit": null,
+        "description": "Increased with PPMA up to 8 wt% and EP up to 7.5 wt%"
+      },
+      "Flexural Modulus": {
+        "value": null,
+        "unit": null,
+        "description": "Increased with PPMA up to 8 wt% and EP up to 5 wt%"
+      },
+      "Impact Strength": {
+        "value": null,
+        "unit": null,
+        "description": "Improved with optimal PPMA (8 wt%) and EP (5-11.6 wt%)"
+      },
+      "Stress-Strain": {
+        "value": null,
+        "unit": null,
+        "description": "Enhanced stress transfer efficiency due to SCF network and interfacial adhesion"
+      },
+      "Hardness": {
+        "value": null,
+        "unit": null,
+        "description": null
+      }
+    },
+    "Glass Transition Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    },
+    "Melting Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    }
+  }
+]
+```
+

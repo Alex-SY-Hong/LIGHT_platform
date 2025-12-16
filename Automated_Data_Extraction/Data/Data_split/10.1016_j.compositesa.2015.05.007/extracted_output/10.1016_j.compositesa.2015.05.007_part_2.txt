@@ -1,0 +1,363 @@
+🧾 提取结果：
+```json
+[
+  {
+    "Material Name": "UHMWPE (PE)",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "UHMWPE",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Pure polymer",
+    "Copolymerized/Blended/Crosslinked/Filled With": null,
+    "Other Material(Dopants, Additives or Modifiers)": null,
+    "Component Ratio": {
+      "Type": "qualitative",
+      "Components": {},
+      "Original": "Pure polymer"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Young's Modulus": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Flexural Modulus": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Impact Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Stress-Strain": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Hardness": {
+        "value": null,
+        "unit": null,
+        "description": null
+      }
+    },
+    "Glass Transition Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    },
+    "Melting Temperature": {
+      "value": 123,
+      "unit": "°C",
+      "description": "Melting temperature of pure UHMWPE"
+    }
+  },
+  {
+    "Material Name": "UHMWPE-0.05 wt.% HARC (PE-0.05HARC)",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "UHMWPE",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": ["HARC (High Aspect Ratio CNTs)"],
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "HARC",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "wt_percent",
+      "Components": {
+        "HARC": 0.05
+      },
+      "Original": "0.05 wt.% HARC"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Young's Modulus": {
+        "value": null,
+        "unit": null,
+        "description": "8-42% improvement in elastic modulus compared to pure UHMWPE"
+      },
+      "Flexural Modulus": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Impact Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Stress-Strain": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Hardness": {
+        "value": null,
+        "unit": null,
+        "description": "3-45% improvement in hardness compared to pure UHMWPE"
+      }
+    },
+    "Glass Transition Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    },
+    "Melting Temperature": {
+      "value": 123,
+      "unit": "°C",
+      "description": "Melting temperature unchanged by HARC addition"
+    }
+  },
+  {
+    "Material Name": "UHMWPE-0.1 wt.% HARC (PE-0.1HARC)",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "UHMWPE",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": ["HARC (High Aspect Ratio CNTs)"],
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "HARC",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "wt_percent",
+      "Components": {
+        "HARC": 0.1
+      },
+      "Original": "0.1 wt.% HARC"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Young's Modulus": {
+        "value": null,
+        "unit": null,
+        "description": "8-42% improvement in elastic modulus compared to pure UHMWPE"
+      },
+      "Flexural Modulus": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Impact Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Stress-Strain": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Hardness": {
+        "value": null,
+        "unit": null,
+        "description": "3-45% improvement in hardness compared to pure UHMWPE"
+      }
+    },
+    "Glass Transition Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    },
+    "Melting Temperature": {
+      "value": 123,
+      "unit": "°C",
+      "description": "Melting temperature unchanged by HARC addition"
+    }
+  },
+  {
+    "Material Name": "UHMWPE-0.05 wt.% LARC (PE-0.05LARC)",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "UHMWPE",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": ["LARC (Low Aspect Ratio CNTs)"],
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "LARC",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "wt_percent",
+      "Components": {
+        "LARC": 0.05
+      },
+      "Original": "0.05 wt.% LARC"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Young's Modulus": {
+        "value": null,
+        "unit": null,
+        "description": "8-42% improvement in elastic modulus compared to pure UHMWPE"
+      },
+      "Flexural Modulus": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Impact Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Stress-Strain": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Hardness": {
+        "value": null,
+        "unit": null,
+        "description": "3-45% improvement in hardness compared to pure UHMWPE"
+      }
+    },
+    "Glass Transition Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    },
+    "Melting Temperature": {
+      "value": 123,
+      "unit": "°C",
+      "description": "Melting temperature unchanged by LARC addition"
+    }
+  },
+  {
+    "Material Name": "UHMWPE-0.1 wt.% LARC (PE-0.1LARC)",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "UHMWPE",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": ["LARC (Low Aspect Ratio CNTs)"],
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "LARC",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "wt_percent",
+      "Components": {
+        "LARC": 0.1
+      },
+      "Original": "0.1 wt.% LARC"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Young's Modulus": {
+        "value": null,
+        "unit": null,
+        "description": "8-42% improvement in elastic modulus compared to pure UHMWPE"
+      },
+      "Flexural Modulus": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Impact Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Stress-Strain": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Hardness": {
+        "value": null,
+        "unit": null,
+        "description": "3-45% improvement in hardness compared to pure UHMWPE"
+      }
+    },
+    "Glass Transition Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    },
+    "Melting Temperature": {
+      "value": 123,
+      "unit": "°C",
+      "description": "Melting temperature unchanged by LARC addition"
+    }
+  }
+]
+```
+

@@ -1,0 +1,90 @@
+🧾 提取结果：
+```json
+[
+  {
+    "Material Name": "PDMS network filled with fumed silica",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "PDMS",
+        "Type": "Crosslinked polymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": ["R106", "R8200", "A300 (fumed silica)"],
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "R106 fumed silica",
+        "Type": "Inorganic nanoparticle",
+        "Role": "Reinforcement"
+      },
+      "Material B": {
+        "Name": "R8200 fumed silica",
+        "Type": "Inorganic nanoparticle",
+        "Role": "Reinforcement"
+      },
+      "Material C": {
+        "Name": "A300 fumed silica",
+        "Type": "Inorganic nanoparticle",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "phr",
+      "Components": {
+        "R106": [3, 10],
+        "R8200": 10
+      },
+      "Original": "3 phr of R106, 10 phr of R106, 10 phr of R8200"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": null,
+        "unit": null,
+        "description": "Ultimate tensile properties decrease slightly with R8200 but increase with improved dispersion"
+      },
+      "Elongation at Break": {
+        "value": null,
+        "unit": null,
+        "description": "Reduction of upturn strain observed in filled networks"
+      },
+      "Young's Modulus": {
+        "value": null,
+        "unit": null,
+        "description": "Modulus increases with filler concentration and specific surface area"
+      },
+      "Flexural Modulus": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Impact Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Stress-Strain": {
+        "value": null,
+        "unit": null,
+        "description": "Exhibits non-Gaussian behavior due to hierarchical network structure; necking observed"
+      },
+      "Hardness": {
+        "value": null,
+        "unit": null,
+        "description": null
+      }
+    },
+    "Glass Transition Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    },
+    "Melting Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    }
+  }
+]
+```
+

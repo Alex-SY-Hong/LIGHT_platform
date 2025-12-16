@@ -1,0 +1,105 @@
+🧾 提取结果：
+```json
+[
+  {
+    "Material Name": "Kenaf/polypropylene composite (pre-treatment route)",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "polypropylene",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Blend",
+    "Copolymerized/Blended/Crosslinked/Filled With": ["kenaf fibre"],
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "kenaf fibre",
+        "Type": "Natural fibre",
+        "Role": "Reinforcement"
+      },
+      "Material B": {
+        "Name": "Surface finishes (paraffin waxes, mineral oils)",
+        "Type": "Functional additive",
+        "Role": "Surface finishing agents"
+      }
+    },
+    "Component Ratio": {
+      "Type": "mass_ratio",
+      "Components": {
+        "kenaf": 50,
+        "polypropylene": 50
+      },
+      "Original": "50/50 by weight"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": null,
+      "Elongation at Break": null,
+      "Young's Modulus": null,
+      "Flexural Modulus": {
+        "value": [5.54, 7.60],
+        "unit": "GPa",
+        "description": "Principal direction, 180-284% higher than neat PP (1.98 GPa)"
+      },
+      "Flexural Strength": {
+        "value": [85.44, 98.26],
+        "unit": "MPa",
+        "description": "Principal direction, 60-84% higher than neat PP (53.4 MPa)"
+      },
+      "Impact Strength": null,
+      "Stress-Strain": null,
+      "Hardness": null
+    },
+    "Glass Transition Temperature": null,
+    "Melting Temperature": null
+  },
+  {
+    "Material Name": "Kenaf/polypropylene composite (post-treatment route)",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "polypropylene",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Blend",
+    "Copolymerized/Blended/Crosslinked/Filled With": ["kenaf fibre"],
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "kenaf fibre",
+        "Type": "Natural fibre",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "mass_ratio",
+      "Components": {
+        "kenaf": 50,
+        "polypropylene": 50
+      },
+      "Original": "50/50 by weight"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": null,
+      "Elongation at Break": null,
+      "Young's Modulus": null,
+      "Flexural Modulus": {
+        "value": [8.98, 12.39],
+        "unit": "GPa",
+        "description": "Principal direction, up to 63% higher than pre-treatment route"
+      },
+      "Flexural Strength": {
+        "value": [116.0, 133.6],
+        "unit": "MPa",
+        "description": "Principal direction, up to 36% higher than pre-treatment route"
+      },
+      "Impact Strength": null,
+      "Stress-Strain": null,
+      "Hardness": null
+    },
+    "Glass Transition Temperature": null,
+    "Melting Temperature": null
+  }
+]
+```
+

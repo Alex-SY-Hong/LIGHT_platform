@@ -1,0 +1,92 @@
+🧾 提取结果：
+```json
+[
+  {
+    "Material Name": "PP/PPMA/EP/SCF composite",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "Polypropylene (PP)",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      },
+      "Polymer B": {
+        "Name": "Maleic anhydride grafted polypropylene (PPMA)",
+        "Type": "Graft copolymer",
+        "Role": "Compatibilizer"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": "Short carbon fiber (SCF)",
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "Epoxy resin (EP)",
+        "Type": "Functional additive",
+        "Role": "Interfacial modifier"
+      },
+      "Material B": {
+        "Name": "Short carbon fiber (SCF)",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "wt_percent",
+      "Components": {
+        "PP": 54.5,
+        "PPMA": 7.5,
+        "EP": 11.6,
+        "SCF": 26.4
+      },
+      "Original": "PP (54.5 wt%), PPMA (7.5 wt%), EP (11.6 wt%), SCF (26.4 wt%)"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": null,
+        "unit": null,
+        "description": "273% increase compared to neat PP"
+      },
+      "Elongation at Break": {
+        "value": null,
+        "unit": "%",
+        "description": "Dramatically decreased (<5%) due to SCF reinforcement"
+      },
+      "Young's Modulus": {
+        "value": null,
+        "unit": null,
+        "description": "239% increase compared to neat PP"
+      },
+      "Flexural Modulus": {
+        "value": null,
+        "unit": null,
+        "description": "624% increase compared to neat PP"
+      },
+      "Impact Strength": {
+        "value": null,
+        "unit": null,
+        "description": "336% increase compared to neat PP"
+      },
+      "Stress-Strain": {
+        "value": null,
+        "unit": null,
+        "description": "Yielded at low strain with SCF network structure"
+      },
+      "Hardness": {
+        "value": null,
+        "unit": null,
+        "description": null
+      }
+    },
+    "Glass Transition Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    },
+    "Melting Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    }
+  }
+]
+```
+

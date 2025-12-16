@@ -1,0 +1,188 @@
+🧾 提取结果：
+[
+  {
+    "Material Name": "UHMWPE composite with multi-walled carbon nanotubes",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "UHMWPE",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": "multi-walled carbon nanotubes",
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "multi-walled carbon nanotubes",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "unknown",
+      "Components": {},
+      "Original": null
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {"value": null, "unit": null, "description": null},
+      "Elongation at Break": {"value": null, "unit": null, "description": null},
+      "Young's Modulus": {"value": null, "unit": null, "description": null},
+      "Flexural Modulus": {"value": null, "unit": null, "description": null},
+      "Impact Strength": {"value": null, "unit": null, "description": null},
+      "Stress-Strain": {"value": null, "unit": null, "description": null},
+      "Hardness": {"value": null, "unit": null, "description": null}
+    },
+    "Glass Transition Temperature": {"value": null, "unit": null, "description": null},
+    "Melting Temperature": {"value": null, "unit": null, "description": null}
+  },
+  {
+    "Material Name": "UHMWPE/HDPE blend reinforced with multi-wall carbon nanotubes",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "UHMWPE",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      },
+      "Polymer B": {
+        "Name": "HDPE",
+        "Type": "Homopolymer",
+        "Role": "Blend component"
+      }
+    },
+    "Polymer Structure Type": "Blend",
+    "Copolymerized/Blended/Crosslinked/Filled With": ["HDPE", "multi-wall carbon nanotubes"],
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "multi-wall carbon nanotubes",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "unknown",
+      "Components": {},
+      "Original": null
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {"value": null, "unit": null, "description": null},
+      "Elongation at Break": {"value": null, "unit": null, "description": null},
+      "Young's Modulus": {"value": null, "unit": null, "description": null},
+      "Flexural Modulus": {"value": null, "unit": null, "description": null},
+      "Impact Strength": {"value": null, "unit": null, "description": null},
+      "Stress-Strain": {"value": null, "unit": null, "description": null},
+      "Hardness": {"value": null, "unit": null, "description": null}
+    },
+    "Glass Transition Temperature": {"value": null, "unit": null, "description": null},
+    "Melting Temperature": {"value": null, "unit": null, "description": null}
+  },
+  {
+    "Material Name": "Crosslinked ultra-high-molecular-weight polyethylene",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "UHMWPE",
+        "Type": "Crosslinked polymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Crosslinked",
+    "Copolymerized/Blended/Crosslinked/Filled With": null,
+    "Other Material(Dopants, Additives or Modifiers)": null,
+    "Component Ratio": {
+      "Type": "unknown",
+      "Components": {},
+      "Original": null
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {"value": null, "unit": null, "description": null},
+      "Elongation at Break": {"value": null, "unit": null, "description": null},
+      "Young's Modulus": {"value": null, "unit": null, "description": null},
+      "Flexural Modulus": {"value": null, "unit": null, "description": null},
+      "Impact Strength": {"value": null, "unit": null, "description": null},
+      "Stress-Strain": {"value": null, "unit": null, "description": null},
+      "Hardness": {"value": null, "unit": null, "description": null}
+    },
+    "Glass Transition Temperature": {"value": null, "unit": null, "description": null},
+    "Melting Temperature": {"value": null, "unit": null, "description": null}
+  },
+  {
+    "Material Name": "UHMWPE-graphene nanoplatelet composite",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "UHMWPE",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": "graphene nanoplatelets",
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "graphene nanoplatelets",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "unknown",
+      "Components": {},
+      "Original": null
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {"value": null, "unit": null, "description": null},
+      "Elongation at Break": {"value": null, "unit": null, "description": null},
+      "Young's Modulus": {"value": null, "unit": null, "description": null},
+      "Flexural Modulus": {"value": null, "unit": null, "description": null},
+      "Impact Strength": {"value": null, "unit": null, "description": null},
+      "Stress-Strain": {"value": null, "unit": null, "description": null},
+      "Hardness": {"value": null, "unit": null, "description": null}
+    },
+    "Glass Transition Temperature": {"value": null, "unit": null, "description": null},
+    "Melting Temperature": {"value": null, "unit": null, "description": null}
+  },
+  {
+    "Material Name": "UHMWPE-Hydroxyapatite-Aluminium Oxide-Carbon Nanotube hybrid composite",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "UHMWPE",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": ["Hydroxyapatite", "Aluminium Oxide", "Carbon Nanotubes"],
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "Hydroxyapatite",
+        "Type": "Inorganic nanoparticle",
+        "Role": "Reinforcement"
+      },
+      "Material B": {
+        "Name": "Aluminium Oxide",
+        "Type": "Inorganic nanoparticle",
+        "Role": "Reinforcement"
+      },
+      "Material C": {
+        "Name": "Carbon Nanotubes",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "unknown",
+      "Components": {},
+      "Original": null
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {"value": null, "unit": null, "description": null},
+      "Elongation at Break": {"value": null, "unit": null, "description": null},
+      "Young's Modulus": {"value": null, "unit": null, "description": null},
+      "Flexural Modulus": {"value": null, "unit": null, "description": null},
+      "Impact Strength": {"value": null, "unit": null, "description": null},
+      "Stress-Strain": {"value": null, "unit": null, "description": null},
+      "Hardness": {"value": null, "unit": null, "description": null}
+    },
+    "Glass Transition Temperature": {"value": null, "unit": null, "description": null},
+    "Melting Temperature": {"value": null, "unit": null, "description": null}
+  }
+]
+

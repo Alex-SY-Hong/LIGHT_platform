@@ -1,0 +1,94 @@
+🧾 提取结果：
+[
+  {
+    "Material Name": "PE-0.1HARC",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "UHMWPE (PE)",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": "High aspect ratio CNT",
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "High aspect ratio CNT",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "wt_percent",
+      "Components": {
+        "High aspect ratio CNT": 0.1
+      },
+      "Original": "0.1 wt.% HARC"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": null,
+      "Elongation at Break": null,
+      "Young's Modulus": {
+        "value": null,
+        "unit": null,
+        "description": "Elastic modulus measured via nanoindentation"
+      },
+      "Flexural Modulus": null,
+      "Impact Strength": null,
+      "Stress-Strain": null,
+      "Hardness": {
+        "value": null,
+        "unit": null,
+        "description": "Hardness measured via nanoindentation"
+      }
+    },
+    "Glass Transition Temperature": null,
+    "Melting Temperature": null
+  },
+  {
+    "Material Name": "PE-0.1LARC",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "UHMWPE (PE)",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": "Low aspect ratio CNT",
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "Low aspect ratio CNT",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "wt_percent",
+      "Components": {
+        "Low aspect ratio CNT": 0.1
+      },
+      "Original": "0.1 wt.% LARC"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": null,
+      "Elongation at Break": null,
+      "Young's Modulus": {
+        "value": null,
+        "unit": null,
+        "description": "Elastic modulus measured via nanoindentation"
+      },
+      "Flexural Modulus": null,
+      "Impact Strength": null,
+      "Stress-Strain": null,
+      "Hardness": {
+        "value": null,
+        "unit": null,
+        "description": "Hardness measured via nanoindentation"
+      }
+    },
+    "Glass Transition Temperature": null,
+    "Melting Temperature": null
+  }
+]
+

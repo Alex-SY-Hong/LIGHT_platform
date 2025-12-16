@@ -1,0 +1,84 @@
+🧾 提取结果：
+```json
+[
+  {
+    "Material Name": "UHMWPE/CNT composite",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "UHMWPE",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": ["High aspect ratio CNTs (HARC)", "Low aspect ratio CNTs (LARC)"],
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "MWCNTs (HARC)",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      },
+      "Material B": {
+        "Name": "MWCNTs (LARC)",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "wt_percent",
+      "Components": {
+        "CNTs": [0.05, 0.1]
+      },
+      "Original": "0.05-0.1wt. % of CNT addition"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Young's Modulus": {
+        "value": [8, 42],
+        "unit": "% increase",
+        "description": "Improvement in elastic modulus with CNT addition"
+      },
+      "Flexural Modulus": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Impact Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Stress-Strain": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Hardness": {
+        "value": [3, 45],
+        "unit": "% increase",
+        "description": "Improvement in hardness with CNT addition"
+      }
+    },
+    "Glass Transition Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    },
+    "Melting Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    }
+  }
+]
+```
+

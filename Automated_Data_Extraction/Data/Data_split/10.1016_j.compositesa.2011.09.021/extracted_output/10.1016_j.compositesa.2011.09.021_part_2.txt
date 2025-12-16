@@ -1,0 +1,78 @@
+🧾 提取结果：
+```json
+[
+  {
+    "Material Name": "Wood chip-PP composite",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "PP",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": "Wood chips",
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "Sodium sulfite",
+        "Type": "Functional additive",
+        "Role": "Modifier"
+      },
+      "Material B": {
+        "Name": "Wood chips",
+        "Type": "Natural fiber",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": null,
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Young's Modulus": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Flexural Modulus": {
+        "value": null,
+        "unit": null,
+        "description": "Decreased when using undried wood chips"
+      },
+      "Impact Strength": {
+        "value": null,
+        "unit": null,
+        "description": "Improved with pre-treated wood chips"
+      },
+      "Stress-Strain": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Hardness": {
+        "value": null,
+        "unit": null,
+        "description": null
+      }
+    },
+    "Glass Transition Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    },
+    "Melting Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    }
+  }
+]
+```
+

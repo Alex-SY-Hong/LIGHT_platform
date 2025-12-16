@@ -1,0 +1,142 @@
+🧾 提取结果：
+```json
+[
+  {
+    "Material Name": "Fumed silica filled polydimethylsiloxane (PDMS) network",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "Polydimethylsiloxane (PDMS)",
+        "Type": "Crosslinked polymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": "Fumed silica",
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "Fumed silica (A90/A200/A300/R106/R8200)",
+        "Type": "Inorganic nanoparticle",
+        "Role": "Reinforcement"
+      },
+      "Material B": {
+        "Name": "Tetraethoxysilane (TEOS)",
+        "Type": "Crosslinker",
+        "Role": "Crosslinking agent"
+      }
+    },
+    "Component Ratio": {
+      "Type": "phr",
+      "Components": {
+        "Fumed silica": 10
+      },
+      "Original": "10 phr fumed silica (variants: A90, A200, A300, R106, R8200)"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": [0.36, 2.19],
+        "unit": "MPa",
+        "description": "Increases with filler concentration and specific surface area (e.g., 0.36 MPa for unfilled PDMS, 2.19 MPa for A300-filled)"
+      },
+      "Elongation at Break": {
+        "value": [207, 368],
+        "unit": "%",
+        "description": "Improves with filler dispersion and concentration (e.g., 207% for unfilled PDMS, 368% for A300-filled)"
+      },
+      "Young's Modulus": {
+        "value": null,
+        "unit": null,
+        "description": "Augmented modulus observed in Mooney-Rivlin plots due to filler's effective volume effect"
+      },
+      "Flexural Modulus": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Impact Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Stress-Strain": {
+        "value": "Non-Gaussian upturn behavior at high strains",
+        "unit": null,
+        "description": "Exhibits hierarchical network structure with synergistic effect"
+      },
+      "Hardness": {
+        "value": null,
+        "unit": null,
+        "description": null
+      }
+    },
+    "Glass Transition Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    },
+    "Melting Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    }
+  },
+  {
+    "Material Name": "Surface-modified fumed silica/PDMS composite (R106)",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "Polydimethylsiloxane (PDMS)",
+        "Type": "Crosslinked polymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": "R106 fumed silica (D4-modified)",
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "R106 fumed silica",
+        "Type": "Inorganic nanoparticle",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "phr",
+      "Components": {
+        "R106 fumed silica": [1, 3, 5, 10]
+      },
+      "Original": "1-10 phr R106 silica"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": [0.43, 2.04],
+        "unit": "MPa",
+        "description": "Increases with filler concentration (e.g., 0.43 MPa at 1 phr, 2.04 MPa at 10 phr)"
+      },
+      "Elongation at Break": {
+        "value": [213, 308],
+        "unit": "%",
+        "description": "Improves with dispersion quality (e.g., 256% for poorly dispersed 45μm, 308% for well-dispersed 15N)"
+      },
+      "Young's Modulus": {
+        "value": null,
+        "unit": null,
+        "description": "Decreases with improved filler dispersion due to reduced transfer-segments"
+      },
+      "Stress-Strain": {
+        "value": "Non-Gaussian effect with hierarchical network",
+        "unit": null,
+        "description": "Synergistic effect from segmental reinforcement"
+      }
+    },
+    "Glass Transition Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    },
+    "Melting Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    }
+  }
+]
+```
+

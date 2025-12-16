@@ -1,0 +1,77 @@
+🧾 提取结果：
+```json
+[
+  {
+    "Material Name": "Kenaf/polypropylene composite",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "polypropylene",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": ["kenaf fibre"],
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "kenaf fibre",
+        "Type": "Natural fiber",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "unknown",
+      "Components": {},
+      "Original": null
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Young's Modulus": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Flexural Modulus": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Impact Strength": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Stress-Strain": {
+        "value": null,
+        "unit": null,
+        "description": null
+      },
+      "Hardness": {
+        "value": null,
+        "unit": null,
+        "description": null
+      }
+    },
+    "Glass Transition Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    },
+    "Melting Temperature": {
+      "value": null,
+      "unit": null,
+      "description": null
+    }
+  }
+]
+```
+

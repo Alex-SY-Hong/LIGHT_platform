@@ -1,0 +1,160 @@
+🧾 提取结果：
+```json
+[
+  {
+    "Material Name": "Carbon fiber reinforced polypropylene (CFRPP)",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "Polypropylene (PP)",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": ["Carbon fibers"],
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "Carbon fibers",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "vol_percent",
+      "Components": {
+        "Carbon fibers": [45.2, 59.6],
+        "Polypropylene": [40.4, 54.8]
+      },
+      "Original": "Fiber volume fraction (Vf) ranges from 45.2% to 59.6% depending on processing conditions."
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": [449, 672],
+        "unit": "MPa",
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": [0.93, 1.28],
+        "unit": "%",
+        "description": null
+      },
+      "Young's Modulus": {
+        "value": [45.9, 54.1],
+        "unit": "GPa",
+        "description": null
+      },
+      "Flexural Modulus": null,
+      "Impact Strength": null,
+      "Stress-Strain": {
+        "value": "Non-linear with fiber pull-out",
+        "unit": null,
+        "description": "Fracture perpendicular to tensile load in well-impregnated laminates."
+      },
+      "Hardness": null
+    },
+    "Glass Transition Temperature": null,
+    "Melting Temperature": {
+      "value": 160,
+      "unit": "°C",
+      "description": "Melting temperature of PP matrix."
+    }
+  },
+  {
+    "Material Name": "Self-reinforced polypropylene (SRPP)",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "Polypropylene (PP)",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      },
+      "Polymer B": {
+        "Name": "Polypropylene (PP)",
+        "Type": "Homopolymer",
+        "Role": "Reinforcement"
+      }
+    },
+    "Polymer Structure Type": "Pure polymer",
+    "Copolymerized/Blended/Crosslinked/Filled With": null,
+    "Other Material(Dopants, Additives or Modifiers)": null,
+    "Component Ratio": {
+      "Type": "qualitative",
+      "Components": {
+        "Oriented PP tapes": "High",
+        "Melted PP matrix": "Low"
+      },
+      "Original": "Produced via hot compaction of woven PP tapes."
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": [142, 149],
+        "unit": "MPa",
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": [21.7, 24.1],
+        "unit": "%",
+        "description": null
+      },
+      "Young's Modulus": {
+        "value": [2.5, 2.8],
+        "unit": "GPa",
+        "description": null
+      },
+      "Flexural Modulus": null,
+      "Impact Strength": null,
+      "Stress-Strain": {
+        "value": "Non-linear",
+        "unit": null,
+        "description": "Exhibits shrinkage-induced recovery stress under constrained heating."
+      },
+      "Hardness": null
+    },
+    "Glass Transition Temperature": null,
+    "Melting Temperature": {
+      "value": [165, 180],
+      "unit": "°C",
+      "description": "Matrix PP melts at ~165°C; oriented PP tapes melt at ~180°C."
+    }
+  },
+  {
+    "Material Name": "CFRPP/SRPP interply hybrid composite",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "Polypropylene (PP)",
+        "Type": "Homopolymer",
+        "Role": "Matrix (from CFRPP and SRPP)"
+      }
+    },
+    "Polymer Structure Type": "Blend",
+    "Copolymerized/Blended/Crosslinked/Filled With": ["CFRPP", "SRPP"],
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "Carbon fibers",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement (from CFRPP)"
+      }
+    },
+    "Component Ratio": {
+      "Type": "qualitative",
+      "Components": {
+        "CFRPP": "Varies by layer stacking",
+        "SRPP": "Varies by layer stacking"
+      },
+      "Original": "Stacking sequences include [SRPP/CFRPP/SRPP] and [CFRPP/SRPP]s."
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": [534, 672],
+        "unit": "MPa",
+        "description": "Lower than rule-of-mixture predictions due to fiber misalignment."
+      },
+      "Elongation at Break": {
+        "value": [1.27, 1.41],
+        "unit": "%",
+        "description": "Improved by 7-18% compared to non-hybrid CFRPP."
+      },
+      "Young's Modulus": {
+        "value": [35, 47.5],
+        "unit": "GPa",
+        "description": "Reduced due to SRPP-induced fiber waviness
+

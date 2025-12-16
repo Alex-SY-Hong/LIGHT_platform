@@ -1,0 +1,212 @@
+🧾 提取结果：
+```json
+[
+  {
+    "Material Name": "Carbon Fiber Reinforced Polypropylene (CFRPP)",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "Polypropylene (PP)",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": "Carbon fibers",
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "Carbon fibers",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "vol_percent",
+      "Components": {
+        "Carbon fibers": 55
+      },
+      "Original": "Vf = 55% (Table 3)"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": 644,
+        "unit": "MPa",
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": 1.19,
+        "unit": "%",
+        "description": null
+      },
+      "Young's Modulus": {
+        "value": 50.7,
+        "unit": "GPa",
+        "description": null
+      },
+      "Flexural Modulus": null,
+      "Impact Strength": null,
+      "Stress-Strain": null,
+      "Hardness": null
+    },
+    "Glass Transition Temperature": null,
+    "Melting Temperature": null
+  },
+  {
+    "Material Name": "Self-Reinforced Polypropylene (SRPP)",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "Polypropylene (PP)",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Filled composite",
+    "Copolymerized/Blended/Crosslinked/Filled With": null,
+    "Other Material(Dopants, Additives or Modifiers)": null,
+    "Component Ratio": {
+      "Type": "vol_percent",
+      "Components": {
+        "PP fibers": 0
+      },
+      "Original": "Vf = 0% (Table 3)"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": 149,
+        "unit": "MPa",
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": 21.7,
+        "unit": "%",
+        "description": null
+      },
+      "Young's Modulus": {
+        "value": 2.8,
+        "unit": "GPa",
+        "description": null
+      },
+      "Flexural Modulus": null,
+      "Impact Strength": null,
+      "Stress-Strain": null,
+      "Hardness": null
+    },
+    "Glass Transition Temperature": null,
+    "Melting Temperature": null
+  },
+  {
+    "Material Name": "CFRPP/SRPP Interply Hybrid Composite [Hybrid1]",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "Polypropylene (PP)",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Blend",
+    "Copolymerized/Blended/Crosslinked/Filled With": ["CFRPP", "SRPP"],
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "Carbon fibers",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "vol_percent",
+      "Components": {
+        "SRPP": 66,
+        "CFRPP": 34
+      },
+      "Original": "VolumefractionofSRPP = 66% (Table 4)"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": 219,
+        "unit": "MPa",
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": 1.27,
+        "unit": "%",
+        "description": "Improved failure strain by 7%"
+      },
+      "Young's Modulus": {
+        "value": 15.4,
+        "unit": "GPa",
+        "description": null
+      },
+      "Flexural Modulus": null,
+      "Impact Strength": null,
+      "Stress-Strain": null,
+      "Hardness": null
+    },
+    "Glass Transition Temperature": null,
+    "Melting Temperature": null
+  },
+  {
+    "Material Name": "CFRPP/SRPP Interply Hybrid Composite [Hybrid2]",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "Polypropylene (PP)",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Blend",
+    "Copolymerized/Blended/Crosslinked/Filled With": ["CFRPP", "SRPP"],
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "Carbon fibers",
+        "Type": "Carbon nanomaterial",
+        "Role": "Reinforcement"
+      }
+    },
+    "Component Ratio": {
+      "Type": "vol_percent",
+      "Components": {
+        "SRPP": 33,
+        "CFRPP": 67
+      },
+      "Original": "VolumefractionofSRPP = 33% (Table 4)"
+    },
+    "Mechanical Properties": {
+      "Tensile Strength": {
+        "value": 398,
+        "unit": "MPa",
+        "description": null
+      },
+      "Elongation at Break": {
+        "value": 1.41,
+        "unit": "%",
+        "description": "Improved failure strain by 18%"
+      },
+      "Young's Modulus": {
+        "value": 26.3,
+        "unit": "GPa",
+        "description": null
+      },
+      "Flexural Modulus": null,
+      "Impact Strength": null,
+      "Stress-Strain": null,
+      "Hardness": null
+    },
+    "Glass Transition Temperature": null,
+    "Melting Temperature": null
+  },
+  {
+    "Material Name": "CFRPP/SRPP Interply Hybrid Composite [Hybrid3]",
+    "Base Polymer(s)": {
+      "Polymer A": {
+        "Name": "Polypropylene (PP)",
+        "Type": "Homopolymer",
+        "Role": "Matrix"
+      }
+    },
+    "Polymer Structure Type": "Blend",
+    "Copolymerized/Blended/Crosslinked/Filled With": ["CFRPP", "SRPP"],
+    "Other Material(Dopants, Additives or Modifiers)": {
+      "Material A": {
+        "Name": "Carbon fibers",
+        "Type": "Carbon nanomaterial",
+        "Role": "Re
+
