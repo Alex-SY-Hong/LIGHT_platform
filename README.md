@@ -2,21 +2,17 @@
 
 ## Features
 
-### 1. Database Construction Module (Automated Data Extraction)
+### 1. Agent-Driven Automated Modeling and High-Throughput Screening
+
+* The LIGHT_platform Agent encompasses four core tasks/functionalities for machine learning model training and results generation, covering Unsupervised Learning, Supervised Learning (Regression & Classification), Best Agent Selection, and Sequential Execution of the entire workflow.
+
+### 2. Database Construction Module (Automated Data Extraction)
 
 This project builds a high-throughput literature data extraction system using the DeepSeek-32B model and PDF/HTML parsing tools (such as pdfplumber).
 
 All extracted results are stored in standardized JSON format, ensuring semantic consistency, traceability, and convenience for downstream modeling and processing.
 
-### 2. Agent-Driven Automated Modeling and High-Throughput Screening
-
-The intelligent agent completes the following tasks without manual intervention:
-
-* Parse the hydrogel database and determine the number of samples available for unsupervised learning.
-
-* Run the unsupervised learning module to analyze clustering patterns and the structural–property distribution of hydrogel components.
-
-### 3. Unsupervised Learning Module
+### 3. Final prediction
 
 This module explores the distribution and clustering patterns of hydrogels in the “structure–property space.”
 
@@ -25,6 +21,11 @@ This module explores the distribution and clustering patterns of hydrogels in th
 The supervised module establishes nonlinear mapping relationships between molecular structures and material properties.
 
 Using automatically extracted data, we train regression and classification models to predict Young’s modulus and swelling ratio, respectively.
+
+### 5. Unsupervised Learning Module
+
+This module explores the distribution and clustering patterns of hydrogels in the “structure–property space.”
+
 
 ## Installation
 
@@ -303,4 +304,5 @@ China, Donghua University.
 
 ## License
 This project is licensed under the MIT License.
+
 
