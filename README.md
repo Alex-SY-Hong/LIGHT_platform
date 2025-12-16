@@ -58,7 +58,8 @@ pip install -r requirements.txt
 
 ## Usage
 
-### LIGHT_platform
+### LIGHT_platform Agent
+Automated screening of hydrogel candidate components using a program and an LLM.
  
 ### Automated\_Data\_Extraction
 Use the DeepSeek API to extract information from literature. See README inside Automated\_Data\_Extraction for details.
@@ -294,6 +295,7 @@ China, Donghua University.
 
 ## License
 This project is licensed under the MIT License.
+
 
 
 
