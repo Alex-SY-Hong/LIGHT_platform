@@ -22,6 +22,11 @@ python unsupervised.py
 python analyze_unsupervised.py
 ```
 
+- 5.Automated implementation of unsupervised learning and analysis by large language models yields the best clusters.
+```bash
+python unsupervised_learning_automation.py
+```
+
 - Additionally, running the command below directly reproduces the unsupervised classification results in the paper:
 ```bash
 python umap2d-kmeans.py
@@ -42,4 +47,9 @@ python cluster-3-AB-morgan.py
 - 3.Used to generate the UMAP distribution plot for candidate components
 ```bash
 python umap-candidate.py
+```
+
+- 4.Automated processing of candidate_umap
+```bash
+python candidate_umap_automation.py
 ```
