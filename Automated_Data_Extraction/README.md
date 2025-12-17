@@ -21,7 +21,8 @@
 cd LIGHT_platform-main\Automated_Data_Extraction
 python pipeline_main.py
 ```
-
+#### Python version:
+- python==3.12.3
 
 
 
