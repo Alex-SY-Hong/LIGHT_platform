@@ -40,6 +40,8 @@ cd LIGHT_platform
 
 ```bash
 cd Automated_Data_Extraction
+conda create -n extraction python=3.12.3
+conda activate extraction
 pip install -r requirements.txt
 ```
 
@@ -47,13 +49,18 @@ pip install -r requirements.txt
 
 ```bash
 cd Unsupervised_Learning
+conda create -n unsupervised python=3.9.13
+conda activate unsupervised
 pip install -r requirements.txt
 ```
 
 #### For Supervised Learning:
 ```bash
 cd Supervised_Learning
+conda create -n supervised python=3.9.23
+conda activate supervised
 pip install -r requirements.txt
+pip install torch==1.12.1+cu116 torchvision==0.13.1+cu116 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu116
 ```
 
 ## Usage
@@ -295,6 +302,7 @@ China, Donghua University.
 
 ## License
 This project is licensed under the MIT License.
+
 
 
 
