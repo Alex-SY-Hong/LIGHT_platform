@@ -6,7 +6,46 @@ import subprocess
 import sys
 import os
 from pathlib import Path
+import platform
 
+# ====================================================================
+# --- 0. Environment Management Utilities (New) ---
+# ====================================================================
+
+def get_python_path(env_name: str) -> str:
+    """
+    尝试查找指定 conda 环境的 python 解释器路径。
+    逻辑：基于当前运行环境的 sys.executable 路径，向上一级找到 envs 目录，
+    然后进入目标 env_name 目录查找 python。
+    """
+    current_python = Path(sys.executable)
+    
+    # 假设标准 Conda 结构: .../envs/current_env/python(.exe)
+    # 我们回退两级找到 .../envs/
+    envs_dir = current_python.parent.parent
+    
+    # 如果当前是在 bin 目录里 (Linux/Mac: .../envs/current/bin/python)
+    if current_python.parent.name == 'bin':
+        envs_dir = current_python.parent.parent.parent
+
+    # 构造目标路径
+    is_windows = platform.system().lower() == "windows"
+    
+    if is_windows:
+        # Windows: .../envs/target_env/python.exe
+        target_python = envs_dir / env_name / "python.exe"
+    else:
+        # Linux/Mac: .../envs/target_env/bin/python
+        target_python = envs_dir / env_name / "bin" / "python"
+
+    # 检查是否存在
+    if target_python.exists():
+        print(f"🐍 Switched Environment: [{env_name}] -> {target_python}")
+        return str(target_python)
+    else:
+        print(f"⚠️ Warning: Could not find environment '{env_name}' at {target_python}")
+        print(f"   Falling back to current Python: {sys.executable}")
+        return sys.executable
 
 # ====================================================================
 # --- Basic Utility Functions ---
@@ -17,16 +56,20 @@ def run_cmd(
     cwd: Path,
     check: bool = True,
     env_vars: dict = None,
-    input_str: str = None  # Added to support auto-typing inputs
+    input_str: str = None, # Added to support auto-typing inputs
+    python_exec: str = None # [修改] 新增参数：指定 Python 解释器路径
 ) -> subprocess.CompletedProcess | None:
     """
     Execute command and handle input/output streams.
     Can inject input (input_str) to automate interactive scripts.
     """
-    if cmd and cmd[0] == "python":
-        cmd = [sys.executable] + cmd[1:]
-    elif cmd and cmd[0].endswith("python"):
-        cmd[0] = sys.executable
+    # [修改] 如果指定了 python_exec，强制使用该解释器
+    if cmd and (cmd[0] == "python" or cmd[0].endswith("python")):
+        if python_exec:
+            cmd[0] = python_exec
+        else:
+            # 如果没指定，才默认用当前环境的
+            cmd[0] = sys.executable
 
     print("\n" + ">"*20 + " STARTING SUB-PROCESS " + "<"*20)
     print(f"📂 Working Directory: {cwd}")
@@ -74,12 +117,14 @@ def run_cmd(
 def launch_unsupervised_pipeline(base_dir: Path, auto_mode: bool = False) -> None:
     """
     Handles Unsupervised Learning scripts.
-    auto_mode=True:  Run Script 1 then Script 2 automatically.
-    auto_mode=False: Show the specific 5-option interactive menu.
+    [Requirement] Environment: 'unsupervised'
     """
     print("\n" + "*"*60)
     print("🧪 Entering [Unsupervised Learning] Module")
     print("*"*60)
+
+    # [修改] 获取 unsupervised 环境的 Python 路径
+    target_py = get_python_path("unsupervised")
 
     # Define Paths
     unsup_root = base_dir / "Unsupervised_Learning"
@@ -91,7 +136,8 @@ def launch_unsupervised_pipeline(base_dir: Path, auto_mode: bool = False) -> Non
         if not script_path.exists():
             print(f"❌ Error: File not found - {script_path}")
             return False
-        res = run_cmd(["python", str(script_path.name)], cwd=script_path.parent)
+        # [修改] 传入 target_py
+        res = run_cmd(["python", str(script_path.name)], cwd=script_path.parent, python_exec=target_py)
         return res is not None and res.returncode == 0
 
     # --- AUTO MODE (For Main Menu Option 4) ---
@@ -145,7 +191,7 @@ def launch_unsupervised_pipeline(base_dir: Path, auto_mode: bool = False) -> Non
 def launch_supervised_pipeline(base_dir: Path, auto_mode: bool = False) -> None:
     """
     Launch the Supervised Learning Pipeline.
-    auto_mode=True: Automatically simulates entering '3' then '4' to the subprocess.
+    [Requirement] Environment: 'supervised'
     """
     agent_dir = base_dir / "Agent"
     script_path = agent_dir / "Supervised_pipline.py"
@@ -164,6 +210,10 @@ def launch_supervised_pipeline(base_dir: Path, auto_mode: bool = False) -> None:
 
     print("\n" + "*"*60)
     print("🔬 Entering [Supervised Learning] Module")
+    
+    # [修改] 获取 supervised 环境的 Python 路径
+    target_py = get_python_path("supervised")
+
     if auto_mode:
         print("⚙️ Auto-Mode detected: Triggering 'Run Both' then 'Exit'...")
     else:
@@ -171,13 +221,14 @@ def launch_supervised_pipeline(base_dir: Path, auto_mode: bool = False) -> None:
     print("*"*60)
 
     if auto_mode:
-        # --- FIXED HERE ---
         # "3\n" -> Selects 'Run Both'
         # "4\n" -> Selects 'Exit' after the tasks are done
-        run_cmd(["python", str(script_path.name)], cwd=run_cwd, input_str="3\n4\n")
+        # [修改] 传入 target_py
+        run_cmd(["python", str(script_path.name)], cwd=run_cwd, input_str="3\n4\n", python_exec=target_py)
     else:
-        # Interactive mode: No input_str, user types manually
-        run_cmd(["python", str(script_path.name)], cwd=run_cwd)
+        # Interactive mode
+        # [修改] 传入 target_py
+        run_cmd(["python", str(script_path.name)], cwd=run_cwd, python_exec=target_py)
     
     print("\n" + "*"*60)
     print("✅ [Supervised Learning] module task completed.")
@@ -189,7 +240,10 @@ def launch_supervised_pipeline(base_dir: Path, auto_mode: bool = False) -> None:
 # ====================================================================
 
 def run_selection_pipeline(base_dir: Path) -> None:
-    """Run the Agent Selection Script."""
+    """
+    Run the Agent Selection Script.
+    [Requirement] Environment: 'supervised'
+    """
     supervised_dir = base_dir / "Supervised_Learning"
     
     file_ym = supervised_dir / "Regression_Model" / "results" / "YoungsModulus" / "predictions" / "RF_best_pred_kmeans_results.csv"
@@ -214,7 +268,11 @@ def run_selection_pipeline(base_dir: Path) -> None:
         print(f"❌ Agent script not found: {selection_script}")
         return
 
-    run_cmd(["python", str(selection_script.name)], cwd=agent_dir)
+    # [修改] 获取 supervised 环境的 Python 路径 (Selection 也用 supervised)
+    target_py = get_python_path("supervised")
+    
+    # [修改] 传入 target_py
+    run_cmd(["python", str(selection_script.name)], cwd=agent_dir, python_exec=target_py)
 
 
 # ====================================================================
@@ -228,13 +286,16 @@ def run_full_workflow(base_dir: Path) -> None:
     print("#"*60)
 
     # Step 1: Unsupervised (Auto: Runs script 1 then 2)
+    # [内部会自动调用 get_python_path("unsupervised")]
     launch_unsupervised_pipeline(base_dir, auto_mode=True)
 
     # Step 2: Supervised (Auto: Injects "3" then "4")
+    # [内部会自动调用 get_python_path("supervised")]
     print("\n>>> Proceeding to Step 2: Supervised Learning...")
     launch_supervised_pipeline(base_dir, auto_mode=True)
 
     # Step 3: Selection
+    # [内部会自动调用 get_python_path("supervised")]
     print("\n>>> Proceeding to Step 3: Agent Selection...")
     run_selection_pipeline(base_dir)
 
@@ -251,9 +312,9 @@ def prompt_main_menu() -> str:
     print("\n" + "="*60)
     print("🤖 LIGHT Platform Agent Workflow Controller")
     print("=" * 60)
-    print("1. Run Unsupervised Learning (Opens Sub-menu)")
-    print("2. Run Supervised Learning (Regression & Classification)")
-    print("3. Run Agent Selection (Final Decision)")
+    print("1. Run Unsupervised Learning (Opens Sub-menu) [Env: unsupervised]")
+    print("2. Run Supervised Learning (Regression & Classification) [Env: supervised]")
+    print("3. Run Agent Selection (Final Decision) [Env: supervised]")
     print("4. Run ALL (Sequence: 1 -> 2 -> 3)")
     print("5. Exit")
     print("=" * 60)
