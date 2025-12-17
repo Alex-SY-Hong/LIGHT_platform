@@ -105,5 +105,8 @@ python draw_r2.py \
   --outdir Path/runs/linear_ols/fold_8/draw
 ```
 
+#### Python version:
+- Python==3.9.23
+
 
 
