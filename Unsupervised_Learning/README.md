@@ -53,3 +53,6 @@ python umap-candidate.py
 ```bash
 python candidate_umap_automation.py
 ```
+
+#### Python version:
+- Python==3.9.13
