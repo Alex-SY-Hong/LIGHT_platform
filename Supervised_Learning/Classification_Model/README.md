@@ -50,4 +50,6 @@ python draw_ROC.py \
   --test_color  "#F3A5D9" \
   --fill
 ```
+#### Python version:
+- Python==3.9.23
 
