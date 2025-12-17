@@ -33,9 +33,6 @@ setuptools==78.1.1
 six==1.17.0 
 threadpoolctl==3.6.0 
 tomli==2.2.1 
-torch==1.12.1+cu116 
-torchaudio==0.12.1+cu116 
-torchvision==0.13.1+cu116 
 typing_extensions==4.15.0 
 tzdata==2025.2 
 urllib3==2.5.0 
@@ -43,5 +40,6 @@ userpath==1.9.2
 wheel==0.45.1 
 zipp==3.23.0 
 openai==2.11.0
+
 
 
