@@ -293,6 +293,11 @@ LIGHT_platform
                 cluster_4.csv
                 cluster_5.csv
 ```
+
+## Note
+A standard workstation with an NVIDIA GPU (supporting CUDA 11.6) is recommended for model training.
+
+
 ## About
 Developed by:
 
@@ -302,6 +307,7 @@ China, Donghua University.
 
 ## License
 This project is licensed under the MIT License.
+
 
 
 
