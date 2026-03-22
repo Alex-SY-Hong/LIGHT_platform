@@ -1,0 +1,12 @@
+# vim temp
+*~
+
+# vim swap
+*.sw?
+
+# env
+.env
+
+# environment
+.idea
+.venv
