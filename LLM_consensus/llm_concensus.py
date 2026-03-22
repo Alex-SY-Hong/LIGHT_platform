@@ -6,18 +6,25 @@ from openai import APIStatusError, NotFoundError, OpenAI
 
 load_dotenv()
 
+#  A generalized api is used.
 user_api = os.getenv("API_KEY")
 user_url = os.getenv("API_URL")
-system_message = os.getenv("SYSTEM_MESSAGE")
+#  Refactor the storage of prompt from .env (must be ignored) to specific "prompt.md",
+#  which can be safely tracked by git.
+try:
+    with open("prompt.md", "r", encoding="utf-8") as f:
+        prompt = f.read()
+except FileNotFoundError:
+    print("Please load the prompt into <prompt.md>.")
 
 runs = 3
 models = [
-    # "gemini-3-pro-preview", # 搞定
+    "gemini-3-pro-preview",
     #  "gemini-3-pro-preview-thinking",
     #  "gemini-3-flash-preview",
     # "gpt-5", #跑完了
-    # "grok-4.20", # model not found，等liaobots的人改
-    # "claude-opus-4-5",#跑完了
+    "grok-4",
+    # "claude-opus-4-5"
 ]
 global_error_message = ""
 
@@ -36,6 +43,11 @@ def make_client(api: str, url: str):
 
 def get_response(model: str, message: str, temperature: float, client) -> str:
 
+    # 6 months ago when I was a Haskell nerd,
+    # I would never have thought of writing a function
+    # that "polutes" global domain...
+    # But, convenience prevails.
+    # *Tsoding beatbox*
     global global_error_message
 
     print(f"Questioning {model}")
@@ -100,12 +112,12 @@ def write_to_separate_file(response: str, model: str, metadata: str):
 
 def main():
 
-    if user_api and user_url and system_message:
+    if user_api and user_url and prompt:
         print("Variables loaded.")
     else:
         print(f"user_api: {"True" if user_api else "False"}")
         print(f"user_url: {"True" if user_url else "False"}")
-        print(f"system_message: {"True" if system_message else "False"}")
+        print(f"system_message: {"True" if prompt else "False"}")
         return None
 
     current_client = make_client(user_api, user_url)
@@ -126,7 +138,13 @@ def main():
     # 目标的算法
     for i in range(runs):
         for current_model in models:
-            response = get_response(current_model, system_message, 0.0, current_client)
+            response = get_response(current_model, prompt, 0.0, current_client)
+            """
+            It occured to me that, if get_response returned a tuple of 
+            (response, error_message), the code can be streamlined and 
+            the global parameter abolished.
+            Maybe feature for later...
+            """
             if not response:
                 response = f"Encountered problem {global_error_message}, no response."
             with open(f"{current_model}.md", "a", encoding="utf-8") as the_file:
