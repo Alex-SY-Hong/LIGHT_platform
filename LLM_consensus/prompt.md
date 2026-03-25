@@ -26,7 +26,7 @@ I will provide a list of 10 Hydrogel candidates.
 Hydrogels are highly tunable polymers. Do NOT evaluate these candidates based on their \"average\" or \"baseline \" states. Instead, evaluate them assuming they have been **synthetically optimized (e.g., via crosslinking density, MW tuning) specifically for this cardiovascular stent application.**
 
 **HOWEVER, you MUST strictly enforce the fundamental Polymer Physics Trade-offs:**
-1.  **The Swelling-Modulus Paradox:** High swelling inherently decreases Young's modulus. If a material requires extremely high crosslinking to achieve the 1.0-2.0 MPa target (making it rigid), you MUST correspondingly penalize its \"Swelling Performance\" score. A hydrogel cannot magically score 10/10 in both Mechanics and Swelling without a documented highly fine-tuned networking or composite.
+1.  **Goldilocks Zone:** It is generally impossible to optimize ALL factors AT THE SAME TIME, so aim for the optimization of the general properties, instead of highlighting one property in sacrific for others. OVERTLY SPECIFY WHAT QUALITY(QUALITIES) YOU ARE OPTIMIZING.
 2.  **Inherent Chemical Backbone Limits:** You can assume optimal crosslinking, but you CANNOT alter the fundamental biological nature of the polymer backbone. (e.g., If the backbone is fundamentally pro-inflammatory or lacks cell-adhesion motifs like RGD, optimization cannot completely erase this unless conjugated, which requires penalizing the complexity/safety score).
 
 **STEP 1: Hard-Coded Reference Anchoring (DO NOT DEVIATE)**

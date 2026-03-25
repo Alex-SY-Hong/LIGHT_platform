@@ -24,6 +24,7 @@ models = [
     #  "gemini-3-flash-preview",
     # "gpt-5", #跑完了
     "grok-4",
+    "grok-420",  # ,
     # "claude-opus-4-5"
 ]
 global_error_message = ""
