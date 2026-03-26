@@ -1,120 +1,138 @@
 # Run 0 response, Temperature =0.0:
 
-**1. QUANTIFIED SCORING (.CSV FORMAT)**
-```csv
-Candidate,Mechanical_Safety,Swelling_Performance,Endothelialization,SMC_inhibition,Anti_inflammation,Thrombogenicity,Total_Score
-Formula 1,7,8,9,5,7,6,42
-Formula 2,8,8,7,5,6,6,40
-Formula 3,7,7,8,6,5,2,35
-Formula 4,9,9,9,6,8,8,49
-Formula 5,7,6,6,8,9,9,45
-Formula 6,4,5,6,5,6,5,31
-Formula 7,5,5,6,5,4,3,28
-Formula 8,6,7,7,5,5,6,36
-Formula 9,9,8,2,8,8,8,43
-Formula 10,7,6,2,9,9,9,42
-```
-
-**2. THE WINNER (Calculated Result)**
-*   **Selected Formula:** Formula 4 (Gelatin_methacrylate & Silk_Fibroin)
-*   **One-Sentence Rationale:** Formula 4 mathematically and clinically wins by achieving the "Goldilocks" optimization of robust cyclic mechanical strength (via Silk beta-sheets) and rapid endothelialization (via GelMA RGD motifs), without the runaway swelling or thrombogenic risks inherent to other blends.
-
-**3. THE "WHY" (Detailed Logic for the Winner)**
-*   **Mechanical Fit:** *Hardcoded Reference: 1.0 - 2.0 MPa (Human Coronary Artery).* Pure hydrogels often fail cardiovascular cyclic loading (systole/diastole). By synthetically optimizing the molecular weight and crosslinking density of GelMA with Silk Fibroin, we leverage Silk's highly crystalline beta-sheet domains. This acts as a robust physical crosslinking network, allowing the composite to strictly match the 1.0 - 2.0 MPa modulus requirement while maintaining the elasticity needed for stent deployment.
-*   **Swelling Profile:** *Hardcoded Reference: >200% swelling ratio for drug elution, capped to prevent lumen occlusion.* GelMA provides excellent hydrophilicity, easily surpassing the 200% threshold for optimal drug-loading capacity (e.g., for paclitaxel or sirolimus). However, unconstrained hydrogels (like PEG or pure GelMA) risk excessive swelling that can narrow the arterial lumen. Silk Fibroin acts as a structural anchor; its hydrophobic domains restrict infinite water uptake, perfectly capping the swelling ratio in a safe, structurally stable zone.
-
-**4. THE SAFETY AUDIT (Winner's Pros & Cons)**
-*   **Biological "Green Flags":** The highest priority in modern interventional cardiology is preventing Late Stent Thrombosis (LST). Formula 4 excels here because GelMA retains the natural RGD (Arginine-Glycine-Aspartic acid) amino acid sequences from gelatin, which actively promotes rapid attachment and proliferation of Endothelial Cells (ECs). Combined with Silk's inherently low immunogenicity and excellent hemocompatibility, this material rapidly masks the stent struts from circulating platelets.
-*   **Potential "Red Flags" & Phantom Factors:** 
-    *   *SMC Inhibition:* Neither GelMA nor Silk inherently inhibits Smooth Muscle Cell (SMC) proliferation (Score: 6). To prevent in-stent restenosis, this hydrogel *must* be utilized as a drug-eluting matrix (loading anti-proliferative agents). 
-    *   *Batch Variability:* Because both are naturally derived polymers, strict synthetic control over the degree of methacrylation (in GelMA) and degumming (in Silk) is required to prevent batch-to-batch mechanical variance.
-
-**5. REJECTED CANDIDATES (Brief Autopsy)**
-*   **Rejected due to Fatal Thrombosis Risk (<4 score):** Formula 3 (Chitosan/GelMA) and Formula 7 (Chitin/GelMA). Chitosan and Chitin are well-documented hemostatic agents. In a coronary artery, promoting coagulation is a fatal flaw that will lead to acute stent thrombosis, regardless of mechanical optimization.
-*   **Rejected due to Endothelialization Failure (Inert Backbones):** Formula 9 (PAM/PVA) and Formula 10 (PAM/PEG). While mechanically tough and highly anti-thrombogenic, these synthetic backbones are entirely "stealth" and lack cell-adhesion motifs. They will resist endothelialization, leaving the stent permanently exposed as a foreign body and requiring lifelong dual antiplatelet therapy (DAPT).
-*   **Rejected due to Mechanical/Swelling Mismatch:** Formula 5 (GelMA/PEG) and Formula 6 (Starch/GelMA). PEG is highly hydrophilic; optimizing it for a >200% swelling ratio without causing catastrophic lumen occlusion requires extreme crosslinking, which would push its modulus out of the 1.0-2.0 MPa range (making it brittle). Starch lacks the inherent tensile strength for arterial cyclic loading.
-
-# Run 1 response, Temperature =0.0:
-
-**1. QUANTIFIED SCORING (.CSV FORMAT)**
-```csv
-Candidate,Mechanical_Safety,Swelling_Performance,Endothelialization,SMC_inhibition,Anti_inflammation,Thrombogenicity,Total_Score
-Formula 1,5,8,9,6,7,7,42
-Formula 2,8,8,6,5,4,4,35
-Formula 3,6,7,7,6,5,2,33
-Formula 4,9,8,9,7,8,8,49
-Formula 5,5,5,4,8,8,9,39
-Formula 6,4,6,6,5,6,5,32
-Formula 7,5,6,5,5,3,2,26
-Formula 8,8,7,7,5,4,6,37
-Formula 9,9,7,2,8,5,5,36
-Formula 10,7,6,2,8,7,8,38
-```
-
-**2. THE WINNER (Calculated Result)**
-*   **Selected Formula:** Formula 4 (Gelatin_methacrylate(GelMA) & Silk_Fibroin(SK))
-*   **One-Sentence Rationale:** Formula 4 mathematically and clinically wins by achieving the "Goldilocks Zone" of cardiovascular biomaterials: Silk Fibroin provides the robust beta-sheet crystalline crosslinking required to hit the 1.0 - 2.0 MPa arterial modulus, while GelMA provides the critical RGD motifs necessary for rapid endothelialization without triggering thrombosis.
-
-**3. THE "WHY" (Detailed Logic for the Winner)**
-*   **Mechanical Fit:** *Hardcoded Reference: 1.0 - 2.0 MPa.* Pure GelMA is typically too soft (100-300 kPa) and becomes brittle if over-crosslinked to reach the MPa range. By creating an interpenetrating polymer network (IPN) with Silk Fibroin, we leverage silk's inherent beta-sheet secondary structures. When synthetically optimized, this composite easily and stably anchors within the 1.0 - 2.0 MPa target range, perfectly matching the compliance of human coronary arteries and preventing mechanical failure under pulsatile shear stress.
-*   **Swelling Profile:** *Hardcoded Reference: >200% but structurally stable.* GelMA inherently possesses a high swelling ratio, which is excellent for loading anti-restenotic drugs (e.g., paclitaxel or sirolimus). However, unchecked swelling in a stent cover leads to catastrophic lumen occlusion. Silk Fibroin acts as a structural governor; its hydrophobic crystalline domains restrict the isotropic expansion of the GelMA network. This optimization yields a controlled swelling ratio of ~200-250%, ensuring adequate drug elution and conformability while strictly preserving luminal patency.
-
-**4. THE SAFETY AUDIT (Winner's Pros & Cons)**
-*   **Biological "Green Flags":** 
-    *   *Pro-Endothelialization:* GelMA retains the natural RGD (Arginine-Glycine-Aspartic acid) amino acid sequences from gelatin, which are mandatory integrin-binding sites for rapid endothelial cell (EC) migration. 
-    *   *Hemocompatibility:* Both GelMA and Silk Fibroin exhibit low platelet adhesion profiles when optimized, minimizing the risk of late stent thrombosis (LST).
-    *   *Stealth Immunology:* Degummed silk fibroin is highly biocompatible and elicits a minimal foreign body response, promoting a healthy healing cascade rather than chronic inflammation.
-*   **Potential "Red Flags" & Phantom Factors:** 
-    *   *Sericin Contamination:* The safety of Silk Fibroin is entirely dependent on the complete removal of sericin (the glue-like protein in raw silk) during synthesis. Any residual sericin will trigger a severe macrophage-mediated inflammatory response.
-    *   *Degradation Kinetics:* The degradation rate of the GelMA/SK matrix must be precisely tuned via crosslinking density to match the rate of *de novo* extracellular matrix (ECM) deposition by the host. If it degrades too fast, the stent struts may be exposed, risking thrombosis.
-
-**5. REJECTED CANDIDATES (Brief Autopsy)**
-*   **Rejected due to Fatal Thrombosis Risk (<4 score):** Formula 3 (CS & GelMA) and Formula 7 (Chitin & GelMA). Chitosan and Chitin are inherently hemostatic materials used in trauma bandages to *induce* blood clotting. Placing them on a cardiovascular stent is a fatal flaw that would lead to acute in-stent thrombosis, regardless of synthetic optimization.
-*   **Rejected due to Endothelialization Failure (<4 score):** Formula 9 (PAM & PVA) and Formula 10 (PAM & PEG). While mechanically tunable and highly swellable, these synthetic backbones are entirely bio-inert. They lack cell-adhesion motifs. A stent cover that cannot endothelialize will remain a bare foreign body, requiring lifelong dual antiplatelet therapy (DAPT) and carrying a perpetual risk of thrombosis.
-*   **Rejected due to Modulus Mismatch & Structural Weakness (<4 score):** Formula 6 (Starch & GelMA). Starch lacks the mechanical integrity to survive arterial pulsatile pressure. Attempting to crosslink it to 1.0 - 2.0 MPa would result in a highly brittle, friable material prone to micro-fractures and embolization. Formula 1 and Formula 5 also suffer from an inability to safely reach the target modulus without compromising their swelling or biological profiles.
-*   **Rejected due to Inflammation / Foreign Body Response Risk:** Formula 2 (PAM & Gel) and Formula 8 (GelMA & Cellulose). Polyacrylamide (PAM) carries risks of toxic residual monomers and poor long-term *in vivo* degradation profiles. Cellulose, while mechanically strong, is not enzymatically degradable in humans (we lack cellulase), which inevitably leads to chronic inflammation, foreign body giant cell recruitment, and severe in-stent restenosis.
-
-# Run 2 response, Temperature =0.0:
-
-As a Senior Biomaterials Engineer and Interventional Cardiologist, I have evaluated the 10 candidates based on the "Safety-First, Biocompatibility-Maximized" protocol. My assessment assumes synthetic optimization (cross-linking density and methacrylation degrees) to target the human coronary artery's mechanical profile while respecting the inherent limitations of the polymer backbones.
-
-**Hard-Coded Reference Anchoring:**
-*   **Target Young's Modulus:** 1.0 – 2.0 MPa (Human Coronary Artery Reference).
-*   **Target Swelling Ratio:** > 200% (Optimized for drug loading without compromising lumen diameter).
+As a Senior Biomaterials Engineer and Interventional Cardiologist, my priority is the prevention of late-stent thrombosis (LST) and in-stent restenosis (ISR). This requires a material that not only mimics the arterial wall's elasticity but also actively orchestrates a "pro-endothelial, anti-SMC" environment.
 
 ### 1. QUANTIFIED SCORING (.CSV FORMAT)
+
 ```csv
 Candidate,Mechanical_Safety,Swelling_Performance,Endothelialization,SMC_inhibition,Anti_inflammation,Thrombogenicity,Total_Score
-Formula 1,5,9,9,5,8,8,44
-Formula 2,7,7,5,4,3,4,30
-Formula 3,8,8,8,7,7,7,45
-Formula 4,9,8,9,8,9,9,52
-Formula 5,8,8,5,6,8,9,44
-Formula 6,5,7,7,5,6,6,36
-Formula 7,7,6,7,6,7,7,40
-Formula 8,8,6,7,5,7,7,40
-Formula 9,9,7,3,4,3,3,29
-Formula 10,8,8,3,5,4,5,33
+Formula 1,7,6,9,5,7,7,41
+Formula 2,5,8,4,4,3,4,28
+Formula 3,7,7,7,8,7,7,43
+Formula 4,9,8,9,9,9,9,53
+Formula 5,8,9,5,6,8,9,45
+Formula 6,5,6,6,5,6,6,34
+Formula 7,6,6,6,7,7,7,39
+Formula 8,6,5,5,5,6,6,33
+Formula 9,5,8,3,4,4,5,29
+Formula 10,6,9,3,4,5,7,34
 ```
 
 ### 2. THE WINNER (Calculated Result)
-*   **Selected Formula:** Formula 4: Gelatin_methacrylate (GelMA) & Silk_Fibroin (SK)
-*   **One-Sentence Rationale:** Formula 4 provides the optimal synergistic balance between the high-tensile reinforcement of Silk Fibroin to meet the 1.0-2.0 MPa arterial modulus and the RGD-mediated bioactivity of GelMA for rapid endothelialization.
+*   **Selected Formula:** Formula 4: Gelatin_methacrylate (GelMA) & Silk_Fibroin (SF)
+*   **One-Sentence Rationale:** Formula 4 provides the optimal synergistic balance of high-fidelity mechanical matching to the coronary artery and a superior biological profile that promotes rapid endothelialization while actively suppressing smooth muscle cell hyperplasia.
 
 ### 3. THE "WHY" (Detailed Logic for the Winner)
-*   **Mechanical Fit:** While pure GelMA is often too compliant (<0.5 MPa), the integration of Silk Fibroin (SK) allows for the formation of beta-sheet crystalline domains. By tuning the SK-to-GelMA ratio, we can precisely hit the **1.5 MPa midpoint** of the coronary artery reference. This ensures the stent cover deforms elastically with the vessel wall, preventing stress shielding or mechanical irritation that leads to restenosis.
-*   **Swelling Profile:** GelMA provides the necessary hydrophilic matrix to exceed the **200% swelling threshold**, ideal for loading anti-proliferative drugs (like Sirolimus). However, the Silk Fibroin acts as a structural "anchor," constraining the hydrogel's expansion to prevent the "mushrooming" effect that causes acute lumen occlusion in small-diameter coronary vessels.
+*   **Mechanical Fit:** I am using the reference range of **0.5 to 2.0 MPa** for the Human Coronary Artery Young’s Modulus. While pure GelMA is often too compliant (<100 kPa), the integration of Silk Fibroin (SF) acts as a structural reinforcement. By tuning the SF concentration and the degree of methacrylation in GelMA, we can precisely hit the 1.5 MPa "sweet spot," preventing compliance mismatch which is a known trigger for intimal hyperplasia.
+*   **Swelling Profile:** Formula 4 exhibits a "Smart Swelling" behavior. The GelMA component provides the high swelling ratio required for conformability and drug loading (e.g., Sirolimus), while the crystalline beta-sheet domains of the Silk Fibroin provide physical crosslinks that prevent the hydrogel from over-expanding and occluding the vessel lumen.
 
 ### 4. THE SAFETY AUDIT (Winner's Pros & Cons)
-*   **Biological "Green Flags":** The GelMA component contains intrinsic RGD (Arg-Gly-Asp) sequences that promote **Endothelialization**, which is the "Holy Grail" of stent safety to prevent late-stent thrombosis. Silk Fibroin is clinically proven to have exceptionally low immunogenicity and a "stealth" profile in the bloodstream.
-*   **Potential "Red Flags" & Phantom Factors:** The primary risk is the **Degradation Kinetic Match**. If the GelMA/SK matrix degrades faster than the native extracellular matrix (ECM) can be deposited by endothelial cells, the stent struts may become exposed. Precise control over the photo-crosslinking intensity is required to ensure the cover lasts the requisite 3–6 months.
+*   **Biological "Green Flags":**
+    *   **Endothelialization:** GelMA inherently contains RGD (Arg-Gly-Asp) sequences that promote HUVEC (Human Umbilical Vein Endothelial Cell) adhesion and migration.
+    *   **SMC-Inhibition:** Silk Fibroin has been clinically observed to support a "contractile" (quiescent) phenotype in Smooth Muscle Cells rather than a "synthetic" (proliferative) phenotype, significantly reducing the risk of restenosis.
+    *   **Thrombogenicity:** Both components are highly hemocompatible; SF, in particular, shows lower platelet activation compared to synthetic polymers.
+*   **Potential "Red Flags" & Phantom Factors:**
+    *   **Degradation Kinetics:** While both are biodegradable, the degradation rate must be strictly monitored. If GelMA degrades too quickly, the SF scaffold might become brittle. 
+    *   **Immunogenicity:** While rare, silk-associated sericin (if not properly purified during processing) can trigger a Type IV hypersensitivity reaction. *Requirement: Ensure medical-grade, sericin-free fibroin.*
 
 ### 5. REJECTED CANDIDATES (Brief Autopsy)
-*   **Rejected due to Thrombosis & Toxicity Risk (Score <4):** 
-    *   **Formula 2, 9, 10 (PAM-based):** Polyacrylamide is a "dead" synthetic polymer. Residual acrylamide monomers are neurotoxic and pro-inflammatory. These formulas failed the "Safety-First" mandate due to poor anti-inflammation and high thrombogenicity scores.
-*   **Rejected due to Poor Endothelialization (Score <4):**
-    *   **Formula 9, 10:** Lack of cell-adhesive motifs prevents the formation of a functional endothelium, leaving the patient at risk for chronic clotting.
-*   **Rejected due to Mechanical Instability/Mismatch:**
-    *   **Formula 1 (Gel/GelMA):** Likely too soft and degrades too rapidly to provide a stable drug-delivery barrier in a high-shear arterial environment.
-    *   **Formula 6 (Starch):** Starch-based hydrogels often exhibit poor long-term structural integrity and unpredictable swelling in physiological saline.
+*   **Rejected due to Toxicity & Biocompatibility Risk (Score <4 in Anti-inflammation/Thrombogenicity):** 
+    *   **Formula 2, 9, 10:** These contain Polyacrylamide (PAM). As a cardiologist, I cannot accept the risk of residual acrylamide monomers—a known neurotoxin—leaching into the coronary bloodstream, nor their poor integration with vascular endothelium.
+*   **Rejected due to Poor Endothelialization:**
+    *   **Formula 5:** While PEG is excellent for anti-thrombogenicity, its "stealth" nature inhibits cell attachment. Without a functionalized RGD peptide, it prevents the formation of a healthy endothelial monolayer, increasing the risk of late-stent thrombosis.
+*   **Rejected due to Mechanical Instability or Lack of Data:**
+    *   **Formula 6 (Starch) & Formula 8 (Cellulose):** Starch lacks the long-term structural integrity required for a pulsating environment (70+ beats per minute). Cellulose is not naturally degradable by human enzymes, leading to a permanent foreign body response.
+    *   **Formula 7 (Chitin):** While promising, Chitin has poor solubility and processing consistency compared to its derivative, Chitosan (Formula 3), making it a higher manufacturing risk.
+
+# Run 1 response, Temperature =0.0:
+
+As a Senior Biomaterials Engineer and Interventional Cardiologist, I have evaluated the 10 hydrogel candidates based on the "Safety-First, Biocompatibility-Maximized" paradigm.
+
+### 1. QUANTIFIED SCORING (.CSV FORMAT)
+**Reference Anchor:** I am using the reference range of **0.5 to 2.0 MPa** for the Human Coronary Artery Young's Modulus (circumferential/radial average).
+
+```csv
+Candidate,Mechanical_Safety,Swelling_Performance,Endothelialization,SMC_inhibition,Anti_inflammation,Thrombogenicity,Total_Score
+Formula 1,9,8,9,6,7,7,46
+Formula 2,6,7,4,4,4,4,29
+Formula 3,8,7,8,7,8,8,46
+Formula 4,9,7,9,8,8,8,49
+Formula 5,8,9,6,5,7,8,43
+Formula 6,7,8,6,5,6,6,38
+Formula 7,7,7,7,7,8,8,44
+Formula 8,7,6,6,6,7,7,39
+Formula 9,5,6,3,4,4,4,26
+Formula 10,5,8,4,4,5,5,31
+```
+
+### 2. THE WINNER (Calculated Result)
+*   **Selected Formula:** Formula 4: Gelatin_methacrylate (GelMA) & Silk_Fibroin (SF)
+*   **One-Sentence Rationale:** Formula 4 achieves the highest score by leveraging the tunable elasticity of GelMA to match arterial modulus while utilizing Silk Fibroin’s superior mechanical reinforcement, low thrombogenicity, and inherent ability to promote endothelialization while modulating smooth muscle cell behavior.
+
+### 3. THE "WHY" (Detailed Logic for the Winner)
+*   **Mechanical Fit:** GelMA/SF blends are highly tunable. By adjusting the methacrylation degree of Gelatin and the β-sheet content of Silk Fibroin, the modulus can be precisely dialed into the **0.5–2.0 MPa** range. Unlike pure GelMA, which can be brittle, the SF interpenetrating network provides the structural integrity required to withstand cyclic arterial loading without fatigue failure.
+*   **Swelling Profile:** GelMA provides a high swelling ratio (10–20x dry weight) which is excellent for conformability against irregular plaque surfaces and drug loading. The addition of Silk Fibroin acts as a "physical constraint," preventing the uncontrolled swelling that leads to lumen occlusion, ensuring the hydrogel remains a thin, stable "skin" over the stent struts.
+
+### 4. THE SAFETY AUDIT (Winner's Pros & Cons)
+*   **Biological "Green Flags":** 
+    *   **Endothelialization:** GelMA contains intrinsic RGD (Arg-Gly-Asp) sequences that promote endothelial cell adhesion. Silk Fibroin has been shown in vascular graft studies to support a healthy EC monolayer.
+    *   **SMC-Inhibition:** Silk Fibroin has a unique "stealth" property that, when optimized, can limit the over-proliferation of vascular smooth muscle cells (VSMCs) compared to synthetic polymers.
+    *   **Thrombogenicity:** Both components are highly biocompatible; SF, in particular, shows lower platelet activation than most synthetic elastomers.
+*   **Potential "Red Flags" & Phantom Factors:** 
+    *   **Degradation Rate:** GelMA degrades via matrix metalloproteinases (MMPs). If degradation is too rapid, the stent may lose its drug-carrying cover before the vessel heals. 
+    *   **Immunogenicity:** While rare, Silk Fibroin must be highly purified to remove Sericin, which can trigger a "Phantom Factor" inflammatory response (Type I hypersensitivity).
+
+### 5. REJECTED CANDIDATES (Brief Autopsy)
+*   **Rejected due to Thrombosis & Biocompatibility Risk (Thrombogenicity < 5):** 
+    *   **Formula 2, 9, 10:** These contain Polyacrylamide (PAM). Residual acrylamide monomers are neurotoxic and pro-inflammatory. PAM is a "forever polymer" in many contexts and lacks the bio-instructive signals required for coronary integration.
+*   **Rejected due to Mechanical/Stability Concerns:**
+    *   **Formula 6, 8:** Starch and Cellulose-based hydrogels often suffer from poor long-term stability in physiological fluids or exhibit "burst" swelling that is difficult to constrain within the 3-4mm diameter of a coronary artery.
+*   **The "Runner Up" (Formula 3):** 
+    *   **Formula 3 (CS/GelMA):** Chitosan is excellent for hemostasis but can sometimes be *too* pro-inflammatory during the degradation phase, potentially leading to late-stage restenosis compared to the more "immune-neutral" Silk Fibroin.
+
+# Run 2 response, Temperature =0.0:
+
+As a Senior Biomaterials Engineer and Interventional Cardiologist, my priority is the prevention of late-stent thrombosis (LST) and in-stent restenosis (ISR). This requires a material that not only mimics the arterial wall's elasticity but also actively orchestrates a "pro-endothelial, anti-SMC" environment.
+
+### 1. QUANTIFIED SCORING (.CSV FORMAT)
+
+```csv
+Candidate,Mechanical_Safety,Swelling_Performance,Endothelialization,SMC_inhibition,Anti_inflammation,Thrombogenicity,Total_Score
+Formula 1,7,6,9,5,7,7,41
+Formula 2,5,8,4,4,3,4,28
+Formula 3,7,7,7,8,7,7,43
+Formula 4,9,8,9,9,9,9,53
+Formula 5,8,9,5,6,8,9,45
+Formula 6,5,6,6,5,6,6,34
+Formula 7,6,6,6,7,7,7,39
+Formula 8,6,5,5,5,6,6,33
+Formula 9,5,8,3,4,4,5,29
+Formula 10,6,9,3,4,5,7,34
+```
+
+### 2. THE WINNER (Calculated Result)
+*   **Selected Formula:** Formula 4: Gelatin_methacrylate (GelMA) & Silk_Fibroin (SF)
+*   **One-Sentence Rationale:** Formula 4 provides the optimal synergistic balance of high-fidelity mechanical matching to the coronary artery and a superior biological profile that promotes rapid endothelialization while actively suppressing smooth muscle cell hyperplasia.
+
+### 3. THE "WHY" (Detailed Logic for the Winner)
+*   **Mechanical Fit:** I am using the reference range of **0.5 to 2.0 MPa** for the Human Coronary Artery Young’s Modulus. While pure GelMA is often too compliant (<100 kPa), the integration of Silk Fibroin (SF) acts as a structural reinforcement. By tuning the SF concentration and the degree of methacrylation in GelMA, we can precisely hit the 1.5 MPa "sweet spot," preventing compliance mismatch which is a known trigger for intimal hyperplasia.
+*   **Swelling Profile:** Formula 4 exhibits a "Smart Swelling" behavior. The GelMA component provides the high swelling ratio required for conformability and drug loading (e.g., Sirolimus), while the crystalline beta-sheet domains of the Silk Fibroin provide physical crosslinks that prevent the hydrogel from over-expanding and occluding the vessel lumen.
+
+### 4. THE SAFETY AUDIT (Winner's Pros & Cons)
+*   **Biological "Green Flags":**
+    *   **Endothelialization:** GelMA inherently contains RGD (Arg-Gly-Asp) sequences that promote HUVEC (Human Umbilical Vein Endothelial Cell) adhesion and migration.
+    *   **SMC-Inhibition:** Silk Fibroin has been clinically observed to support a "contractile" (quiescent) phenotype in Smooth Muscle Cells rather than a "synthetic" (proliferative) phenotype, significantly reducing the risk of restenosis.
+    *   **Thrombogenicity:** Both components are highly hemocompatible; SF, in particular, shows lower platelet activation compared to synthetic polymers.
+*   **Potential "Red Flags" & Phantom Factors:**
+    *   **Degradation Kinetics:** While both are biodegradable, the degradation rate must be strictly monitored. If GelMA degrades too quickly, the SF scaffold might become brittle. 
+    *   **Immunogenicity:** While rare, silk-associated sericin (if not properly purified during processing) can trigger a Type IV hypersensitivity reaction. *Requirement: Ensure medical-grade, sericin-free fibroin.*
+
+### 5. REJECTED CANDIDATES (Brief Autopsy)
+*   **Rejected due to Toxicity & Biocompatibility Risk (Score <4 in Anti-inflammation/Thrombogenicity):** 
+    *   **Formula 2, 9, 10:** These contain Polyacrylamide (PAM). As a cardiologist, I cannot accept the risk of residual acrylamide monomers—a known neurotoxin—leaching into the coronary bloodstream, nor their poor integration with vascular endothelium.
+*   **Rejected due to Poor Endothelialization:**
+    *   **Formula 5:** While PEG is excellent for anti-thrombogenicity, its "stealth" nature inhibits cell attachment. Without a functionalized RGD peptide, it prevents the formation of a healthy endothelial monolayer, increasing the risk of late-stent thrombosis.
+*   **Rejected due to Mechanical Instability or Lack of Data:**
+    *   **Formula 6 (Starch) & Formula 8 (Cellulose):** Starch lacks the long-term structural integrity required for a pulsating environment (70+ beats per minute). Cellulose is not naturally degradable by human enzymes, leading to a permanent foreign body response.
+    *   **Formula 7 (Chitin):** While promising, Chitin has poor solubility and processing consistency compared to its derivative, Chitosan (Formula 3), making it a higher manufacturing risk.
 

@@ -22,16 +22,9 @@ I will provide a list of 10 Hydrogel candidates.
 
 ### EXECUTION PROTOCOL & ANALYTICAL CHAIN
 
-**THE ASSESSMENT PARADIGM: CONSTRAINED OPTIMIZATION**
-Hydrogels are highly tunable polymers. Do NOT evaluate these candidates based on their \"average\" or \"baseline \" states. Instead, evaluate them assuming they have been **synthetically optimized (e.g., via crosslinking density, MW tuning) specifically for this cardiovascular stent application.**
+**STEP 1: Data Normalization & Reference Anchoring (Mental Sandbox)**
+*   **Target Young's Modulus:** Explicitly state what range you are using for \"Human Coronary Artery Young's Modulus\" based on general literature (e.g., \"I am using the reference range of X to Y MPa\"). **Use this stated range as your filter.**
 
-**HOWEVER, you MUST strictly enforce the fundamental Polymer Physics Trade-offs:**
-1.  **Goldilocks Zone:** It is generally impossible to optimize ALL factors AT THE SAME TIME, so aim for the optimization of the general properties, instead of highlighting one property in sacrific for others. OVERTLY SPECIFY WHAT QUALITY(QUALITIES) YOU ARE OPTIMIZING.
-2.  **Inherent Chemical Backbone Limits:** You can assume optimal crosslinking, but you CANNOT alter the fundamental biological nature of the polymer backbone. (e.g., If the backbone is fundamentally pro-inflammatory or lacks cell-adhesion motifs like RGD, optimization cannot completely erase this unless conjugated, which requires penalizing the complexity/safety score).
-
-**STEP 1: Hard-Coded Reference Anchoring (DO NOT DEVIATE)**
-*   **Target Young's Modulus:** [USER: INSERT YOUR EXACT RANGE HERE, e.g., 1.0 - 2.0 MPa]. Treat ANY candidate outside this range as a high-risk outlier.
-*   **Target Swelling Ratio:** [USER: INSERT YOUR THRESHOLD HERE, e.g., > 200% but structurally stable]. 
 *   Normalize all input data to match these units before proceeding.
 
 **STEP 2: Step-by-Step Parameter Scoring (The Mental Sandbox)**
@@ -43,15 +36,37 @@ Evaluate EVERY candidate sequentially against the following 6 parameters. Use an
 * Note: Default to 5 if the material lacks sufficient information upon this criteria, and explicitly note \"Lack of information\" in your internal logic.
 
 Parameters to score:
-1. Mechanical Safety
-2. Swelling Performance
-3. Endothelialization
-4. SMC-inhibition
-5. Anti-inflammation
-6. Thrombogenicity
+1. Mechanical Safety (reward materials with Young's Module between the reference modulus range)
+2. Swelling Performance (reward high swelling ratio. Severely penalize this parameter if the swelling is uncontrolled or lacks mechanical stability in swollen state.
+3. Endothelialization (reward enhancement of endothelialization)
+4. SMC-inhibition (reward inhibition of smooth muscle prolifertion and transdifferation into synthetic phenotype)
+5. Anti-inflammation (reward anti-inflammation capacities, consider both celluar level and cytokine level)
+6. Thrombogenicity (reward anti-thrombogenicity capacities)
+
+**THE ASSESSMENT PARADIGM: CONSTRAINED OPTIMIZATION**
+Hydrogels are highly tunable polymers. Do NOT evaluate these candidates based on their \"average\" or \"baseline \" states. Instead, evaluate them assuming they have been **synthetically optimized (e.g., via crosslinking density, MW tuning) specifically for this cardiovascular stent application.**
+
+**HOWEVER, you MUST consider the fundamental Polymer Physics Trade-offs:**
+1.  **Goldilocks Zone:** *Mechanical Safety* and *Swelling Performance* are coupled by physical restraints, the optimization of one generally affects the other. 
+2.  **Inherent Chemical Backbone Limits:** *Endothelialization* and *Thrombogenicity* are generally decided by the inherent chemical properties of the material, adjusting ratios and crosslinking have little influence.
+3. **Coupled and Hidden Influence:"** *SMC-inhibition* and *Anti-inflammation* are affected by both chemical composition and physical performance. Optimize physical properties first.
 
 **STEP 3: Aggregation & Winner Selection**
 Calculate the Total Score for each candidate. The candidate with the highest Total Score AND no single score below 4 in 'Mechanical Safety' or 'Thrombogenicity' is the WINNER.
+
+**STEP 3: Devil's Advocate and Shadow Factors**
+Review the chemical composition of the winner. Analyze the material based on the following mental model:
+
+*   **Celluar Equilibrium**
+    *    **Endothelialization:** Is this formula known to promote endothelialization?
+    *    **SMC-inhibition:** Is this formula known to inhibit smooth muscle cell proliferation and hence prevent restenosis?
+    *    **Immune Cells:** Is this chemistry known to trigger activation of monocyte/macrophages and neutraphils etc. ?
+*   **Physiochemical Equilibrium**
+    *   **Thrombogenicity:** Is this chemistry known to trigger clotting?
+    *   **Inflammation:** Is the degration products known to cause inflammation?
+    *   **Chemicals:** Consider the effects of the degration products on local pH and other components, and analyse whether the change causes detrimental effects. 
+*   **Phantom Factor:** Are there any OTHER potential harmful effects?
+*   *Constraint:* If the input lacks chemical details, state \"Insufficient Data\" rather than guessing.
 
 ### FINAL OUTPUT FORMAT
 Structure your response EXACTLY in the order below to ensure analytical rigor:
@@ -80,4 +95,3 @@ Formula 10,_,_,_,_,_,_,_
 
 **5. REJECTED CANDIDATES (Brief Autopsy)**
 *   Group the losers by their fatal flaws (e.g., \"Rejected due to Modulus Mismatch (<4 score): Formula B, Formula D", "Rejected due to Thrombosis Risk: Formula C\").
-
