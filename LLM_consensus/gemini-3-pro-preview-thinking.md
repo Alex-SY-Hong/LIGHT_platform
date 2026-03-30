@@ -62,107 +62,6 @@ Formula 10,8,4,2,9,8,9,40
 
 # Run 1 response, Temperature =0.0:
 
-As a Senior Biomaterials Engineer and Interventional Cardiologist, I have evaluated the 10 candidates based on the "Safety-First, Biocompatibility-Maximized" protocol.
-
-### 1. QUANTIFIED SCORING (.CSV FORMAT)
-**Reference Anchor:** I am using the human coronary artery Young’s Modulus reference range of **0.5 MPa to 2.0 MPa** (circumferential/radial stiffness) as the target filter.
-
-```csv
-Candidate,Mechanical_Safety,Swelling_Performance,Endothelialization,SMC_inhibition,Anti_inflammation,Thrombogenicity,Total_Score
-Formula 1,9,7,8,5,6,6,41
-Formula 2,6,8,4,4,4,4,30
-Formula 3,8,7,8,7,8,8,46
-Formula 4,9,6,9,6,7,7,44
-Formula 5,8,8,6,5,6,7,40
-Formula 6,7,7,6,5,5,6,36
-Formula 7,8,6,7,7,8,8,44
-Formula 8,7,5,6,5,6,6,35
-Formula 9,5,8,3,4,4,4,28
-Formula 10,5,9,4,4,5,5,32
-```
-
-### 2. THE WINNER (Calculated Result)
-*   **Selected Formula:** Formula 3: Chitosan (CS) & Gelatin_methacrylate (GelMA)
-*   **One-Sentence Rationale:** Formula 3 provides the optimal balance of tunable mechanical compliance matching the coronary artery, inherent anti-thrombogenic properties of Chitosan, and the cell-instructive motifs of GelMA to promote healthy endothelialization while suppressing SMC over-proliferation.
-
-### 3. THE “WHY” (Detailed Logic for the Winner)
-*   **Mechanical Fit:** The combination of Chitosan (polycationic) and GelMA (photo-crosslinkable) allows for a double-network or interpenetrating network (IPN) structure. By tuning the degree of methacrylation and the CS:GelMA ratio, the Young's Modulus can be precisely dialed into the **0.5–2.0 MPa** range, preventing the "stress shielding" effect that occurs with stiffer metallic stents.
-*   **Swelling Profile:** Chitosan provides structural integrity in the swollen state due to its crystalline domains, while GelMA allows for high water uptake. This ensures the liner expands to appose the vessel wall completely (reducing dead space) without the uncontrolled "blooming" seen in pure synthetic hydrogels (like PAM) that could lead to lumen occlusion.
-
-### 4. THE SAFETY AUDIT (Winner's Pros & Cons)
-*   **Biological “Green Flags”:** 
-    *   **Endothelialization:** GelMA contains RGD (Arg-Gly-Asp) sequences that promote endothelial cell adhesion and migration.
-    *   **SMC-inhibition:** Chitosan has been shown in several studies to inhibit the migration and proliferation of vascular smooth muscle cells (VSMCs), a key factor in preventing in-stent restenosis.
-    *   **Thrombogenicity:** Chitosan possesses inherent hemostatic properties in bulk but, when properly deacetylated and integrated into a hydrogel liner, it exhibits low platelet adhesion compared to synthetic polymers.
-*   **Potential “Red Flags” & Phantom Factors:** 
-    *   **Degradation Kinetics:** Chitosan is degraded by lysozyme. If degradation is too rapid, the mechanical support may fail before the vessel heals; if too slow, it may trigger a chronic foreign body response. 
-    *   **pH Sensitivity:** Chitosan solubility is pH-dependent; local acidosis (common in post-ischemic tissue) could theoretically alter the liner's swelling or degradation rate.
-
-### 5. REJECTED CANDIDATES (Brief Autopsy)
-*   **Rejected due to Biocompatibility/Thrombosis Risk (PAM-based):** **Formula 2, Formula 9, and Formula 10.** Polyacrylamide (PAM) is chemically robust but lacks bio-instructive motifs. Residual acrylamide monomers are neurotoxic and pro-inflammatory, posing a significant risk in a "Safety-First" cardiovascular application.
-*   **Rejected due to Mechanical/Stability Concerns:** **Formula 8 (Cellulose) and Formula 6 (Starch).** While biocompatible, these polysaccharides often result in brittle hydrogels or lack the precise tunability required to match the elastic modulus of a pulsing coronary artery, leading to potential delamination.
-*   **Rejected due to Lower Bio-Activity:** **Formula 5 (PEG-GelMA).** While PEG is excellent for reducing protein adsorption, it is "bio-inert." In a liner application, we require "bio-active" restoration. Formula 3 outperformed Formula 5 specifically on the SMC-inhibition and Anti-inflammation parameters due to the inherent properties of Chitosan.
-*   **Strong Runner-Up:** **Formula 4 (Silk Fibroin) and Formula 7 (Chitin).** These were highly competitive. Formula 4 was narrowly beaten by Formula 3 because Chitosan offers superior, well-documented SMC-inhibition and easier processing for "high swelling" deployment compared to the more crystalline Silk Fibroin.
-
-# Run 2 response, Temperature =0.0:
-
-As a Senior Biomaterials Engineer and Interventional Cardiologist, I have evaluated the 10 hydrogel candidates for use as a vascular liner. The evaluation follows the "Safety-First, Biocompatibility-Maximized" protocol, assuming synthetic optimization for the specific coronary environment.
-
-### 1. QUANTIFIED SCORING (.CSV FORMAT)
-
-```csv
-Candidate,Mechanical_Safety,Swelling_Performance,Endothelialization,SMC_inhibition,Anti_inflammation,Thrombogenicity,Total_Score
-Formula 1,8,8,9,6,7,7,45
-Formula 2,6,7,4,5,4,6,32
-Formula 3,8,7,8,8,9,6,46
-Formula 4,7,5,8,7,8,8,43
-Formula 5,8,9,4,5,8,9,43
-Formula 6,4,4,5,5,7,5,30
-Formula 7,7,6,7,7,8,6,41
-Formula 8,8,6,7,5,7,7,40
-Formula 9,5,7,3,5,4,7,31
-Formula 10,6,8,3,5,7,9,38
-```
-
-### 2. THE WINNER (Calculated Result)
-
-*   **Selected Formula:** Formula 3: Chitosan (CS) & Gelatin_methacrylate (GelMA)
-*   **One-Sentence Rationale:** Formula 3 provides the optimal balance of arterial-matched mechanics and superior biochemical signaling, specifically leveraging Chitosan’s ability to inhibit smooth muscle cell hyperplasia and promote M2 macrophage polarization.
-
----
-
-### 3. THE "WHY" (Detailed Logic for the Winner)
-
-*   **Mechanical Fit:** I am using the reference range of **0.5 to 1.5 MPa** for the Human Coronary Artery Young's Modulus. Formula 3 (CS/GelMA) is highly tunable; by adjusting the degree of methacrylation in Gelatin and the concentration of Chitosan, the interpenetrating polymer network (IPN) can be precisely calibrated to ~1.0 MPa. This prevents compliance mismatch, which is a primary driver of flow disturbance and subsequent restenosis.
-*   **Swelling Profile:** While GelMA alone exhibits high swelling that can lead to structural weakening, the addition of Chitosan provides a semi-crystalline framework that stabilizes the hydrogel. This allows for a high swelling ratio (facilitating the delivery of anti-proliferative drugs if needed) without the risk of the liner "pillowing" into the lumen and causing iatrogenic occlusion.
-
----
-
-### 4. THE SAFETY AUDIT (Winner's Pros & Cons)
-
-*   **Biological "Green Flags":**
-    *   **Endothelialization:** GelMA contains intrinsic RGD (Arg-Gly-Asp) cell-adhesion motifs that facilitate rapid endothelial cell (EC) attachment and spreading.
-    *   **SMC-Inhibition:** Chitosan has been shown in vascular literature to selectively inhibit the proliferation of synthetic-phenotype Smooth Muscle Cells (SMCs) while remaining permissive to ECs—a "Goldilocks" effect for preventing in-stent restenosis.
-    *   **Immune Modulation:** Chitosan promotes the transition of macrophages from the pro-inflammatory M1 phenotype to the pro-healing M2 phenotype, reducing the chronic inflammatory response to the "stent-like" presence.
-*   **Potential "Red Flags" & Phantom Factors:**
-    *   **Thrombogenicity Risk:** Chitosan is naturally hemostatic (pro-coagulant) in its raw form. **Safety Requirement:** The formula must use highly deacetylated chitosan and potentially be heparin-conjugated to ensure the blood-contacting surface remains thrombo-resistant.
-    *   **Degradation Kinetics:** GelMA degrades via Matrix Metalloproteinases (MMPs). In a post-interventional "inflamed" vessel, MMP levels are high, which could lead to premature degradation of the liner before the vessel has stabilized.
-
----
-
-### 5. REJECTED CANDIDATES (Brief Autopsy)
-
-*   **Rejected due to Endothelial Toxicity/Inertness (Score < 4):** 
-    *   **Formula 9 (PAM/PVA)** and **Formula 10 (PAM/PEG):** Polyacrylamide (PAM) and PEG are bio-inert. Without specific functionalization, they fail to support the "re-balance" of the endothelial layer, leading to a permanent "bare metal" risk profile and potential late-stage thrombosis.
-*   **Rejected due to Mechanical/Structural Instability:**
-    *   **Formula 6 (Starch/GelMA):** Starch lacks the long-term structural integrity required for a vascular liner; its rapid degradation and poor mechanical reinforcement make it a "Fatal Flaw" candidate for high-pressure arterial environments.
-*   **Rejected due to Biocompatibility Concerns:**
-    *   **Formula 2 (PAM/Gel):** Residual acrylamide monomers from the PAM polymerization process are neurotoxic and pro-inflammatory, posing a significant risk in a localized vascular application.
-*   **Marginal Performance (Lower Total Score):**
-    *   **Formula 5 (GelMA/PEG):** While mechanically excellent, the anti-fouling nature of PEG actively hinders the necessary endothelialization required for long-term vessel healing.
-
-# Run 0 response, Temperature =0.0:
-
 ### STEP 1: Data Normalization & Reference Anchoring (Mental Sandbox)
 **Reference Anchor:** The macroscopic Young's Modulus of a healthy human coronary artery falls within the reference range of **1.0 to 2.0 MPa**. This specific range will be used as the absolute mechanical target. Materials must be tunable to this range without requiring extreme crosslinking densities that would destroy their swelling capacity or make them dangerously brittle.
 
@@ -223,7 +122,7 @@ Formula 10,8,4,2,9,8,9,40
     *   *Formula 6:* Starch lacks the structural integrity to provide mechanical support against uneven vessel stress and degrades unpredictably.
     *   *Formula 5:* PEG is highly hydrophilic. To prevent it from swelling uncontrollably and occluding the lumen, it must be heavily crosslinked, which pushes the material out of the target Young's Modulus and makes it dangerously brittle.
 
-# Run 1 response, Temperature =0.0:
+# Run 2 response, Temperature =0.0:
 
 ### STEP 1: Data Normalization & Reference Anchoring (Mental Sandbox)
 **Reference Anchor:** The macroscopic Young's Modulus of a healthy human coronary artery falls within the reference range of **1.0 to 2.0 MPa**. This specific range will be used as the absolute mechanical target. Materials must be tunable to this range without requiring extreme crosslinking densities that would destroy their swelling capacity or make them dangerously brittle.
