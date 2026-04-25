@@ -4,8 +4,6 @@ This folder provides the supervised-learning workflow used for property regressi
 
 ### Folder structure
 
-Recommended directory layout:
-
 ```text
 LIGHT_platform-main/
 └── Supervised_Learning/
