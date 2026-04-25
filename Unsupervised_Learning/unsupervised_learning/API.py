@@ -71,9 +71,9 @@ def get_best_cluster_from_csv(csv_path):
         Each item in the list is a dictionary containing:
         - cluster_file: the cluster file name
         - prob_SR: probability of having high stretchability (SR ≥ 9)
-        - prob_YM: probability of having suitable Young's modulus (100-2000 MPa)
+        - prob_YM: probability of having suitable Young's modulus (100-2000 kPa)
         - SR_ge_9: number of samples in cluster with SR ≥ 9
-        - YM_100_2000: number of samples in cluster with YM between 100-2000 MPa
+        - YM_100_2000: number of samples in cluster with YM between 100-2000 kPa
         
         Your task:
         - Analyze both prob_SR and prob_YM values
