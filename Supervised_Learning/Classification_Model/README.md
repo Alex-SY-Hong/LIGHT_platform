@@ -11,6 +11,9 @@ The current example is based on `Swelling Ratio (times)` classification. In the 
 ```text
 LIGHT_platform-main/
 └── Supervised_Learning/
+    ├── DataBase/
+    │   └── swelling_ratio.csv        # Raw classification database.
+    │
     └── Classification_Model/
         ├── classification_main.py     # One-click classification pipeline: Morgan + training + best-fold selection + prediction + plotting.
         ├── pipeline.py                # Builds binary labels from a continuous property and calls train_rf.py.
@@ -98,11 +101,11 @@ After label generation, the original continuous column is removed from the class
 
 The generated classification CSV has the following structure:
 
-| row_index | y_class | fp_0 | fp_1 | ... | fp_1023 | y_class | _fp_hash |
-|---:|---:|---:|---:|---|---:|---|---|
-| 0 | 0 | 0 | 1 | ... | 0 | 0 | `hash_value` |
-| 1 | 1 | 2 | 0 | ... | 1 | 1 | `hash_value` |
-| ... | ... | ... | ... | ... | ... | ... |... |
+| row_index | fp_0 | fp_1 | ... | fp_1023 | y_class | _fp_hash |
+|---:|---:|---:|---|---:|---:|---|
+| 0 | 0 | 1 | ... | 0 | 0 | `hash_value` |
+| 1 | 2 | 0 | ... | 1 | 1 | `hash_value` |
+| ... | ... | ... | ... | ... | ... | ... |
 
 The `_fp_hash` column is generated from numerical fingerprint features and can be used for group-aware splitting when duplicated fingerprints exist.
 
@@ -246,8 +249,6 @@ All commands below should be executed under:
 LIGHT_platform-main/Supervised_Learning/Classification_Model
 ```
 
-Paths such as `Path/...` should be replaced by user-defined local paths.
-
 ---
 
 ### 4.1 One-click full classification pipeline
@@ -284,10 +285,13 @@ This command performs the following steps:
 
 ```bash
 python morgan_pooling.py \
-  --in_csv swelling_ratio.csv \
+  --in_csv ../DataBase/swelling_ratio.csv \
   --polymer_cols "SMILE A" "SMILE B" "SMILE C" \
-  --alpha 3 --radius 3 --nbits 1024 \
-  --out_csv Path/SMILES-pooled-morgan.csv
+  --target_col "Swelling Ratio (times)" \
+  --alpha 3 \
+  --radius 3 \
+  --nbits 1024 \
+  --out_csv results/SwellingRatio/features/swelling_ratio_morgan.csv
 ```
 
 ---
@@ -296,10 +300,11 @@ python morgan_pooling.py \
 
 ```bash
 python pipeline.py \
-  --in_csv  Path/SMILES-pooled-morgan.csv \
+  --in_csv  results/SwellingRatio/features/swelling_ratio_morgan.csv \
   --src_col "Swelling Ratio (times)" \
   --threshold 9 \
   --use_cv10 1
+  --base_save_root results/SwellingRatio
 ```
 
 ---
@@ -322,18 +327,10 @@ Then run:
 
 ```bash
 python predict.py \
-  --in_csv Path/kmeans-pooled.csv \
-  --source_csv Path/kmeans_results.csv \
-  --out_csv Path/Result-swelling.csv \
-  --model_dir Path/rf_cls_cv10_t9/cv10/ 
-```
-
-The final CSV will contain the original SMILES/formulation columns plus:
-
-```text
-SwellingRatio_pred
-SwellingRatio_pred_prob_class0
-SwellingRatio_pred_prob_class1
+  --in_csv ../High-throughput predict/kmeans-pooled.csv \
+  --source_csv ../High-throughput predict/kmeans_results.csv \
+  --out_csv results/SwellingRatio/SwellingRatio_predict.csv \
+  --model_dir results/SwellingRatio/rf_cls_cv10_t9/cv10/
 ```
 
 ---
@@ -354,13 +351,13 @@ This script automatically finds the fold with the highest `Acc_class_1`, locates
 
 ```bash
 python draw_Matrix.py \
-  --csv_train   Path/rf_cls_cv10_t9/cv10/fold_06_train.csv \
-  --csv_test    Path/rf_cls_cv10_t9/cv10/fold_06_valid.csv \
+  --csv_train  results/SwellingRatio/rf_cls_cv10_t9/cv10/fold_06_train.csv \
+  --csv_test    results/SwellingRatio/rf_cls_cv10_t9/cv10/fold_06_valid.csv \
   --y_col       y_true \
   --yhat_col    y_pred \
-  --out_train   Path/CM/confmat_train.png \
-  --out_test    Path/CM/confmat_valid.png \
-  --out_dir     Path/CM/
+  --out_train   results/SwellingRatio/draw/rf/fold_06/CM/confmat_train.png \
+  --out_test    results/SwellingRatio/draw/rf/fold_06/CM/confmat_test.png \
+  --out_dir     results/SwellingRatio/draw/rf/fold_06/CM/ \
   --cmap        Blues \
   --rotate_xticks 0 \
   --normalize   none
@@ -372,9 +369,9 @@ python draw_Matrix.py \
 
 ```bash
 python draw_ROC.py \
-  --csv_train Path/rf_cls_cv10_t9/cv10//fold_06_train.csv \
-  --csv_test  Path/rf_cls_cv10_t9/cv10/fold_06_valid.csv \
-  --out_dir   Path/ROC \
+  --csv_train results/SwellingRatio/rf_cls_cv10_t9/cv10/fold_06_train.csv \
+  --csv_test  results/SwellingRatio/rf_cls_cv10_t9/cv10/fold_06_valid.csv \
+  --out_dir   results/SwellingRatio/draw/rf/fold_06/ROC \
   --train_color 109,109,255 \
   --test_color  "#F3A5D9" \
   --fill
