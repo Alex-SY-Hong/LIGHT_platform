@@ -38,7 +38,7 @@ LIGHT_platform-main/
                 ├── draw/
                 ├── model_candidates_for_llm.json
                 └── overall_best_model.json
-
+```
 ### How to create Morgan fingerprint.
 ```bash
 python morgan_pooling.py \
