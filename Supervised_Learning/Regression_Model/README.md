@@ -28,6 +28,12 @@ LIGHT_platform-main/
         │   ├── grid_svm.py
         │   └── rf_grid_loop.py
         │
+        ├── draw/ # Plotting scripts used by draw_pipline.py.
+        │   └── draw_r2.py
+        │
+        ├── API/ # Optional API-based model recommendation.
+        │   └── advise_best_model_with_api.py
+        │
         ├── predict/ # Prediction script for applying a trained model to new samples.
         │   └── predict.py
         │
@@ -44,6 +50,8 @@ LIGHT_platform-main/
                 ├── draw/ # Figures generated from model outputs.
                 ├── model_candidates_for_llm.json
                 └── overall_best_model.json
+
+
 ```
 
 ## 2. Data flow and file format
@@ -212,7 +220,7 @@ python main_regression/baseline_RF.py \
 python main_regression/train_mlp_svm_pipeline.py \
   --in_csv  results/YoungsModulus/features/youngs_modulus-pooled-morgan.csv \
   --target  "Young's Modulus (kPa) log10" \
-  --out_root results/YoungsModulus/runs
+  --out_root results/YoungsModulus/runs \
   --cv10 1 \
   --cv_folds 10
 ```
@@ -232,7 +240,8 @@ python predict/predict.py \
   --in_csv "../High-throughput predict/kmeans-pooled.csv" \
   --source_csv "../High-throughput predict/kmeans_results.csv" \
   --out_csv results/YoungsModulus/predictions/RF_best_pred_kmeans_results.csv \
-  --model_dir Path/rf_cv10/fold_models/ 
+  --model_dir results/YoungsModulus/rf_cv10/fold_models \
+  --target_name RF_YoungsModulus_pred
 ```
 
 ### 4.6 Run RF grid search
