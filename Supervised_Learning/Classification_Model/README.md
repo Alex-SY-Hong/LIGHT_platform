@@ -278,32 +278,6 @@ This command performs the following steps:
 6. Predict new candidates and export `SwellingRatio_predict.csv`.
 7. Generate confusion-matrix and ROC figures for the best fold.
 
-To skip plotting:
-
-```bash
-python classification_main.py \
-  --task_name SwellingRatio \
-  --raw_csv ../DataBase/swelling_ratio.csv \
-  --src_col "Swelling Ratio (times)" \
-  --threshold 9 \
-  --class_col y_class \
-  --polymer_cols "SMILE A" "SMILE B" "SMILE C" \
-  --no_draw
-```
-
-To force all steps to rerun even if existing files are detected:
-
-```bash
-python classification_main.py \
-  --task_name SwellingRatio \
-  --raw_csv ../DataBase/swelling_ratio.csv \
-  --src_col "Swelling Ratio (times)" \
-  --threshold 9 \
-  --class_col y_class \
-  --polymer_cols "SMILE A" "SMILE B" "SMILE C" \
-  --force_rerun
-```
-
 ---
 
 ### 4.2 Generate Morgan fingerprints manually
@@ -312,33 +286,20 @@ python classification_main.py \
 python morgan_pooling.py \
   --in_csv swelling_ratio.csv \
   --polymer_cols "SMILE A" "SMILE B" "SMILE C" \
-  --target_col "Swelling Ratio (times)" \
-  --alpha 3 \
-  --radius 3 \
-  --nbits 1024 \
-  --out_csv results/SwellingRatio/features/swelling_ratio_morgan.csv
+  --alpha 3 --radius 3 --nbits 1024 \
+  --out_csv Path/SMILES-pooled-morgan.csv
 ```
 
 ---
 
-### 4.3 Run RF classification manually
+### 4.3 Run RF classification
 
 ```bash
 python pipeline.py \
-  --in_csv results/SwellingRatio/features/swelling_ratio_morgan.csv \
+  --in_csv  Path/SMILES-pooled-morgan.csv \
   --src_col "Swelling Ratio (times)" \
   --threshold 9 \
-  --class_col y_class \
-  --use_cv10 1 \
-  --save_fold_models 1 \
-  --base_save_root results/SwellingRatio
-```
-
-This command generates:
-
-```text
-results/SwellingRatio/features/swelling_ratio_morgan_CLS9.csv
-results/SwellingRatio/rf_cls_cv10_t9/
+  --use_cv10 1
 ```
 
 ---
@@ -363,10 +324,8 @@ Then run:
 python predict.py \
   --in_csv Path/kmeans-pooled.csv \
   --source_csv Path/kmeans_results.csv \
-  --out_csv results/SwellingRatio/SwellingRatio_predict.csv \
-  --model_dir results/SwellingRatio/rf_cls_cv10_t9/cv10 \
-  --target_name SwellingRatio_pred \
-  --id_col row_index
+  --out_csv Path/Result-swelling.csv \
+  --model_dir Path/rf_cls_cv10_t9/cv10/ 
 ```
 
 The final CSV will contain the original SMILES/formulation columns plus:
@@ -395,14 +354,16 @@ This script automatically finds the fold with the highest `Acc_class_1`, locates
 
 ```bash
 python draw_Matrix.py \
-  --csv_train results/SwellingRatio/rf_cls_cv10_t9/cv10/fold_06_train.csv \
-  --csv_test results/SwellingRatio/rf_cls_cv10_t9/cv10/fold_06_valid.csv \
-  --y_col y_true \
-  --yhat_col y_pred \
-  --out_dir results/SwellingRatio/draw/rf/fold_06/CM \
-  --cmap Blues \
+  --csv_train   Path/rf_cls_cv10_t9/cv10/fold_06_train.csv \
+  --csv_test    Path/rf_cls_cv10_t9/cv10/fold_06_valid.csv \
+  --y_col       y_true \
+  --yhat_col    y_pred \
+  --out_train   Path/CM/confmat_train.png \
+  --out_test    Path/CM/confmat_valid.png \
+  --out_dir     Path/CM/
+  --cmap        Blues \
   --rotate_xticks 0 \
-  --normalize none
+  --normalize   none
 ```
 
 ---
@@ -411,12 +372,13 @@ python draw_Matrix.py \
 
 ```bash
 python draw_ROC.py \
-  --csv_train results/SwellingRatio/rf_cls_cv10_t9/cv10/fold_06_train.csv \
-  --csv_test results/SwellingRatio/rf_cls_cv10_t9/cv10/fold_06_valid.csv \
-  --out_dir results/SwellingRatio/draw/rf/fold_06/ROC \
+  --csv_train Path/rf_cls_cv10_t9/cv10//fold_06_train.csv \
+  --csv_test  Path/rf_cls_cv10_t9/cv10/fold_06_valid.csv \
+  --out_dir   Path/ROC \
   --train_color 109,109,255 \
-  --test_color "#F3A5D9" \
+  --test_color  "#F3A5D9" \
   --fill
+
 ```
 
 ---
@@ -460,90 +422,4 @@ results/
     │               └── roc_train_vs_test.png
     │
     └── SwellingRatio_predict.csv
-```
-
----
-
-## 6. Notes for modifying paths and column names
-
-### Change the classification property
-
-Replace:
-
-```bash
---src_col "Swelling Ratio (times)"
-```
-
-with the continuous property column to be classified.
-
-### Change the classification threshold
-
-Replace:
-
-```bash
---threshold 9
-```
-
-with another threshold. The generated model folder will follow the threshold value, for example:
-
-```text
-rf_cls_cv10_t6
-rf_cls_cv10_t9
-rf_cls_cv10_t12
-```
-
-### Change SMILES columns
-
-If the input CSV does not use `SMILE A`, `SMILE B`, and `SMILE C`, specify the correct columns:
-
-```bash
---polymer_cols "Polymer A SMILE" "Polymer B SMILE" "Polymer C SMILE"
-```
-
-### Change prediction output column name
-
-Use:
-
-```bash
---target_name YourPredictionName
-```
-
-For example:
-
-```bash
---target_name SwellingRatio_pred
-```
-
-This will generate:
-
-```text
-SwellingRatio_pred
-SwellingRatio_pred_prob_class0
-SwellingRatio_pred_prob_class1
-```
-
-### Change merge key
-
-By default, prediction uses:
-
-```text
-row_index
-```
-
-If another key is used, specify:
-
-```bash
---id_col SampleID
-```
-
-Both the feature CSV and source CSV must contain the selected ID column.
-
----
-
-## 7. Python environment
-
-Recommended Python version:
-
-```text
-Python == 3.9.23
 ```
