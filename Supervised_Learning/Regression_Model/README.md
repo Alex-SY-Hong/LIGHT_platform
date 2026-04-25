@@ -39,12 +39,35 @@ LIGHT_platform-main/
                 ├── model_candidates_for_llm.json
                 └── overall_best_model.json
 ```
+
+## 2. Input data format
+
+The original input file should be a CSV table containing SMILES columns and one target property column. For Young's modulus regression, the target column used in this workflow is:
+
+```text
+Young's Modulus (kPa) log10
+A minimal input table is:
+
+row_index	SMILE A	SMILE B	SMILE C	Young's Modulus (kPa) log10
+0	CCO			3.25
+1	O=C(O)CCO	CCO		4.10
+The SMILES column names can be modified by changing the --polymer_cols argument. For example:
+
+--polymer_cols "SMILE A" "SMILE B" "SMILE C"
+
+If the dataset contains identifier columns such as SampleID or RecipeID, these columns can be preserved in downstream output by specifying them through --id_cols or --keep_cols, depending on the script.
+```
+
+
 ### How to create Morgan fingerprint.
 ```bash
 python morgan_pooling.py \
   --in_csv youngs_modulus.csv \
   --polymer_cols "SMILE A" "SMILE B" "SMILE C" \
-  --alpha 3 --radius 3 --nbits 1024 \
+  --target_col "Young's Modulus (kPa) log10" \
+  --alpha 3 \
+  --radius 3 \
+  --nbits 1024 \
   --out_csv Path/SMILES-pooled-morgan.csv
 ```
 
@@ -79,7 +102,10 @@ python baseline_OLS_linear_regression.py
 ```
 
 ### How to predict 
-- You need to identify the best model and rename the file using R², RMSE, and MAE. e.g. fold_08_best_model.joblib to best_model.joblib.
+Before prediction, make sure that `--model_dir` contains a file named `best_model.joblib`.
+If a fold-specific model is used, copy or rename the selected fold model, for example:
+
+fold_models/fold_08_best_model.joblib  ->  fold_models/best_model.joblib
 ```bash
 python predict.py \
   --in_csv Path/kmeans-pooled.csv \
@@ -93,7 +119,7 @@ python predict.py \
 python rf_grid_loop.py \
   --in_csv Path/SMILES-pooled-morgan.csv \
   --target "Young's Modulus (kPa) log10" \
-  --save_dir Path/rf_grid_loop \
+  --save_dir Path/rf_grid \
   --id_cols SampleID,RecipeID \
   --test_size 0.2
 ```
@@ -141,9 +167,9 @@ python draw_r2.py \
 ### How to draw OLS R2-curve.
 ```bash
 python draw_r2.py \
-  --train_csv Path/runs/linear_ols/fold_8/fold_8_train.csv \
-  --test_csv Path/runs/linear_ols/fold_8/fold_8_valid.csv \
-  --outdir Path/runs/linear_ols/fold_8/draw
+  --train_csv Path/runs/ols_linear/fold_8/fold_8_train.csv \
+  --test_csv Path/runs/ols_linear/fold_8/fold_8_valid.csv \
+  --outdir Path/runs/ols_linear/fold_8/draw
 ```
 
 #### Python version:
