@@ -127,6 +127,7 @@ fold_models/fold_08_best_model.joblib  ->  fold_models/best_model.joblib
 The final output is a CSV-format property database. A minimal output format is:
 
 | Pair_ID | SMILE A | SMILE B | row_index | RF_YoungsModulus_pred |
+|---|---|---|---:|---:|
 | Pair_1 | `[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN` | `[*]NC(CCCCNC(C(C)=C)=O)C(N1CCCC1C(NCC(N2CC(O)CC2C(NC(COC(C(C)=C)=O)C(NCC([*])=O)=O)=O)=O)=O)=O` | 0 | 2.723 |
 | Pair_2 | `OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO` | `[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN` | 1 | 5.555 |
 | ... | ... | ... | ... | ... |
