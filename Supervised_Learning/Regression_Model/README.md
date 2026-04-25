@@ -74,6 +74,7 @@ The output feature CSV has the following structure:
 |---:|---:|---:|---:|---|---:|
 | 0 | 0.752 | 0 | 1 | ... | 0 |
 | 1 | 0.911 | 2 | 0 | ... | 1 |
+| ... | ... | ... | ... | ... | ... |
 
 Here, `fp_0` to `fp_1023` are the Morgan fingerprint features.
 
