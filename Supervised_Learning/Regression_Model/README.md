@@ -2,7 +2,7 @@
 
 This folder provides the supervised-learning workflow used for property regression. The workflow converts polymer/formulation SMILES into pooled Morgan-fingerprint features, trains baseline and optimized regression models, evaluates model performance by hold-out or cross-validation.
 
-## 1. Folder structure
+### Folder structure
 
 Recommended directory layout:
 
@@ -39,25 +39,6 @@ LIGHT_platform-main/
                 ├── model_candidates_for_llm.json
                 └── overall_best_model.json
 ```
-
-## 2. Input data format
-
-The original input file should be a CSV table containing SMILES columns and one target property column. For Young's modulus regression, the target column used in this workflow is:
-
-```text
-Young's Modulus (kPa) log10
-A minimal input table is:
-
-row_index	SMILE A	SMILE B	SMILE C	Young's Modulus (kPa) log10
-0	CCO			3.25
-1	O=C(O)CCO	CCO		4.10
-The SMILES column names can be modified by changing the --polymer_cols argument. For example:
-
---polymer_cols "SMILE A" "SMILE B" "SMILE C"
-
-If the dataset contains identifier columns such as SampleID or RecipeID, these columns can be preserved in downstream output by specifying them through --id_cols or --keep_cols, depending on the script.
-```
-
 
 ### How to create Morgan fingerprint.
 ```bash
