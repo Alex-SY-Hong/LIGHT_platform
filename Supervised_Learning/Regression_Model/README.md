@@ -7,6 +7,9 @@ This folder provides the supervised-learning workflow used for property regressi
 ```text
 LIGHT_platform-main/
 └── Supervised_Learning/
+    ├── DataBase/
+    │   └── youngs_modulus.csv
+    │
     └── Regression_Model/
         │
         ├── run_pipeline.py      # One-click pipeline: regression + model selection + plotting.
@@ -179,24 +182,24 @@ All commands below assume that the current working directory contains the corres
 
 ### 4.1 Generate Morgan fingerprints
 ```bash
-python morgan_pooling.py \
-  --in_csv youngs_modulus.csv \
+python main_regression/morgan_pooling.py \
+  --in_csv ../DataBase/youngs_modulus.csv \
   --polymer_cols "SMILE A" "SMILE B" "SMILE C" \
   --target_col "Young's Modulus (kPa) log10" \
   --alpha 3 \
   --radius 3 \
   --nbits 1024 \
-  --out_csv Path/SMILES-pooled-morgan.csv
+  --out_csv results/YoungsModulus/features/youngs_modulus-pooled-morgan.csv
 ```
 
 ### 4.2 Train RF regression model
 ```bash
-python baseline_RF.py \
-  --in_csv Path/SMILES-pooled-morgan.csv \
+python main_regression/baseline_RF.py \
+  --in_csv results/YoungsModulus/features/youngs_modulus-pooled-morgan.csv \
   --target "Young's Modulus (kPa) log10" \
   --model rf \
   --seed 42 \
-  --save_dir Path/rf_cv10 \
+  --save_dir results/YoungsModulus/rf_cv10 \
   --cv10 \
   --cv_folds 10 \
   --save_train_pred \
@@ -206,10 +209,10 @@ python baseline_RF.py \
 
 ### 4.3 Train MLP and SVM models
 ```bash
-python train_mlp_svm_pipeline.py \
-  --in_csv  Path/SMILES-pooled-morgan.csv \
+python main_regression/train_mlp_svm_pipeline.py \
+  --in_csv  results/YoungsModulus/features/youngs_modulus-pooled-morgan.csv \
   --target  "Young's Modulus (kPa) log10" \
-  --out_root Path/runs \
+  --out_root results/YoungsModulus/runs
   --cv10 1 \
   --cv_folds 10
 ```
@@ -225,69 +228,69 @@ If a fold-specific model is used, copy or rename the selected fold model, for ex
 
 fold_models/fold_08_best_model.joblib  ->  fold_models/best_model.joblib
 ```bash
-python predict.py \
-  --in_csv Path/kmeans-pooled.csv \
-  --source_csv Path/kmeans_results.csv \
-  --out_csv Path/Result-youngs.csv \
+python predict/predict.py \
+  --in_csv "../High-throughput predict/kmeans-pooled.csv" \
+  --source_csv "../High-throughput predict/kmeans_results.csv" \
+  --out_csv results/YoungsModulus/predictions/RF_best_pred_kmeans_results.csv \
   --model_dir Path/rf_cv10/fold_models/ 
 ```
 
 ### 4.6 Run RF grid search
 ```bash
-python rf_grid_loop.py \
-  --in_csv Path/SMILES-pooled-morgan.csv \
+python grid/rf_grid_loop.py \
+  --in_csv results/YoungsModulus/features/youngs_modulus-pooled-morgan.csv \
   --target "Young's Modulus (kPa) log10" \
-  --save_dir Path/rf_grid \
+  --save_dir results/YoungsModulus/rf_grid \
   --id_cols SampleID,RecipeID \
   --test_size 0.2
 ```
 
 ### 4.7 Run MLP grid search
 ```bash
-python grid_mlp.py \
-  --in_csv Path/SMILES-pooled-morgan.csv \
+python grid/grid_mlp.py \
+  --in_csv results/YoungsModulus/features/youngs_modulus-pooled-morgan.csv \
   --target "Young's Modulus (kPa) log10" \
-  --save_dir Path/mlp_grid
+  --save_dir results/YoungsModulus/mlp_grid
 ```
 
 ### 4.8 Run SVM grid search
 ```bash
-python grid_svm.py \
-  --in_csv Path/SMILES-pooled-morgan.csv \
+python grid/grid_svm.py \
+  --in_csv results/YoungsModulus/features/youngs_modulus-pooled-morgan.csv \
   --target "Young's Modulus (kPa) log10" \
-  --save_dir Path/svm_grid
+  --save_dir results/YoungsModulus/svm_grid
 ```
 
 ### 4.9 Draw RF R² curve
 ```bash
-python draw_r2.py \
-  --train_csv Path/rf_cv10/fold_08_train.csv \
-  --test_csv Path/rf_cv10/fold_08_valid.csv \
-  --outdir Path/rf_cv10/draw
+python draw/draw_r2.py \
+  --train_csv results/YoungsModulus/rf_cv10/fold_08_train.csv \
+  --test_csv results/YoungsModulus/rf_cv10/fold_08_valid.csv \
+  --outdir results/YoungsModulus/draw/rf/fold_08
 ```
 
 ### 4.10 Draw MLP R² curve
 ```bash
-python draw_r2.py \
-  --train_csv Path/runs/mlp/fold_08_train.csv \
-  --test_csv Path/runs/mlp/fold_08_valid.csv \
-  --outdir Path/runs/mlp/draw
+python draw/draw_r2.py \
+  --train_csv results/YoungsModulus/runs/mlp/fold_08_train.csv \
+  --test_csv results/YoungsModulus/runs/mlp/fold_08_valid.csv \
+  --outdir results/YoungsModulus/draw/mlp/fold_08
 ```
 
 ### 4.11 Draw SVM R² curve
 ```bash
-python draw_r2.py \
-  --train_csv Path/runs/svm/fold_05_train.csv \
-  --test_csv Path/runs/svm/fold_05_valid.csv \
-  --outdir Path/runs/svm/draw
+python draw/draw_r2.py \
+  --train_csv results/YoungsModulus/runs/svm/fold_05_train.csv \
+  --test_csv results/YoungsModulus/runs/svm/fold_05_valid.csv \
+  --outdir results/YoungsModulus/draw/svm/fold_05
 ```
 
 ### 4.12 Draw OLS R² curve
 ```bash
-python draw_r2.py \
-  --train_csv Path/runs/ols_linear/fold_8/fold_8_train.csv \
-  --test_csv Path/runs/ols_linear/fold_8/fold_8_valid.csv \
-  --outdir Path/runs/ols_linear/fold_8/draw
+python draw/draw_r2.py \
+  --train_csv results/YoungsModulus/ols_linear/fold_8/fold_8_train.csv \
+  --test_csv results/YoungsModulus/ols_linear/fold_8/fold_8_valid.csv \
+  --outdir results/YoungsModulus/draw/ols/fold_08
 ```
 
 ### 4.13 One-click full pipeline
