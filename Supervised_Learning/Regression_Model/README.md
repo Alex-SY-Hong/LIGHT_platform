@@ -297,6 +297,23 @@ python draw_r2.py \
   --outdir Path/runs/ols_linear/fold_8/draw
 ```
 
+### 4.13 One-click full pipeline
+
+The recommended one-click entry point is:
+
+```bash
+python run_pipeline.py
+```
+
+This script automatically runs the following steps:
+
+1. Run `regression_main.py` for Morgan feature generation, model training, grid search and prediction.
+2. Check whether `results/YoungsModulus/model_candidates_for_llm.json` exists and is valid.
+3. Run `API/advise_best_model_with_api.py` to generate `overall_best_model.json`.
+4. Run `draw_pipline.py` to generate R² scatter plots for the best fold of each model.
+
+The default input and output paths are defined inside `run_pipeline.py`. To use different files, either modify the paths in `run_pipeline.py` or run `regression_main.py` manually with command-line arguments.
+
 #### Python version:
 - Python==3.9.23
 
