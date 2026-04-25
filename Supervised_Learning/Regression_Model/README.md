@@ -1,3 +1,44 @@
+## Supervised Regression Model Workflow
+
+This folder provides the supervised-learning workflow used for property regression. The workflow converts polymer/formulation SMILES into pooled Morgan-fingerprint features, trains baseline and optimized regression models, evaluates model performance by hold-out or cross-validation.
+
+## 1. Folder structure
+
+Recommended directory layout:
+
+```text
+LIGHT_platform-main/
+└── Supervised_Learning/
+    └── Regression_Model/
+        ├── main_regression/
+        │   ├── baseline_mlp_svm.py
+        │   ├── train_mlp_svm_pipeline.py
+        │   ├── baseline_RF.py
+        │   ├── baseline_OLS_linear_regression.py
+        │   └── morgan_pooling.py
+        │
+        ├── grid/
+        │   ├── grid_mlp.py
+        │   ├── grid_svm.py
+        │   └── rf_grid_loop.py
+        │
+        ├── predict/
+        │   └── predict.py
+        │
+        └── results/
+            └── YoungsModulus/
+                ├── features/
+                ├── mlp_grid/
+                ├── svm_grid/
+                ├── rf_grid/
+                ├── ols_linear/
+                ├── rf_cv10/
+                ├── runs/
+                ├── predictions/
+                ├── draw/
+                ├── model_candidates_for_llm.json
+                └── overall_best_model.json
+
 ### How to create Morgan fingerprint.
 ```bash
 python morgan_pooling.py \
