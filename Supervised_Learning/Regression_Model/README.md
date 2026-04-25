@@ -8,6 +8,11 @@ This folder provides the supervised-learning workflow used for property regressi
 LIGHT_platform-main/
 └── Supervised_Learning/
     └── Regression_Model/
+        │
+        ├── run_pipeline.py      # One-click pipeline: regression + model selection + plotting.
+        ├── regression_main.py   # Main regression controller: Morgan features, grid search, CV training and prediction.
+        ├── draw_pipline.py      # Automatic plotting pipeline for the best R² fold of each model.
+        │
         ├── main_regression/ # Main training scripts for baseline and cross-validation models.
         │   ├── baseline_mlp_svm.py
         │   ├── train_mlp_svm_pipeline.py
