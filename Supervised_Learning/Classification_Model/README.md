@@ -55,11 +55,11 @@ Swelling Ratio (times)
 
 A minimal input table is:
 
-| row_index | SMILE A | SMILE B | SMILE C | Swelling Ratio (times) |
-|---:|---|---|---|---:|
-| 0 | `[*]CC=CCCC(C#N)[*]` |  |  | 6.5 |
-| 1 | `[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O` | `[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O` |  | 12.3 |
-| ... | ... | ... | ... | ... |
+| SMILE A | SMILE B | SMILE C | Swelling Ratio (times) |
+|---|---|---|---:|
+| `[*]NC(CCCCNC(C(C)=C)=O)C(N1CCCC1C(NCC(N2CC(O)CC2C(NC(COC(C(C)=C)=O)C(NCC([*])=O)=O)=O)=O)=O)=O` | `[*]OCC[*]` | `OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO` | 5.699 |
+| `C/C(C[*])=C/C[*]` |  |  | 3.049 |
+| ... | ... | ... | ... |
 
 The SMILES strings are converted into a 1024-dimensional pooled Morgan fingerprint vector. The ID-related columns and the continuous source property column are preserved in the Morgan feature CSV when detected or specified.
 
@@ -67,8 +67,8 @@ The Morgan feature CSV has the following structure:
 
 | row_index | Swelling Ratio (times) | fp_0 | fp_1 | ... | fp_1023 |
 |---:|---:|---:|---:|---|---:|
-| 0 | 6.5 | 0 | 1 | ... | 0 |
-| 1 | 12.3 | 2 | 0 | ... | 1 |
+| 0 | 5.699 | 0 | 1 | ... | 0 |
+| 1 | 3.049 | 2 | 0 | ... | 1 |
 | ... | ... | ... | ... | ... | ... |
 
 Here, `fp_0` to `fp_1023` are the Morgan fingerprint features.
@@ -167,17 +167,23 @@ results/SwellingRatio/rf_cls_cv10_t9/cv10/best_model.joblib
 
 The prediction output is a CSV-format classification database. A minimal output format is:
 
-| Pair_ID | SMILE A | SMILE B | row_index | Prediction | Prediction_prob_class0 | Prediction_prob_class1 |
+The prediction output is a CSV-format classification database. A minimal output format is:
+
+| Pair_ID | SMILE_A | SMILE_B | row_index | Prediction | Prediction_prob_class0 | Prediction_prob_class1 |
 |---|---|---|---:|---:|---:|---:|
-| Pair_1 | `[*]NC(C(N1CCCC1C(NCC([*])=O)=O)=O)CCCCN` | `[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O` | 0 | 1 | 0.18 | 0.82 |
-| Pair_2 | `OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO` | `[*]NC(C(N1CCCC1C(NCC([*])=O)=O)=O)CCCCN` | 1 | 0 | 0.73 | 0.27 |
+| Pair_1 | `[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN` | `[*]NC(CCCCNC(C(C)=C)=O)C(N1CCCC1C(NCC(N2CC(O)CC2C(NC(COC(C(C)=C)=O)C(NCC([*])=O)=O)=O)=O)=O)=O` | 0 | 1 | 0.3957611613965208 | 0.6042388386034796 |
+| Pair_2 | `OCC(C(C(C1N)O)O[*])OC1OC2C(OC(C(C2O)N)[*])CO` | `[*]NC(C(N1CCCC1C(NCC(N2CC(CC2C(NC(C(NCC([*])=O)=O)CO)=O)O)=O)=O)=O)CCCCN` | 1 | 1 | 0.3286716238281687 | 0.6713283761718325 |
 | ... | ... | ... | ... | ... | ... | ... |
 
 Here:
 
 | Column | Description |
 |---|---|
-| `Prediction` | Predicted class label. |
+| `Pair_ID` | Identifier of the candidate polymer pair. |
+| `SMILE_A` | SMILES string of component A. |
+| `SMILE_B` | SMILES string of component B. |
+| `row_index` | Row index used to merge the feature table and source table. |
+| `Prediction` | Predicted class label. In this workflow, `1` indicates `Swelling Ratio (times) >= threshold`, and `0` indicates `Swelling Ratio (times) < threshold`. |
 | `Prediction_prob_class0` | Predicted probability for class 0. |
 | `Prediction_prob_class1` | Predicted probability for class 1. |
 
