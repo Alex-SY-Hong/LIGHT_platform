@@ -1,4 +1,4 @@
-## Supervised Regression Model Workflow
+<img width="91" height="25" alt="image" src="https://github.com/user-attachments/assets/c4b5ad2b-a899-41b8-b53c-e1f3ee392526" />## Supervised Regression Model Workflow
 
 This folder provides the supervised-learning workflow used for property regression. The workflow converts polymer/formulation SMILES into pooled Morgan-fingerprint features, trains baseline and optimized regression models, evaluates model performance by hold-out or cross-validation.
 
@@ -62,9 +62,8 @@ A minimal input table is:
 
 | row_index | SMILE A | SMILE B | SMILE C | Young's Modulus (kPa) log10 |
 |---:|---|---|---|---:|
-| 0 | CCO |  |  | 3.25 |
-| 1 | O=C(O)CCO | CCO |  | 4.10 |
-| 2 | CCO | O=C(O)CCO | NCCO | 4.35 |
+| 0 | [*]CC=CCCC(C#N)[*] |  |  | 0.752 |
+| 1 | [H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O | [*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O |  | 0.911 |
 
 The script converts the SMILES strings into a 1024-dimensional pooled Morgan fingerprint vector. The target property and ID-related columns are preserved when specified.
 
