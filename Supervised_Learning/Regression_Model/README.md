@@ -64,6 +64,7 @@ A minimal input table is:
 |---:|---|---|---|---:|
 | 0 | `[*]CC=CCCC(C#N)[*]` |  |  | 0.752 |
 | 1 | `[H]N(C([H])([H])C(N([H])C(C)([H])C(N(C([H])([H])C([*])=O)[H])=O)=O)C(C(N([*])[H])(C)[H])=O` | `[*]OC1C(C(O)=O)OC(OC2C(NC(C)=O)C([*])OC(CO)C2O)C(O)C1O` |  | 0.911 |
+| ... | ... | ... | ... | ... |
 
 The script converts the SMILES strings into a 1024-dimensional pooled Morgan fingerprint vector. The target property and ID-related columns are preserved when specified.
 
