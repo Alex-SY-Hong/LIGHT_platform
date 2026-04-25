@@ -172,13 +172,6 @@ run_pipeline.py
     └── draw/draw_r2.py
 ```
 
-In practice:
-
-```text
-Use run_pipeline.py when you want to run the complete workflow.
-Use regression_main.py when you only want to run model training, grid search and prediction.
-Use draw_pipline.py when the training results already exist and you only want to regenerate the R² scatter plots.
-```
 
 ## 4. Running examples
 
