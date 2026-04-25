@@ -98,11 +98,11 @@ After label generation, the original continuous column is removed from the class
 
 The generated classification CSV has the following structure:
 
-| row_index | y_class | fp_0 | fp_1 | ... | fp_1023 | _fp_hash |
-|---:|---:|---:|---:|---|---:|---|
-| 0 | 0 | 0 | 1 | ... | 0 | hash_value |
-| 1 | 1 | 2 | 0 | ... | 1 | hash_value |
-| ... | ... | ... | ... | ... | ... | ... |
+| row_index | y_class | fp_0 | fp_1 | ... | fp_1023 | y_class | _fp_hash |
+|---:|---:|---:|---:|---|---:|---|---|
+| 0 | 0 | 0 | 1 | ... | 0 | 0 | hash_value |
+| 1 | 1 | 2 | 0 | ... | 1 | 1 | hash_value |
+| ... | ... | ... | ... | ... | ... | ... |... |
 
 The `_fp_hash` column is generated from numerical fingerprint features and can be used for group-aware splitting when duplicated fingerprints exist.
 
