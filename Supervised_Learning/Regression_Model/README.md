@@ -1,4 +1,4 @@
-<img width="91" height="25" alt="image" src="https://github.com/user-attachments/assets/c4b5ad2b-a899-41b8-b53c-e1f3ee392526" />## Supervised Regression Model Workflow
+## Supervised Regression Model Workflow
 
 This folder provides the supervised-learning workflow used for property regression. The workflow converts polymer/formulation SMILES into pooled Morgan-fingerprint features, trains baseline and optimized regression models, evaluates model performance by hold-out or cross-validation.
 
