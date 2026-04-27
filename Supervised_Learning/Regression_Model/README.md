@@ -227,7 +227,7 @@ python main_regression/train_mlp_svm_pipeline.py \
   
 ### 4.4 Train OLS linear regression baseline
 ```bash
-python baseline_OLS_linear_regression.py
+python main_regression/baseline_OLS_linear_regression.py
 ```
 
 ### 4.5 Predict new candidates
