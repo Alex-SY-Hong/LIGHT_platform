@@ -227,7 +227,12 @@ python main_regression/train_mlp_svm_pipeline.py \
   
 ### 4.4 Train OLS linear regression baseline
 ```bash
-python main_regression/baseline_OLS_linear_regression.py
+python main_regression/baseline_OLS_linear_regression.py \
+  --in_csv results/YoungsModulus/features/youngs_modulus-pooled-morgan.csv \
+  --target "Young's Modulus (kPa) log10" \
+  --out_dir results/YoungsModulus/ols_linear \
+  --n_splits 10 \
+  --seed 42
 ```
 
 ### 4.5 Predict new candidates
