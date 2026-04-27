@@ -327,8 +327,8 @@ Then run:
 
 ```bash
 python predict.py \
-  --in_csv ../High-throughput predict/kmeans-pooled.csv \
-  --source_csv ../High-throughput predict/kmeans_results.csv \
+  --in_csv "../High-throughput predict/kmeans-pooled.csv" \
+  --source_csv "../High-throughput predict/kmeans_results.csv" \
   --out_csv results/SwellingRatio/SwellingRatio_predict.csv \
   --model_dir results/SwellingRatio/rf_cls_cv10_t9/cv10/
 ```
