@@ -2,7 +2,7 @@ import os
 import time
 
 from dotenv import load_dotenv
-from openai import APIStatusError, NotFoundError, OpenAI
+from openai import APIStatusError, APITimeoutError, NotFoundError, OpenAI
 
 load_dotenv()
 
@@ -17,15 +17,12 @@ try:
 except FileNotFoundError:
     print("Please load the prompt into <prompt.md>.")
 
-runs = 3
+runs = 11
 models = [
-    #  "gemini-3-pro-preview",
-    "gemini-3-pro-preview-thinking",
-    #  "gemini-3-flash-preview",
-    #  "gpt-5",  # 跑完了
-    #  "grok-4",
-    #  "grok-420",  # ,
-    # "claude-opus-4-5"
+    "gemini-3-pro-preview",
+    "gpt-5",
+    "grok-4",
+    "claude-opus-4-5-20251101",
 ]
 global_error_message = ""
 
@@ -63,52 +60,20 @@ def get_response(model: str, message: str, temperature: float, client) -> str:
         print(f"{model} answer complete.")
         return stream.choices[0].message.content
 
+    except NotFoundError:
+        error_message = "Model not found."
+        global_error_message = f"{error_message}"
+        return ""
+    except APITimeoutError:
+        error_message = "API timeout."
+        global_error_message = f"{error_message}"
+        return ""
     except APIStatusError as api_status_error:
         error = api_status_error.response.json()
         error_message = error.get("error", {}).get("message", "Unknown error")
         print(f"API Status Error: {error_message}")
         global_error_message = f"{error_message}"
         return ""
-    except NotFoundError:
-        error_message = "Model not found."
-        global_error_message = f"{error_message}"
-        return ""
-
-
-def write_to_file(response: str, model: str, metadata: str):
-
-    if response:
-        with open(f"{model}.md", "a", encoding="utf-8") as the_file:
-            the_file.write(f"{metadata}, response:\n\n")
-            the_file.write(response)
-            the_file.write("\n\n")
-        return None
-
-    else:
-        with open(f"{model}.md", "a", encoding="utf-8") as the_file:
-            the_file.write(f"{metadata}, response:\n\n")
-            the_file.write(f"Encountered problem {global_error_message}, no response.")
-            the_file.write("\n\n")
-        return None
-
-
-def write_to_separate_file(response: str, model: str, metadata: str):
-
-    global global_error_message
-
-    if response:
-        with open(f"{model}_{metadata}.md", "a", encoding="utf-8") as the_file:
-            the_file.write(f"{metadata}, response:\n\n")
-            the_file.write(response)
-            the_file.write("\n\n")
-        return None
-
-    else:
-        with open(f"{model}_{metadata}.md", "a", encoding="utf-8") as the_file:
-            the_file.write(f"{metadata}, response:\n\n")
-            the_file.write(f"Encountered problem {global_error_message}, no response.")
-            the_file.write("\n\n")
-        return None
 
 
 def main():
@@ -123,20 +88,6 @@ def main():
 
     current_client = make_client(user_api, user_url)
 
-    #  for i in range(1, runs):
-    #  # 先按照temperature的梯度进行一个推算；找出“最容易中”的温度
-    #  float_temp = [i / 10 for i in range(10)]
-    #  for temp in float_temp:
-    #  for current_model in models:
-    #  response = get_response(
-    #  current_model, system_message, temp, current_client
-    #  )
-    #  write_to_separate_file(
-    #  response, current_model, f"Temp={temp}, round={i}"
-    #  )
-    #  time.sleep(5)
-
-    # 目标的算法
     for i in range(runs):
         for current_model in models:
             response = get_response(current_model, prompt, 0.0, current_client)
@@ -154,7 +105,6 @@ def main():
                 the_file.write("\n\n")
             print(f"Run {i} for {current_model} complete.")
             time.sleep(5)
-        # print(f"Run {i} complete.")
     print("Mission complete.")
 
     return None
