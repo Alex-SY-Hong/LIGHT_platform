@@ -1,0 +1,495 @@
+"""
+Debiasing Analysis Heatmap Visualization Module
+
+Generate heatmaps showing bias detection results across LLM models based on
+rigorous_analysis_v2 partial correlation analysis
+"""
+
+import os
+import sys
+import json
+from typing import Dict, List
+
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+from matplotlib.patches import Rectangle
+
+# Set default font
+plt.rcParams['font.sans-serif'] = ['DejaVu Sans', 'Arial', 'Helvetica']
+plt.rcParams['axes.unicode_minus'] = False
+
+
+class DebiasHeatmapVisualizer:
+    """Debiasing heatmap visualizer"""
+
+    def __init__(self, base_dir: str = None):
+        """
+        Initialize visualizer
+
+        Args:
+            base_dir: Project root directory (default: analysis_strong_effect)
+        """
+        if base_dir is None:
+            # Get project root directory
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            project_root = os.path.dirname(script_dir)
+            self.base_dir = os.path.join(project_root, "analysis_strong_effect")
+        else:
+            self.base_dir = base_dir
+
+        self.output_dir = self.base_dir
+        os.makedirs(self.output_dir, exist_ok=True)
+
+        # Scoring dimensions
+        self.dimensions = [
+            "Mechanical_Safety",
+            "Swelling_Performance",
+            "Endothelialization",
+            "SMC_inhibition",
+            "Anti_inflammation",
+            "Thrombogenicity"
+        ]
+
+        # Dimension name mapping (for display)
+        self.dimension_names_map = {
+            "Mechanical_Safety": "Mechanical\nSafety",
+            "Swelling_Performance": "Swelling\nPerformance",
+            "Endothelialization": "Endothelial\n-ization",
+            "SMC_inhibition": "SMC\nInhibition",
+            "Anti_inflammation": "Anti-\ninflammation",
+            "Thrombogenicity": "Thrombo-\ngenicity"
+        }
+
+        # Model name mapping
+        self.model_names_map = {
+            "gpt-5": "GPT-5",
+            "grok-4": "Grok-4",
+            "claude-opus-4-5-20251101": "Claude\nOpus 4.5",
+            "gemini-3-pro-preview": "Gemini\n3 Pro"
+        }
+
+        # Set plot style
+        sns.set_style("whitegrid")
+
+    def load_rigorous_summary(self) -> Dict:
+        """Load rigorous_analysis_v2_summary.json"""
+        path = os.path.join(self.base_dir, "rigorous_analysis_v2_summary.json")
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def plot_comprehensive_heatmap(self):
+        """Plot comprehensive heatmap: bias status for all models and dimensions"""
+
+        summary = self.load_rigorous_summary()
+        models = summary["results"].keys()
+
+        # Prepare data matrices
+        model_names = [self.model_names_map.get(m, m) for m in models]
+        dimension_names = [self.dimension_names_map[d] for d in self.dimensions]
+
+        # Create correlation coefficient matrices
+        rho_matrix = []
+        p_value_matrix = []
+        needs_debias_matrix = []
+
+        for model in models:
+            rho_row = []
+            p_row = []
+            debias_row = []
+            for dim in self.dimensions:
+                corr_result = summary["results"][model]["correlation_results"][dim]
+                rho_row.append(corr_result["rho"])
+                p_row.append(corr_result["p_value"])
+                debias_row.append(1 if corr_result["needs_debiasing"] else 0)
+            rho_matrix.append(rho_row)
+            p_value_matrix.append(p_row)
+            needs_debias_matrix.append(debias_row)
+
+        rho_df = pd.DataFrame(
+            rho_matrix,
+            index=model_names,
+            columns=dimension_names
+        )
+
+        # Create figure
+        fig, ax = plt.subplots(figsize=(14, 8))
+
+        # Define custom colormap
+        cmap = sns.diverging_palette(240, 10, as_cmap=True)  # Blue-white-red
+
+        # Plot heatmap
+        sns.heatmap(
+            rho_df,
+            annot=True,
+            fmt='.3f',
+            cmap=cmap,
+            vmin=-1,
+            vmax=1,
+            center=0,
+            square=True,
+            linewidths=1.5,
+            cbar_kws={
+                'label': 'Partial Correlation Coefficient (rho)',
+                'shrink': 0.8
+            },
+            ax=ax
+        )
+
+        # Mark cells with significant bias
+        for i, model in enumerate(models):
+            for j, dim in enumerate(self.dimensions):
+                corr_result = summary["results"][model]["correlation_results"][dim]
+                needs_debias = corr_result["needs_debiasing"]
+                rho = corr_result["rho"]
+                p_value = corr_result["p_value"]
+
+                if needs_debias:
+                    # Significant bias: add thick border
+                    rect = Rectangle((j, i), 1, 1, fill=False,
+                                   edgecolor='red', linewidth=3)
+                    ax.add_patch(rect)
+
+        ax.set_title(
+            'LLM Popularity Bias Detection (Partial Correlation Analysis)',
+            fontsize=16,
+            fontweight='bold',
+            pad=20
+        )
+
+        # Add legend explanation
+        legend_text = (
+            "Legend:\n"
+            "  Red border = Significant bias (|rho| > 0.5, p < 0.10)\n"
+            "  Blue = Negative correlation (higher popularity, lower score)\n"
+            "  Red = Positive correlation (higher popularity, higher score)"
+        )
+        ax.text(
+            1.15, 0.5, legend_text,
+            transform=ax.transAxes,
+            fontsize=10,
+            verticalalignment='center',
+            bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.3)
+        )
+
+        plt.tight_layout()
+
+        output_path = os.path.join(self.output_dir, "debias_heatmap_comprehensive.png")
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        plt.close()
+
+        print(f"[OK] Comprehensive heatmap saved: {output_path}")
+
+        return output_path
+
+    def plot_p_value_heatmap(self):
+        """Plot p-value heatmap"""
+
+        summary = self.load_rigorous_summary()
+        models = summary["results"].keys()
+
+        model_names = [self.model_names_map.get(m, m) for m in models]
+        dimension_names = [self.dimension_names_map[d] for d in self.dimensions]
+
+        # Create p-value matrix
+        p_matrix = []
+        for model in models:
+            p_row = []
+            for dim in self.dimensions:
+                p_value = summary["results"][model]["correlation_results"][dim]["p_value"]
+                p_row.append(p_value)
+            p_matrix.append(p_row)
+
+        p_df = pd.DataFrame(
+            p_matrix,
+            index=model_names,
+            columns=dimension_names
+        )
+
+        # Create figure
+        fig, ax = plt.subplots(figsize=(14, 8))
+
+        # Use red to green colormap (lower p-value = more green = more significant)
+        cmap = sns.diverging_palette(10, 120, as_cmap=True)  # Red-white-green
+
+        sns.heatmap(
+            p_df,
+            annot=True,
+            fmt='.3f',
+            cmap=cmap,
+            vmin=0,
+            vmax=0.15,
+            center=0.075,
+            square=True,
+            linewidths=1.5,
+            cbar_kws={
+                'label': 'P-Value (Permutation Test)',
+                'shrink': 0.8
+            },
+            ax=ax
+        )
+
+        # Mark significant cells (p < 0.10)
+        for i, model in enumerate(models):
+            for j, dim in enumerate(self.dimensions):
+                corr_result = summary["results"][model]["correlation_results"][dim]
+                p_value = corr_result["p_value"]
+                needs_debias = corr_result["needs_debiasing"]
+
+                if needs_debias:
+                    rect = Rectangle((j, i), 1, 1, fill=False,
+                                   edgecolor='red', linewidth=3)
+                    ax.add_patch(rect)
+
+        ax.set_title(
+            'LLM Popularity Bias Detection - P-Values',
+            fontsize=16,
+            fontweight='bold',
+            pad=20
+        )
+
+        plt.tight_layout()
+
+        output_path = os.path.join(self.output_dir, "debias_heatmap_pvalue.png")
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        plt.close()
+
+        print(f"[OK] P-value heatmap saved: {output_path}")
+
+        return output_path
+
+    def plot_bias_summary_heatmap(self):
+        """Plot bias summary heatmap (0/1 matrix)"""
+
+        summary = self.load_rigorous_summary()
+        models = summary["results"].keys()
+
+        model_names = [self.model_names_map.get(m, m) for m in models]
+        dimension_names = [self.dimension_names_map[d] for d in self.dimensions]
+
+        # Create 0/1 matrix
+        bias_matrix = []
+        for model in models:
+            bias_row = []
+            for dim in self.dimensions:
+                needs_debias = summary["results"][model]["correlation_results"][dim]["needs_debiasing"]
+                bias_row.append(1 if needs_debias else 0)
+            bias_matrix.append(bias_row)
+
+        bias_df = pd.DataFrame(
+            bias_matrix,
+            index=model_names,
+            columns=dimension_names
+        )
+
+        # Create figure
+        fig, ax = plt.subplots(figsize=(14, 8))
+
+        # Use binary colormap
+        cmap = sns.color_palette("light:coral", as_cmap=True)
+
+        sns.heatmap(
+            bias_df,
+            annot=True,
+            fmt='d',
+            cmap=cmap,
+            vmin=0,
+            vmax=1,
+            square=True,
+            linewidths=2,
+            cbar_kws={
+                'label': 'Bias Detection',
+                'ticks': [0.25, 0.75]
+            },
+            ax=ax
+        )
+
+        # Manually set colorbar tick labels
+        cbar = ax.collections[0].colorbar
+        cbar.ax.set_yticklabels(['No Bias', 'Bias Detected'])
+
+        ax.set_title(
+            'LLM Popularity Bias Detection Summary (1=Bias, 0=No Bias)',
+            fontsize=16,
+            fontweight='bold',
+            pad=20
+        )
+
+        plt.tight_layout()
+
+        output_path = os.path.join(self.output_dir, "debias_heatmap_summary.png")
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        plt.close()
+
+        print(f"[OK] Bias summary heatmap saved: {output_path}")
+
+        return output_path
+
+    def plot_stacked_bias_chart(self):
+        """Plot stacked bar chart: bias degree for each model"""
+
+        summary = self.load_rigorous_summary()
+        models = list(summary["results"].keys())
+        model_names = [self.model_names_map.get(m, m) for m in models]
+
+        # Count bias for each model
+        bias_counts = []
+        for model in models:
+            count = 0
+            for dim in self.dimensions:
+                if summary["results"][model]["correlation_results"][dim]["needs_debiasing"]:
+                    count += 1
+            bias_counts.append(count)
+
+        # Create figure
+        fig, ax = plt.subplots(figsize=(12, 7))
+
+        x = np.arange(len(model_names))
+        total = len(self.dimensions)
+
+        # Plot stacked bar chart
+        bars1 = ax.bar(x, bias_counts, label='Biased Dimensions',
+                       color='#FF6B6B', edgecolor='darkred', linewidth=2)
+        bars2 = ax.bar(x, [total - b for b in bias_counts], bottom=bias_counts,
+                       label='Unbiased Dimensions',
+                       color='#4ECDC4', edgecolor='teal', linewidth=2)
+
+        # Add value labels
+        for bar, count in zip(bars1, bias_counts):
+            height = bar.get_height()
+            if height > 0:
+                ax.text(bar.get_x() + bar.get_width() / 2., height / 2.,
+                       f'{count}', ha='center', va='center',
+                       fontsize=12, fontweight='bold', color='white')
+
+        for bar, count in zip(bars2, [total - b for b in bias_counts]):
+            height = bar.get_height()
+            if height > 0:
+                ax.text(bar.get_x() + bar.get_width() / 2.,
+                       bias_counts[list(bars2).index(bar)] + height / 2.,
+                       f'{height}', ha='center', va='center',
+                       fontsize=12, fontweight='bold', color='white')
+
+        ax.set_xlabel('LLM Model', fontsize=13, fontweight='bold')
+        ax.set_ylabel('Number of Dimensions', fontsize=13, fontweight='bold')
+        ax.set_title(
+            'LLM Popularity Bias Comparison by Model',
+            fontsize=16,
+            fontweight='bold',
+            pad=20
+        )
+        ax.set_xticks(x)
+        ax.set_xticklabels(model_names, fontsize=11)
+        ax.set_ylim(0, total + 0.5)
+        ax.legend(loc='upper right', fontsize=11)
+        ax.grid(axis='y', alpha=0.3)
+
+        plt.tight_layout()
+
+        output_path = os.path.join(self.output_dir, "debias_stacked_chart.png")
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        plt.close()
+
+        print(f"[OK] Stacked bar chart saved: {output_path}")
+
+        return output_path
+
+    def plot_dimension_bias_bar(self):
+        """Plot bar chart: number of biased models for each dimension"""
+
+        summary = self.load_rigorous_summary()
+        models = list(summary["results"].keys())
+
+        dimension_names = [self.dimension_names_map[d] for d in self.dimensions]
+
+        # Count biased models for each dimension
+        dim_bias_counts = []
+        for dim in self.dimensions:
+            count = 0
+            for model in models:
+                if summary["results"][model]["correlation_results"][dim]["needs_debiasing"]:
+                    count += 1
+            dim_bias_counts.append(count)
+
+        # Create figure
+        fig, ax = plt.subplots(figsize=(12, 7))
+
+        x = np.arange(len(dimension_names))
+        total_models = len(models)
+
+        bars = ax.bar(x, dim_bias_counts, color='#FF6B6B',
+                     edgecolor='darkred', linewidth=2, alpha=0.8)
+
+        # Add value labels
+        for bar, count in zip(bars, dim_bias_counts):
+            height = bar.get_height()
+            ax.text(bar.get_x() + bar.get_width() / 2., height + 0.05,
+                   f'{count}/{total_models}',
+                   ha='center', va='bottom',
+                   fontsize=11, fontweight='bold')
+
+        ax.set_xlabel('Scoring Dimension', fontsize=13, fontweight='bold')
+        ax.set_ylabel('Number of Models with Bias', fontsize=13, fontweight='bold')
+        ax.set_title(
+            'LLM Popularity Bias by Dimension',
+            fontsize=16,
+            fontweight='bold',
+            pad=20
+        )
+        ax.set_xticks(x)
+        ax.set_xticklabels(dimension_names, rotation=45, ha='right')
+        ax.set_ylim(0, total_models + 1)
+        ax.grid(axis='y', alpha=0.3)
+
+        # Add reference line
+        ax.axhline(y=total_models / 2, color='orange', linestyle='--',
+                  linewidth=2, label='Half of Models')
+        ax.legend(loc='upper right', fontsize=11)
+
+        plt.tight_layout()
+
+        output_path = os.path.join(self.output_dir, "debias_dimension_bar.png")
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        plt.close()
+
+        print(f"[OK] Dimension bias bar chart saved: {output_path}")
+
+        return output_path
+
+    def generate_all_visualizations(self):
+        """Generate all visualizations"""
+
+        print("\n" + "=" * 80)
+        print("Generating debiasing analysis heatmaps")
+        print("=" * 80)
+
+        # Generate various heatmaps and charts
+        print("\n[1/5] Comprehensive bias heatmap (partial correlation coefficients)...")
+        self.plot_comprehensive_heatmap()
+
+        print("\n[2/5] P-value heatmap...")
+        self.plot_p_value_heatmap()
+
+        print("\n[3/5] Bias summary heatmap (0/1 matrix)...")
+        self.plot_bias_summary_heatmap()
+
+        print("\n[4/5] Model bias comparison chart...")
+        self.plot_stacked_bias_chart()
+
+        print("\n[5/5] Dimension bias distribution chart...")
+        self.plot_dimension_bias_bar()
+
+        print(f"\n{'=' * 80}")
+        print(f"All visualizations saved to: {self.output_dir}")
+        print(f"{'=' * 80}")
+
+
+def main():
+    """Main function"""
+    visualizer = DebiasHeatmapVisualizer()
+    visualizer.generate_all_visualizations()
+
+
+if __name__ == "__main__":
+    main()
