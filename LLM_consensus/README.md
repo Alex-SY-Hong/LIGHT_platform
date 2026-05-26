@@ -85,7 +85,10 @@ This will automatically execute:
 
 ```bash
 # Run reliability analysis
-python analyze_llm_reliability.py
+python -m reliability_analysis.analyze_reliability
+
+# Run data extraction
+python -m reliability_analysis.extract_data
 
 # Run popularity bias analysis (direct script execution)
 cd popularity_bias/scripts
@@ -96,100 +99,120 @@ cd ../../anti_analysis/scripts
 python extract_anti_arguments.py
 
 # Generate report (Chinese)
-python generate_tex_report.py
+python -m reporting.generate_tex
 
 # Generate report (English)
-python generate_tex_report_en.py
+python -m reporting.generate_tex_en
 ```
 
 ## Project Structure
 
 ```
 LLM_consensus/
-├── analyze.py                  # Unified API interface (recommended)
-├── llm_concensus.py            # LLM API calling script
-├── run_pipeline.py             # One-click run script
-├── analyze_llm_reliability.py  # Reliability analysis entry point
-├── extract_data.py             # Data extraction tool
-├── generate_tex_report.py      # Chinese LaTeX report generation
-├── generate_tex_report_en.py   # English LaTeX report generation
+├── analyze.py                      # Unified API interface (recommended)
+├── llm_concensus.py                # LLM API calling script
+├── run_pipeline.py                 # One-click run script
+├── example_visualization.py        # Example visualization generation
+├── fix_quotes.py                   # Quote fixing utility
+├── test_optimal_formula.py         # Optimal formula test
 │
-├── popularity_bias/            # Popularity bias analysis module (recommended)
+├── reliability_analysis/           # Reliability analysis module
+│   ├── __init__.py
+│   ├── extract_data.py             # Data extraction from LLM outputs
+│   └── analyze_reliability.py      # ICC, CV, entropy analysis
+│
+├── popularity_bias/                # Popularity bias analysis module (recommended)
 │   ├── __init__.py
 │   ├── analysis/
 │   │   ├── __init__.py
 │   │   └── robust_regression.py    # Main analysis logic
-│   ├── scripts/               # Legacy scripts (optional)
+│   ├── scripts/                    # Legacy scripts (optional)
 │   │   ├── analyze_rigorous_v2.py
 │   │   ├── fetch_material_frequencies.py
 │   │   ├── test_apis.py
 │   │   ├── test_pubchem_two_step.py
 │   │   ├── test_pubchem_urls.py
 │   │   └── run_popularity_bias_analysis.py
-│   ├── data/                  # Input data
+│   ├── data/                       # Input data
 │   │   ├── material_frequencies.json
 │   │   ├── relative_frequencies.json
 │   │   ├── formula_materials.json
 │   │   ├── extracted_data.json
 │   │   └── api_*.json
-│   └── results/               # Output results
+│   └── results/                    # Output results
 │       ├── *_debiased_rigorous_v2.json
 │       ├── rigorous_analysis_v2_summary.json
 │       ├── rigorous_analysis_v2.log
 │       └── *.png
 │
-├── anti_analysis/              # Anti-formula analysis module (recommended)
+├── anti_analysis/                  # Anti-formula analysis module (recommended)
 │   ├── __init__.py
 │   ├── analysis/
 │   │   ├── __init__.py
 │   │   └── extract_arguments.py    # Main extraction logic
-│   ├── scripts/               # Legacy scripts (optional)
+│   ├── scripts/                    # Legacy scripts (optional)
 │   │   └── extract_anti_arguments.py
-│   └── results/               # Output results
+│   └── results/                    # Output results
 │       ├── anti-Formula 4.md
 │       └── anti-Formula 5.md
 │
-├── analysis/                   # Data analysis module
-│   ├── extract_data.py         # Data extraction
-│   └── analyze_reliability.py  # Reliability analysis
-├── analysis_strong_effect/     # Deprecated (old analysis scripts)
-├── reporting/                  # Report generation module
-│   ├── generate_tex.py         # Chinese report generation
-│   └── generate_tex_en.py      # English report generation
-├── visualization/              # Visualization module
+├── reporting/                      # Report generation module
 │   ├── __init__.py
-│   ├── load_data.py
-│   ├── plot_overall.py
-│   ├── plot_cv.py
-│   ├── plot_icc.py
-│   ├── plot_winner.py
-│   ├── plot_ranking.py
-│   ├── plot_entropy.py
-│   ├── plot_detail.py
-│   └── visualize_popularity_bias.py
-├── database/                   # Data storage
-│   └── formula_materials.json  # Formula-material mapping
-├── claude/                     # Claude original response files
-├── visualizations/             # Generated chart outputs
-├── extracted_csv/              # Extracted CSV files
+│   ├── generate_tex.py             # Chinese report generation
+│   └── generate_tex_en.py          # English report generation
 │
-├── gpt-5.md                    # GPT-5 response file
-├── grok-4.md                   # Grok-4 response file
-├── claude-opus-4-5-20251101.md  # Claude Opus 4.5 response file
-├── gemini-3-pro-preview.md     # Gemini 3 Pro response file
+├── visualization/                  # Visualization module
+│   ├── __init__.py
+│   ├── visualize_comparison.py
+│   ├── visualize_consistency.py
+│   ├── visualize_cv.py
+│   ├── visualize_debias_heatmap.py # Popularity bias visualizations
+│   ├── visualize_entropy.py
+│   ├── visualize_formula_bias_impact.py
+│   ├── visualize_icc.py
+│   ├── visualize_model_detail.py
+│   ├── visualize_popularity_bias.py
+│   ├── visualize_ranking.py
+│   ├── visualize_results.py
+│   ├── visualize_results_en.py
+│   └── visualize_utils.py
 │
-├── .env                        # Environment variable configuration
-├── .env.example                # Environment variable example
-├── pyproject.toml              # Poetry dependency management
-├── requirements.txt            # Pip dependency list
-├── DIRECTORY_STRUCTURE.md      # Directory structure documentation
-├── MODULE_USAGE.md             # Module usage guide
-└── README.md                   # Project documentation
+├── database/                       # Data storage
+│   ├── formula_materials.json      # Formula-material mapping
+│   └── materials.txt               # Material list
+│
+├── claude/                         # Claude analysis context
+│   ├── ANALYSIS_PLAN_popularity_bias.md
+│   ├── CLAUDE_CONTEXT.json
+│   ├── PROJECT_SUMMARY.md
+│   ├── README.md
+│   └── 关键指令.md
+│
+├── visualizations/                 # Generated chart outputs
+├── extracted_csv/                  # Extracted CSV files
+│
+├── gpt-5.md                        # GPT-5 response file (11 runs)
+├── grok-4.md                       # Grok-4 response file (11 runs)
+├── claude-opus-4-5-20251101.md     # Claude Opus 4.5 response file (11 runs)
+├── gemini-3-pro-preview.md         # Gemini 3 Pro response file (11 runs)
+│
+├── .env.example                    # Environment variable example
+├── pyproject.toml                  # Poetry dependency management
+├── .gitignore                      # Git ignore rules
+├── README.md                       # Project documentation
+├── MODULE_USAGE.md                 # Module usage guide
+├── DIRECTORY_STRUCTURE.md          # Directory structure documentation
+└── 现状.md                        # Project status note
 ```
 
 ### Modular Architecture
 
 The project adopts a modular architecture with main analysis functions encapsulated as Python packages:
+
+#### reliability_analysis Module
+- **Exports**: `extract_data()`, `analyze_reliability()`, `LLMReliabilityAnalyzer`
+- **Functions**: Data extraction, ICC/CV/entropy analysis, winner consistency
+- **Output**: JSON format analysis results (reliability_analysis_results.json)
 
 #### popularity_bias Module
 - **Exports**: `analyze_popularity_bias()`, `RigorousBiasAnalyzer`
@@ -200,6 +223,11 @@ The project adopts a modular architecture with main analysis functions encapsula
 - **Exports**: `extract_anti_arguments()`, `AntiArgumentExtractor`
 - **Function**: Extract arguments against specific formulas from LLM responses
 - **Output**: Markdown format argument lists
+
+#### reporting Module
+- **Exports**: `generate_tex()`, `generate_tex_en()`, `LaTeXReportGenerator`
+- **Function**: Generate Chinese and English LaTeX reports
+- **Output**: LaTeX source files (.tex)
 
 #### analyze.py Unified Interface
 - Provides command-line and Python usage methods
@@ -357,6 +385,25 @@ Issues and Pull Requests are welcome!
 
 ## API Documentation
 
+### reliability_analysis Module
+
+```python
+from reliability_analysis import extract_data, analyze_reliability, LLMReliabilityAnalyzer
+
+# Method 1: Convenience functions
+data = extract_data(input_files=['gpt-5.md', 'grok-4.md'])
+results = analyze_reliability()
+
+# Method 2: Analyzer class
+analyzer = LLMReliabilityAnalyzer()
+analyzer.load_data()
+analyzer.run_all_analyses()
+
+# Access results
+print(f"ICC: {results['gpt-5']['ICC']:.3f}")
+print(f"CV: {results['gpt-5']['CV']:.1f}%")
+```
+
 ### popularity_bias Module
 
 ```python
@@ -414,6 +461,21 @@ pop_results = pipeline.run_popularity_bias_analysis(
 )
 ```
 
+### reporting Module
+
+```python
+from reporting import generate_tex, generate_tex_en, LaTeXReportGenerator
+
+# Method 1: Convenience functions
+generate_tex()          # Generate Chinese report
+generate_tex_en()       # Generate English report
+
+# Method 2: Generator class
+generator = LaTeXReportGenerator()
+generator.generate_report()          # Chinese
+generator.generate_report(language='en')  # English
+```
+
 ## Command Line Help
 
 ```bash
@@ -424,6 +486,14 @@ python analyze.py --help
 python analyze.py popularity --help
 python analyze.py anti --help
 python analyze.py all --help
+
+# Generate reports
+python -m reporting.generate_tex --help      # Chinese report
+python -m reporting.generate_tex_en --help   # English report
+
+# Run reliability analysis
+python -m reliability_analysis.extract_data --help
+python -m reliability_analysis.analyze_reliability --help
 ```
 
 ## Typical Workflows
@@ -447,7 +517,7 @@ python analyze.py anti --formulas 5
 ```bash
 poetry shell
 python analyze.py all
-python generate_tex_report.py
+python -m reporting.generate_tex
 ```
 
 ### Scenario 4: Using modules in Python scripts
