@@ -125,8 +125,8 @@ def main():
     print("=" * 80)
 
     steps = [
-        ("analysis.extract_data", "Data Extraction", 1),
-        ("analysis.analyze_reliability", "Reliability Analysis", 2),
+        ("reliability_analysis.extract_data", "Data Extraction", 1),
+        ("reliability_analysis.analyze_reliability", "Reliability Analysis", 2),
         ("example_visualization", "Generate Visualizations", 3),
         ("reporting.generate_tex", "Generate Chinese Report", 4),
         ("reporting.generate_tex_en", "Generate English Report", 5),
@@ -139,7 +139,7 @@ def main():
     # ============================================================================
     # Fix known data issues after extraction and before analysis
     # ============================================================================
-    if run_module("analysis.extract_data", "Data Extraction", 1):
+    if run_module("reliability_analysis.extract_data", "Data Extraction", 1):
         completed += 1
 
         # Execute data fix (fix GPT-5 Run 5 Winner data)
