@@ -294,6 +294,7 @@ LIGHT_platform
 ```
 
 ## Note
+This codebase was developed and tested on Linux or Windows systems.  
 A standard workstation with an NVIDIA GPU (supporting CUDA 11.6) is recommended for model training.
 
 

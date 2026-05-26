@@ -42,7 +42,7 @@ DEFAULT_OTHER_COLS: List[str] = [
     "Material A SMILE","Material B SMILE","Material C SMILE","Material D SMILE","Material E SMILE"
 ]
 
-# ---------- robust CSV reader (encoding/sep auto) ----------
+# ---------- robust CSV reader with automatic encoding/separator detection ----------
 _DEFAULT_ENCODINGS = ["utf-8", "utf-8-sig", "gbk", "cp936", "latin1", "iso-8859-1", "utf-16", "utf-16le", "utf-16be"]
 _DEFAULT_SEPARATORS = [",", "\t", ";", "|"]
 
@@ -62,7 +62,7 @@ def read_csv_robust(path: str,
             except Exception as e:
                 last_err = e
                 continue
-    # fallback: binary read -> utf-8 ignore -> try common seps
+    # fallback: binary read -> utf-8 ignore -> try common separators
     try:
         with open(path, "rb") as f:
             raw = f.read().decode("utf-8", errors="ignore")
@@ -76,11 +76,11 @@ def read_csv_robust(path: str,
         pass
     raise last_err if last_err is not None else RuntimeError("Failed to read CSV with multiple encodings/separators")
 
-# ---------- cell cleaning & multi-molecule parsing ----------
+# ---------- cell cleaning and multi-molecule parsing ----------
 _BAD_WS = ["\u200b", "\u200c", "\u200d", "\ufeff"]
 _TRANS = {
-    "，": ",", "、": ",", "；": ";", "：": ":", "（": "(", "）": ")",
-    "【": "[", "】": "]", "“": '"', "”": '"', "‘": "'", "’": "'",
+    "\uff0c": ",", "\u3001": ",", "\uff1b": ";", "\uff1a": ":", "\uff08": "(", "\uff09": ")",
+    "\u3010": "[", "\u3011": "]", "\u201c": '"', "\u201d": '"', "\u2018": "'", "\u2019": "'",
 }
 _MULTI_DELIMS = re.compile(r"[;|,]+")
 
@@ -97,7 +97,7 @@ def clean_smiles_string(s: str) -> str:
 def split_multi_smiles(cell: str) -> List[str]:
     base = clean_smiles_string(cell)
     if not base: return []
-    # 如果整个就是可解析 SMILES，就直接返回
+    # If the entire string is a valid SMILES, return it directly
     try:
         if Chem.MolFromSmiles(base) is not None:
             return [base]
@@ -175,7 +175,7 @@ def autodetect_smiles_cols(df: pd.DataFrame, min_valid_frac: float = 0.2, sample
         ok, checked = 0, 0
         for v in vals:
             toks = split_multi_smiles(v)
-            for t in toks[:3]:  # 采样少量 token
+            for t in toks[:3]:  # sample a small number of tokens
                 checked += 1
                 if is_valid_smiles(t): ok += 1
                 if checked >= 50: break
@@ -203,7 +203,7 @@ def _find_target_col(df: pd.DataFrame) -> Optional[str]:
     return None
 
 def _find_id_cols(df: pd.DataFrame) -> List[str]:
-    keys = ["id","name","样品","配方","recipe","formula","编号"]
+    keys = ["id","name","\u6837\u54c1","\u914d\u65b9","recipe","formula","\u7f16\u53f7"]
     return [c for c in df.columns if any(k in c.lower() for k in keys)]
 
 def _autodetect_ratio_cols(df: pd.DataFrame, smiles_cols: List[str]) -> Optional[List[Optional[str]]]:
@@ -267,7 +267,7 @@ _SMARTS = {
 from rdkit import Chem as _Chem
 _SMARTS_PAT = {k: _Chem.MolFromSmarts(v) for k, v in _SMARTS.items()}
 
-# ---------- Morgan generator & fingerprint ----------
+# ---------- Morgan generator and fingerprint ----------
 def build_morgan_generator(
     radius: int,
     fp_size: int,
@@ -277,10 +277,10 @@ def build_morgan_generator(
     include_ring: bool,
 ):
     """
-    跨版本稳健创建 Morgan 生成器：
-    - use_features=True 且可用时，优先用 GetMorganFeatureGenerator
-    - 否则用 GetMorganGenerator
-    - 兼容是否支持 includeRingMembership / 关键字参数
+    Robustly create a Morgan generator across RDKit versions:
+    - If use_features=True and available, prefer GetMorganFeatureGenerator
+    - Otherwise use GetMorganGenerator
+    - Compatible with APIs with or without includeRingMembership / keyword arguments
     """
     funcs = []
     if use_features and hasattr(rdFingerprintGenerator, "GetMorganFeatureGenerator"):
@@ -378,7 +378,7 @@ def _count_smarts(mol: Chem.Mol) -> Dict[str, float]:
     return out
 
 def _calc_hydrogel_indices(d: Dict[str, float]) -> Dict[str, float]:
-    # Build simple proxies (avoid div by zero)
+    # Build simple proxies and avoid division by zero
     heavy = max(d.get("desc_HeavyAtomCount", 0.0), 1.0)
     hydrophil_index = (d.get("desc_HBA", 0.0) + d.get("desc_HBD", 0.0)) / heavy
     ionic_proxy = sum([
@@ -553,7 +553,7 @@ def run_pooling(
             return np.mean(vecs, axis=0, dtype=np.float32)
             
     def _lowdim_from_tokens(tokens: List[str]) -> Dict[str, float]:
-        # 聚合：对同一格的多个分子，取均值
+        # Aggregate multiple molecules in the same cell by averaging
         desc_sum, frag_sum, idx_sum, n = {}, {}, {}, 0.0
         for t in tokens:
             if not t: 
@@ -577,7 +577,7 @@ def run_pooling(
     low_list: List[Dict[str, float]] = []
 
     for i, row in df.iterrows():
-        # 1) 解析每列 SMILES -> tokens
+        # 1) Parse SMILES in each column into tokens
         smi_tokens_per_col: List[List[str]] = []
         for col in fp_source_cols:
             raw = row.get(col, None)
@@ -590,10 +590,10 @@ def run_pooling(
                 tokens = split_multi_smiles(raw)
             smi_tokens_per_col.append(tokens)
 
-        # 2) 计算配方权重（利用比例列 + polymer 放大因子）
+        # 2) Compute formulation weights using ratio columns and polymer amplification factor
         ws = _build_weights_for_row(row, smiles_cols, polymer_set, ratio_cols=rc_global, alpha=alpha)
 
-        # 3) 计算每列的指纹 & 低维特征
+        # 3) Compute fingerprint and low-dimensional features for each column
         fp_list = []
         low_per_col: List[Dict[str, float]] = []
         for tokens in smi_tokens_per_col:
@@ -601,16 +601,16 @@ def run_pooling(
             fp_list.append(vec)
             low_per_col.append(_lowdim_from_tokens(tokens))
 
-        # 4) 记录失败单元格（该格有token但指纹全0）
+        # 4) Record failed cells where tokens exist but the fingerprint is all zeros
         for j, tokens in enumerate(smi_tokens_per_col):
             if tokens and np.allclose(fp_list[j], 0.0):
                 fail_rows.append({"row": int(i), "column": fp_source_cols[j], "raw": str(row.get(fp_source_cols[j], ""))})
 
-        # 5) 指纹按配方权重加权
+        # 5) Weight fingerprints by formulation weights
         H = np.stack(fp_list, axis=0) if fp_list else np.zeros((1, nbits), dtype=np.float32)
         h_mix = (ws[:, None] * H).sum(axis=0) if len(fp_list) else np.zeros(nbits, dtype=np.float32)
 
-        # 6) 低维特征按配方权重加权（列对齐）
+        # 6) Weight low-dimensional features by formulation weights with aligned columns
         low_keys = sorted(set().union(*[d.keys() for d in low_per_col])) if low_per_col else []
         low_weighted = {}
         for k in low_keys:
@@ -619,7 +619,7 @@ def run_pooling(
                 s += ws[j] * float(d.get(k, 0.0))
             low_weighted[k] = float(s)
 
-        # 6.1 可选：配方层面的非加权统计（体现异质性）
+        # 6.1 Optional: formulation-level unweighted statistics to reflect heterogeneity
         if emit_mixstats and low_per_col:
             for k in low_keys:
                 vals = [float(d.get(k, 0.0)) for d in low_per_col if k in d]
@@ -628,7 +628,7 @@ def run_pooling(
                     low_weighted[f"{k}__max"] = float(np.max(vals))
                     low_weighted[f"{k}__var"] = float(np.var(vals))
 
-        # 6.2 可选：组分两两 Tanimoto 相似度统计（基于 count 向量）
+        # 6.2 Optional: pairwise Tanimoto similarity statistics among components based on count vectors
         if emit_pairwise and len(fp_list) >= 2:
             def tanimoto(a, b):
                 ab = float(np.minimum(a, b).sum())
@@ -645,7 +645,7 @@ def run_pooling(
                 low_weighted["pair_Tani_min"]  = float(np.min(pairs))
                 low_weighted["pair_Tani_max"]  = float(np.max(pairs))
 
-        # 7) 后处理指纹
+        # 7) Post-process fingerprint
         if post_binarize:
             h_mix = (h_mix > 0).astype(np.float32)
         if post_norm == "l2":
@@ -667,7 +667,7 @@ def run_pooling(
     X = np.vstack(feats).astype(np.float32)
     fp_cols = [f"fp_{i}" for i in range(nbits)]
     out_df = pd.DataFrame(X, columns=fp_cols)
-    # —— 拼接低维特征表 —— 
+    # Concatenate low-dimensional feature table
     if low_list:
         low_df = pd.DataFrame(low_list).fillna(0.0)
         out_df = pd.concat([out_df.reset_index(drop=True), low_df.reset_index(drop=True)], axis=1)
@@ -712,30 +712,30 @@ def parse_args():
     p.add_argument("--no_auto_ratio", action="store_true", help="Disable auto-detection of ratio columns")
     p.add_argument("--ratio_cols", nargs="*", default=None, help="Manually specify ratio columns aligned to SMILES columns")
     p.add_argument("--polymer_cols", nargs="*", default=DEFAULT_POLYMER_COLS, help="Polymer SMILES column names")
-    p.add_argument("--other_cols",   nargs="*", default=DEFAULT_OTHER_COLS,   help="Other (filler/additive) SMILES column names")
-    p.add_argument("--keep_cols",    nargs="*", default=None, help="Extra identifier columns to keep (e.g., SampleID, Name)")
-    p.add_argument("--target_col",   default=None, help="Explicit Young's Modulus column name (if not auto-detected)")
+    p.add_argument("--other_cols",   nargs="*", default=DEFAULT_OTHER_COLS,   help="Other filler/additive SMILES column names")
+    p.add_argument("--keep_cols",    nargs="*", default=None, help="Extra identifier columns to keep, such as SampleID or Name")
+    p.add_argument("--target_col",   default=None, help="Explicit Young's Modulus column name if not auto-detected")
     # encoding / separator
-    p.add_argument("--encoding",     default=None, help="CSV encoding (e.g., gbk, utf-8, latin1). If not set, try multiple encodings automatically.")
-    p.add_argument("--sep",          default=None, help="CSV separator (e.g., ',', '\\t', ';', '|'). If not set, try common separators automatically.")
+    p.add_argument("--encoding",     default=None, help="CSV encoding, such as gbk, utf-8, or latin1. If not set, try multiple encodings automatically.")
+    p.add_argument("--sep",          default=None, help="CSV separator, such as ',', '\\t', ';', or '|'. If not set, try common separators automatically.")
     # std / multi-molecule
-    p.add_argument("--emit_std_cols", action="store_true", help="Also write standardized SMILES columns with '(std)' suffix (multi-molecule joined by '||')")
+    p.add_argument("--emit_std_cols", action="store_true", help="Also write standardized SMILES columns with '(std)' suffix. Multiple molecules are joined by '||'.")
     p.add_argument("--multi_cell_strategy", choices=["first","avg","sum"], default="avg",
-                   help="If one cell contains multiple molecules, how to aggregate: first/avg/sum (default: avg)")
+                   help="If one cell contains multiple molecules, how to aggregate them: first, avg, or sum. Default: avg.")
     # Morgan options
     p.add_argument("--fp_type", choices=["count","bit"], default="count", help="Fingerprint type")
     p.add_argument("--use_chirality", action="store_true", help="Include chirality")
     p.add_argument("--use_features", action="store_true",  help="Morgan feature fingerprint")
     p.add_argument("--no_bond_types", action="store_true", help="Exclude bond types")
     p.add_argument("--include_ring", action="store_true",  help="Include ring membership")
-    p.add_argument("--post_binarize", action="store_true", help="Binarize after pooling (>0 -> 1)")
+    p.add_argument("--post_binarize", action="store_true", help="Binarize after pooling: >0 -> 1")
     p.add_argument("--post_norm", choices=["none","l2","max"], default="none", help="Normalize after pooling")
-        # —— Hydrogel feature switches ——
-    p.add_argument("--emit_desc", action="store_true", help="输出 RDKit 分子描述符（比例加权）")
-    p.add_argument("--emit_frags", action="store_true", help="输出水凝胶相关 SMARTS 片段计数（比例加权）")
-    p.add_argument("--emit_indices", action="store_true", help="输出水凝胶衍生指数（比例加权）")
-    p.add_argument("--emit_mixstats", action="store_true", help="输出配方层面的 min/max/var 统计（按列）")
-    p.add_argument("--emit_pairwise", action="store_true", help="输出组分两两 Tanimoto 相似度统计（mean/min/max）")
+    # Hydrogel feature switches
+    p.add_argument("--emit_desc", action="store_true", help="Output RDKit molecular descriptors with ratio-weighted pooling")
+    p.add_argument("--emit_frags", action="store_true", help="Output hydrogel-related SMARTS fragment counts with ratio-weighted pooling")
+    p.add_argument("--emit_indices", action="store_true", help="Output hydrogel-derived indices with ratio-weighted pooling")
+    p.add_argument("--emit_mixstats", action="store_true", help="Output formulation-level min/max/var statistics by component column")
+    p.add_argument("--emit_pairwise", action="store_true", help="Output pairwise Tanimoto similarity statistics among components: mean/min/max")
 
     return p.parse_args()
     
