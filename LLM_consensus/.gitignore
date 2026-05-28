@@ -50,3 +50,7 @@ nul
 # OS
 .DS_Store
 Thumbs.db
+
+# Chinese documentation files
+现状.md
+关键指令.md
