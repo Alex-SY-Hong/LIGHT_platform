@@ -28,12 +28,6 @@ This module explores the distribution and clustering patterns of hydrogels in th
 
 This model use LLM to analyze materials, employing multiple runs and rigorous statistical methods to analyze stability, consistency and parse llm-generated arguments against materials.
 
-**Key Features:**
-- **Reliability Analysis**: ICC (Intraclass Correlation Coefficient), CV (Coefficient of Variation), and entropy metrics for model consistency evaluation
-- **Popularity Bias Analysis**: Robust regression (Partial Correlation + Huber + RANSAC) to detect material popularity bias
-- **Anti-Formula Arguments**: Automated extraction and analysis of model objections
-- **Bilingual Reporting**: Chinese and English LaTeX report generation
-- **Comprehensive Visualization**: Charts for all analysis metrics
 
 ## Installation
 
@@ -100,19 +94,6 @@ Use automatically extracted data to train regression and classification models t
 
 ### LLM_consensus
 Statistical analysis of LLM model reliability in materials science decision-making tasks.
-
-```bash
-cd LLM_consensus
-poetry install
-poetry shell
-
-# Run all analyses
-python analyze.py all
-
-# Individual analyses
-python analyze.py popularity
-python analyze.py anti --formulas 4 5
-```
 
 See `LLM_consensus/README.md` for detailed documentation.
 
