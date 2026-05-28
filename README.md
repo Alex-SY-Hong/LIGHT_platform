@@ -26,7 +26,7 @@ This module explores the distribution and clustering patterns of hydrogels in th
 
 ### 6. LLM Consensus Reliability Analysis Module
 
-Statistical analysis of AI model reliability across multiple runs, evaluating stability and consistency in decision-making tasks for materials science.
+This model use LLM to analyze materials, employing multiple runs and rigorous statistical methods to analyze stability, consistency and parse llm-generated arguments against materials.
 
 **Key Features:**
 - **Reliability Analysis**: ICC (Intraclass Correlation Coefficient), CV (Coefficient of Variation), and entropy metrics for model consistency evaluation
