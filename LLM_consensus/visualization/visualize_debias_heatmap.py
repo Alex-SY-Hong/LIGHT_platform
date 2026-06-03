@@ -457,6 +457,110 @@ class DebiasHeatmapVisualizer:
 
         return output_path
 
+    def plot_model_formula_pvalue_heatmap(self):
+        """
+        Plot model-formula p-value heatmap: number of biased dimensions for each model-formula combination
+
+        This shows how many dimensions (out of 6) were affected by popularity bias for each formula.
+        A higher number indicates more bias impact on that formula's evaluation.
+        """
+
+        summary = self.load_rigorous_summary()
+        models = list(summary["results"].keys())
+        model_names = [self.model_names_map.get(m, m) for m in models]
+
+        # Formula names (1-10)
+        formula_names = [f"Formula {i}" for i in range(1, 11)]
+
+        # For each model, count how many dimensions need debiasing
+        biased_dim_counts = {}
+        for model in models:
+            count = 0
+            for dim in self.dimensions:
+                if summary["results"][model]["correlation_results"][dim]["needs_debiasing"]:
+                    count += 1
+            biased_dim_counts[model] = count
+
+        # Create matrix (models × formulas)
+        # Note: For the same model, all formulas have the same biased dimension count
+        # because bias detection is done per dimension, not per formula
+        bias_matrix = []
+        for model in models:
+            # All formulas for this model have the same count
+            row = [biased_dim_counts[model]] * 10
+            bias_matrix.append(row)
+
+        # Create DataFrame
+        bias_df = pd.DataFrame(
+            bias_matrix,
+            index=model_names,
+            columns=formula_names
+        )
+
+        # Create figure
+        fig, ax = plt.subplots(figsize=(16, 8))
+
+        # Use YlOrRd colormap (yellow-orange-red, red=more bias)
+        cmap = sns.color_palette("YlOrRd", as_cmap=True)
+
+        # Range: 0 to 6 (maximum possible biased dimensions)
+        vmin, vmax = 0, 6
+
+        # Plot heatmap
+        sns.heatmap(
+            bias_df,
+            annot=True,
+            fmt='d',
+            cmap=cmap,
+            vmin=vmin,
+            vmax=vmax,
+            square=True,
+            linewidths=1.5,
+            cbar_kws={
+                'label': 'Number of Biased Dimensions (out of 6)',
+                'shrink': 0.8
+            },
+            ax=ax
+        )
+
+        ax.set_title(
+            'LLM Model vs Formula: Popularity Bias Impact (Number of Biased Dimensions)\n'
+            'Higher values = more bias impact on formula evaluation',
+            fontsize=14,
+            fontweight='bold',
+            pad=20
+        )
+
+        ax.set_xlabel('Formula', fontsize=13, fontweight='bold')
+        ax.set_ylabel('LLM Model', fontsize=13, fontweight='bold')
+
+        # Add legend explanation
+        legend_text = (
+            "Interpretation:\n"
+            "  Number = Count of dimensions (out of 6) affected by popularity bias\n"
+            "  0 = No bias detected (all dimensions unbiased)\n"
+            "  6 = All dimensions affected by popularity bias\n"
+            "  Note: Bias is detected per dimension, so all formulas\n"
+            "  for the same model show the same count"
+        )
+        ax.text(
+            1.18, 0.5, legend_text,
+            transform=ax.transAxes,
+            fontsize=9,
+            verticalalignment='center',
+            bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.3)
+        )
+
+        plt.tight_layout()
+
+        output_path = os.path.join(self.output_dir, "model_formula_pvalue_heatmap.png")
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        plt.close()
+
+        print(f"[OK] Model-Formula p-value heatmap saved: {output_path}")
+
+        return output_path
+
     def plot_model_formula_heatmap(self):
         """Plot model-formula heatmap: debiased total scores for each model-formula combination"""
 
@@ -598,8 +702,8 @@ class DebiasHeatmapVisualizer:
         print("\n[5/6] Dimension bias distribution chart...")
         self.plot_dimension_bias_bar()
 
-        print("\n[6/6] Model-Formula recommendation heatmap...")
-        self.plot_model_formula_heatmap()
+        print("\n[6/6] Model-Formula p-value heatmap (bias impact)...")
+        self.plot_model_formula_pvalue_heatmap()
 
         print(f"\n{'=' * 80}")
         print(f"All visualizations saved to: {self.output_dir}")

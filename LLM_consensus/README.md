@@ -296,7 +296,7 @@ Files generated after completion:
     - `debias_heatmap_summary.png` - Bias summary heatmap (0/1 matrix)
     - `debias_stacked_chart.png` - Model bias comparison chart
     - `debias_dimension_bar.png` - Dimension bias distribution chart
-    - `model_formula_heatmap.png` - Model vs Formula recommendation heatmap (debiased scores)
+    - `model_formula_pvalue_heatmap.png` - Model vs Formula p-value heatmap (bias impact by dimensions)
 
 ### Anti-Formula Analysis Results
 - `anti_analysis/results/` - Anti-formula analysis output directory
