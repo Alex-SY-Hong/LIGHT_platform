@@ -290,7 +290,13 @@ Files generated after completion:
   - `{model}_debiased_rigorous_v2.json` - Debiasing results per model
   - `rigorous_analysis_v2_summary.json` - Analysis summary
   - `rigorous_analysis_v2.log` - Analysis log
-  - `*.png` - Visualization charts
+  - `*.png` - Visualization charts:
+    - `debias_heatmap_comprehensive.png` - Comprehensive bias heatmap (partial correlation coefficients)
+    - `debias_heatmap_pvalue.png` - P-value heatmap
+    - `debias_heatmap_summary.png` - Bias summary heatmap (0/1 matrix)
+    - `debias_stacked_chart.png` - Model bias comparison chart
+    - `debias_dimension_bar.png` - Dimension bias distribution chart
+    - `model_formula_heatmap.png` - Model vs Formula recommendation heatmap (debiased scores)
 
 ### Anti-Formula Analysis Results
 - `anti_analysis/results/` - Anti-formula analysis output directory
@@ -363,11 +369,6 @@ Edit the `runs` variable in `llm_concensus.py`:
 ```python
 runs = 11
 ```
-
-## References
-
-- Shrout, P. E., & Fleiss, J. L. (1979). Intraclass correlations: uses in assessing rater reliability. *Psychological Bulletin*, 86(2), 420-428.
-- Koo, T. K., & Li, M. Y. (2016). A guideline of selecting and reporting intraclass correlation coefficients for reliability research. *Journal of Chiropractic Medicine*, 19(3), 342-349.
 
 ## License
 

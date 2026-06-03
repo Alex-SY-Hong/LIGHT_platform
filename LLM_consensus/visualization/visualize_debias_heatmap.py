@@ -457,6 +457,124 @@ class DebiasHeatmapVisualizer:
 
         return output_path
 
+    def plot_model_formula_heatmap(self):
+        """Plot model-formula heatmap: debiased total scores for each model-formula combination"""
+
+        summary = self.load_rigorous_summary()
+        models = list(summary["results"].keys())
+        model_names = [self.model_names_map.get(m, m) for m in models]
+
+        # Formula names (1-10)
+        formula_names = [f"Formula {i}" for i in range(1, 11)]
+
+        # Create score matrix (models × formulas)
+        score_matrix = []
+        optimal_formulas = {}
+
+        for model in models:
+            # Load debiased scores for this model
+            debiased_file = os.path.join(self.base_dir, f"{model}_debiased_rigorous_v2.json")
+
+            if not os.path.exists(debiased_file):
+                print(f"[WARNING] Debias file not found: {debiased_file}")
+                # Fill with zeros if file not found
+                score_matrix.append([0.0] * 10)
+                optimal_formulas[model] = None
+                continue
+
+            with open(debiased_file, 'r', encoding='utf-8') as f:
+                debiased_data = json.load(f)
+
+            # Extract Total_Score_debiased for each formula
+            scores = []
+            for entry in debiased_data:
+                formula_id = int(entry['Formula'])
+                total_score = entry['Total_Score_debiased']
+                scores.append(total_score)
+
+            score_matrix.append(scores)
+
+            # Get optimal formula from summary
+            optimal_formulas[model] = summary["results"][model]["optimal_formula"]["formula_id"]
+
+        # Create DataFrame
+        score_df = pd.DataFrame(
+            score_matrix,
+            index=model_names,
+            columns=formula_names
+        )
+
+        # Create figure
+        fig, ax = plt.subplots(figsize=(16, 8))
+
+        # Use RdYlGn colormap (red-yellow-green, green=higher score)
+        cmap = sns.color_palette("RdYlGn", as_cmap=True)
+
+        # Calculate vmin and vmax from data (slightly padded)
+        vmin = min(min(row) for row in score_matrix) - 2
+        vmax = max(max(row) for row in score_matrix) + 2
+
+        # Plot heatmap
+        sns.heatmap(
+            score_df,
+            annot=True,
+            fmt='.1f',
+            cmap=cmap,
+            vmin=vmin,
+            vmax=vmax,
+            square=True,
+            linewidths=1.5,
+            cbar_kws={
+                'label': 'Debiased Total Score',
+                'shrink': 0.8
+            },
+            ax=ax
+        )
+
+        # Mark optimal formulas with thick border
+        for i, model in enumerate(models):
+            optimal_id = optimal_formulas.get(model)
+            if optimal_id is not None:
+                # Convert formula_id to column index (0-based)
+                col_idx = optimal_id - 1
+                rect = Rectangle((col_idx, i), 1, 1, fill=False,
+                               edgecolor='red', linewidth=4)
+                ax.add_patch(rect)
+
+        ax.set_title(
+            'LLM Model vs Formula Recommendation Heatmap (Debiased Scores)',
+            fontsize=16,
+            fontweight='bold',
+            pad=20
+        )
+
+        ax.set_xlabel('Formula', fontsize=13, fontweight='bold')
+        ax.set_ylabel('LLM Model', fontsize=13, fontweight='bold')
+
+        # Add legend explanation
+        legend_text = (
+            "Legend:\n"
+            "  Red border = Optimal formula for that model\n"
+            "  Color scale: Green (high score) → Yellow → Red (low score)"
+        )
+        ax.text(
+            1.18, 0.5, legend_text,
+            transform=ax.transAxes,
+            fontsize=10,
+            verticalalignment='center',
+            bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.3)
+        )
+
+        plt.tight_layout()
+
+        output_path = os.path.join(self.output_dir, "model_formula_heatmap.png")
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        plt.close()
+
+        print(f"[OK] Model-Formula heatmap saved: {output_path}")
+
+        return output_path
+
     def generate_all_visualizations(self):
         """Generate all visualizations"""
 
@@ -465,20 +583,23 @@ class DebiasHeatmapVisualizer:
         print("=" * 80)
 
         # Generate various heatmaps and charts
-        print("\n[1/5] Comprehensive bias heatmap (partial correlation coefficients)...")
+        print("\n[1/6] Comprehensive bias heatmap (partial correlation coefficients)...")
         self.plot_comprehensive_heatmap()
 
-        print("\n[2/5] P-value heatmap...")
+        print("\n[2/6] P-value heatmap...")
         self.plot_p_value_heatmap()
 
-        print("\n[3/5] Bias summary heatmap (0/1 matrix)...")
+        print("\n[3/6] Bias summary heatmap (0/1 matrix)...")
         self.plot_bias_summary_heatmap()
 
-        print("\n[4/5] Model bias comparison chart...")
+        print("\n[4/6] Model bias comparison chart...")
         self.plot_stacked_bias_chart()
 
-        print("\n[5/5] Dimension bias distribution chart...")
+        print("\n[5/6] Dimension bias distribution chart...")
         self.plot_dimension_bias_bar()
+
+        print("\n[6/6] Model-Formula recommendation heatmap...")
+        self.plot_model_formula_heatmap()
 
         print(f"\n{'=' * 80}")
         print(f"All visualizations saved to: {self.output_dir}")
