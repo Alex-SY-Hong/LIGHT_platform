@@ -608,7 +608,12 @@ class DebiasHeatmapVisualizer:
 
 def main():
     """Main function"""
-    visualizer = DebiasHeatmapVisualizer()
+    # Set base_dir to the correct location containing the data files
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    data_dir = os.path.join(project_root, "popularity_bias", "results")
+
+    visualizer = DebiasHeatmapVisualizer(base_dir=data_dir)
     visualizer.generate_all_visualizations()
 
 
