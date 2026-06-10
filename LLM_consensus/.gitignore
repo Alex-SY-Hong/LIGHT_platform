@@ -55,3 +55,6 @@ Thumbs.db
 # Chinese documentation files
 现状.md
 关键指令.md
+
+# Ignore tiff; they are too big
+*.tiff
