@@ -35,9 +35,10 @@ ENV/
 # Note: reliability_analysis_results.json is committed in feature/analyze-popularity-bias
 # Note: extracted_csv/ is committed in feature/repeat_and_result
 
-# docx
-# Note: docx files are generated only to communicate with non-tech researchers, they do not contribute to the code.
+# docx and pptx
+# Note: both file types serve only to communicate with non-tech researchers, they do not contribute to the code.
 *.docx
+*.pptx
 
 # Claude Code
 .claude/
