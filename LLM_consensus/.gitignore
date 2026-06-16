@@ -56,5 +56,8 @@ Thumbs.db
 现状.md
 关键指令.md
 
-# Ignore tiff; they are too big
+# Ignore non-png picture types to conserve space.
+# tiff, svg, pdf etc. can easily be generated with source code.
 *.tiff
+*.tif
+*.svg
