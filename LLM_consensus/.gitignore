@@ -47,6 +47,10 @@ ENV/
 nul
 *.tmp
 *.bak
+temp*
+
+# Embedding cache files
+.embeddings_*.npz
 
 # OS
 .DS_Store

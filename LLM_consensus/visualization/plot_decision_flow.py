@@ -51,7 +51,6 @@ Font: 9pt Arial
 
 import io
 import json
-import os
 import sys
 from collections import Counter
 from pathlib import Path
@@ -105,12 +104,12 @@ WIDTH_RATIOS = [1.3, 1.0]
 # COLOR SCHEME (unified method families)
 # =============================================================================
 
-# Model colors - one signal family per model
+# Model colors - symmetric auxiliary palette
 MODEL_COLORS = {
-    "gpt-5": "#0F4D92",  # Deep blue
-    "grok-4": "#B64342",  # Strong red
-    "claude-opus-4-5-20251101": "#42949E",  # Teal
-    "gemini-3-pro-preview": "#9A4D8E",  # Violet
+    "gpt-5": "#142864",  # #1 - Deep blue (best)
+    "claude-opus-4-5-20251101": "#38307c",  # #2 - Blue-purple
+    "grok-4": "#b64858",  # #5 - Red
+    "gemini-3-pro-preview": "#e65028",  # #6 - Orange-red
 }
 
 MODEL_NAMES = {
@@ -122,14 +121,14 @@ MODEL_NAMES = {
 
 
 # Formula colors - neutral family with signal highlighting
-def get_formula_colors():
-    """Formula color scheme emphasizing F4/F5, rare formulas in grayscale"""
+def get_formula_colors() -> dict[float, str]:
+    """Formula color scheme using project color palette"""
     return {
         1: "#D8D8D8",  # Neutral light
         2: "#A8A8A8",  # Neutral mid (F2)
         3: "#787878",  # Neutral dark (F3)
-        4: "#0F4D92",  # Blue main (F4) - matches model blue
-        5: "#2E9E44",  # Green signal (F5) - improvement indicator
+        4: "#7b7bff",  # Blue main (F4) - main palette
+        5: "#f4aedc",  # Pink signal (F5) - main palette
         6: "#D8D8D8",
         7: "#D8D8D8",
         8: "#D8D8D8",
@@ -385,7 +384,7 @@ def plot_matrix_with_aggregate(ax, sequences, aggregate_winners, consistency_sta
                 ha="left",
                 va="bottom",
                 fontsize=7,
-                color="black",
+                color="white",
             )
 
 
@@ -723,10 +722,8 @@ def main():
     plot_matrix_with_aggregate(
         ax_matrix, sequences, original_winners, consistency_stats
     )
-    ax_matrix.set_title("i", fontweight="bold", loc="left", fontsize=10)
 
     plot_slope_chart(ax_slope, original_winners, debiased_winners)
-    ax_slope.set_title("j", fontweight="bold", loc="left", fontsize=10)
 
     # Connect panels
     connect_panels(
