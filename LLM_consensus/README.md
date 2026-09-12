@@ -162,6 +162,30 @@ LLM_consensus/
 │       ├── anti-Formula 4.md
 │       └── anti-Formula 5.md
 │
+├── objection_labeling/             # Objection dimension labeling module (recommended)
+│   ├── __init__.py
+│   ├── analysis/
+│   │   ├── __init__.py
+│   │   └── multihot.py             # Multi-hot encoding utilities (7-dim)
+│   ├── scripts/
+│   │   ├── label_dimensions.py     # Main LLM labeling pipeline (scoped, multi-hot output)
+│   │   ├── export_multihot.py      # Standalone multi-hot JSON/CSV export
+│   │   ├── regen_stats.py          # Regenerate statistics (no API calls)
+│   │   ├── plot_objection_panels.py # Two-panel objection distribution figure
+│   │   └── compare_multihot_runs.py # Audit diff between two labeling runs
+│   ├── data/                       # Input arguments (upstream: anti-formula extraction)
+│   │   ├── filtered_anti_formula_4_from_raw.json
+│   │   └── filtered_anti_formula_5_from_raw.json
+│   └── results/                    # Output results (canonical flash-lite run)
+│       ├── labeled_arguments.json  # Objections + labels + multi-hot vectors
+│       ├── multihot_vectors.json   # Multi-hot matrix with dimension order
+│       ├── multihot_vectors.csv    # Multi-hot matrix (CSV)
+│       ├── labeling_statistics.md  # Per-dimension occurrence statistics
+│       ├── co_occurrence_matrices.json
+│       ├── dimension_network_formula_4.png
+│       ├── dimension_network_formula_5.png
+│       └── objection_panels.png    # Two-panel figure
+│
 ├── reporting/                      # Report generation module
 │   ├── __init__.py
 │   ├── generate_tex.py             # Chinese report generation
@@ -224,6 +248,11 @@ The project adopts a modular architecture with main analysis functions encapsula
 - **Function**: Extract arguments against specific formulas from LLM responses
 - **Output**: Markdown format argument lists
 
+#### objection_labeling Module
+- **Exports**: `load_labeled_arguments()`, `labels_to_vector()`, `vector_to_labels()`, `DIMENSIONS`
+- **Function**: LLM-assisted multi-label annotation of objections against Formulas 4/5 (target-formula scoped, codebook prompt, temperature=0), with 7-dim multi-hot encoding
+- **Output**: `labeled_arguments.json` (labels + vectors), multi-hot matrices, statistics, co-occurrence networks, two-panel figure
+
 #### reporting Module
 - **Exports**: `generate_tex()`, `generate_tex_en()`, `LaTeXReportGenerator`
 - **Function**: Generate Chinese and English LaTeX reports
@@ -277,6 +306,22 @@ Uses scientifically rigorous methods to analyze whether models are influenced by
 
 Extracts arguments against specific formulas from model responses for manual review and integration.
 
+### 4. Objection Dimension Labeling
+
+Annotates each extracted objection with one or more of 7 dimensions
+(6 scoring dimensions + Other) and encodes it as a multi-hot binary
+vector for direct use in the manuscript:
+
+- **Target-formula scoping**: in comparative texts, only flaws of the
+  target formula are labeled; out-of-dimension issues (processing,
+  degradation, etc.) map to "Other"
+- **Codebook-driven LLM labeling** at temperature=0
+  (gemini-3.1-flash-lite-preview)
+- **Multi-hot encoding**: each objection maps to a 7-dim binary vector
+  in canonical dimension order
+- **Human-in-the-loop adjudication**: `compare_multihot_runs.py`
+  produces the audit sample for cross-model reliability review
+
 ## Output Files
 
 Files generated after completion:
@@ -302,6 +347,17 @@ Files generated after completion:
 - `anti_analysis/results/` - Anti-formula analysis output directory
   - `anti-Formula 4.md` - Arguments against Formula 4 (Markdown format)
   - `anti-Formula 5.md` - Arguments against Formula 5 (Markdown format)
+
+### Objection Labeling Results
+- `objection_labeling/results/` - Objection labeling output directory
+  - `labeled_arguments.json` - Objections with dimension labels and 7-dim multi-hot vectors
+  - `multihot_vectors.json` - Multi-hot matrix with canonical dimension order
+  - `multihot_vectors.csv` - Multi-hot matrix (rows = objections, cols = dimensions)
+  - `labeling_statistics.md` - Per-dimension occurrence statistics per formula
+  - `co_occurrence_matrices.json` - Dimension co-occurrence (per formula + combined)
+  - `dimension_network_formula_4.png` - Formula 4 co-occurrence network
+  - `dimension_network_formula_5.png` - Formula 5 co-occurrence network
+  - `objection_panels.png` - Two-panel figure: grouped bars (a) + co-occurrence heatmap (b)
 
 ### Visualizations
 - `visualizations/overall_comparison_radar.png` - Overall comparison radar chart
@@ -415,6 +471,28 @@ results = analyzer.run_rigorous_analysis()
 for model, model_results in results.items():
     optimal = model_results['optimal_formula']
     print(f"{model}: Formula {optimal['formula_id']} - Score: {optimal['total_score']:.2f}")
+```
+
+### objection_labeling Module
+
+```python
+from objection_labeling import load_labeled_arguments, labels_to_vector, vector_to_labels, DIMENSIONS
+
+# Load labeled objections (labels + multi-hot vectors)
+data = load_labeled_arguments()
+f4 = data["formula_4"]      # [{key, argument, labels, vector}, ...]
+
+# Encode / decode a single objection
+vector = labels_to_vector(["Swelling_Performance", "Other"])   # [0,1,0,0,0,0,1]
+labels = vector_to_labels(vector)                              # ['Swelling_Performance', 'Other']
+
+# Re-run auxiliary steps without API calls
+#   python objection_labeling/scripts/export_multihot.py
+#   python objection_labeling/scripts/regen_stats.py
+#   python objection_labeling/scripts/plot_objection_panels.py
+
+# Full re-labeling (API cost): requires .env with API_KEY / API_URL
+#   python objection_labeling/scripts/label_dimensions.py
 ```
 
 ### anti_analysis Module

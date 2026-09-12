@@ -26,7 +26,7 @@ This module explores the distribution and clustering patterns of hydrogels in th
 
 ### 6. LLM Consensus Reliability Analysis Module
 
-This model use LLM to analyze materials, employing multiple runs and rigorous statistical methods to analyze stability, consistency and parse llm-generated arguments against materials.
+This model use LLM to analyze materials, employing multiple runs and rigorous statistical methods to analyze stability, consistency and parse llm-generated arguments against materials. Objections against the leading formulas are further labeled by dimension via LLM-assisted multi-label annotation and encoded as multi-hot binary vectors.
 
 
 ## Installation
@@ -354,6 +354,20 @@ LIGHT_platform
     │  ├─scripts/
     │  │  │  extract_anti_arguments.py
     │  └─results/
+    │
+    ├─objection_labeling										— Objection dimension labeling
+    │  │  __init__.py
+    │  ├─analysis/
+    │  │  │  __init__.py
+    │  │  │  multihot.py									— 7-dim multi-hot encoding utilities
+    │  ├─scripts/
+    │  │  │  label_dimensions.py							— Main LLM labeling pipeline
+    │  │  │  export_multihot.py							— Multi-hot JSON/CSV export
+    │  │  │  regen_stats.py								— Statistics regeneration (no API)
+    │  │  │  plot_objection_panels.py						— Two-panel distribution figure
+    │  │  │  compare_multihot_runs.py						— Cross-run audit diff
+    │  ├─data/											— Filtered anti-formula arguments
+    │  └─results/											— Labels + multi-hot vectors + figures
     │
     ├─reporting											— LaTeX report generation
     │  │  __init__.py

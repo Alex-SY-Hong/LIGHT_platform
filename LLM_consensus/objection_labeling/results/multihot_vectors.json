@@ -1,0 +1,699 @@
+{
+  "dimension_order": [
+    "Mechanical_Safety",
+    "Swelling_Performance",
+    "Endothelialization",
+    "SMC_inhibition",
+    "Anti_inflammation",
+    "Thrombogenicity",
+    "Other"
+  ],
+  "formula_4": [
+    {
+      "key": "gpt-5 Run 0",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "key": "gpt-5 Run 1",
+      "vector": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gpt-5 Run 2",
+      "vector": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "key": "gpt-5 Run 3",
+      "vector": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gpt-5 Run 4",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "key": "gpt-5 Run 5",
+      "vector": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gpt-5 Run 6",
+      "vector": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gpt-5 Run 7",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "key": "gpt-5 Run 8",
+      "vector": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gpt-5 Run 9",
+      "vector": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gpt-5 Run 10",
+      "vector": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "key": "grok-4 Run 1",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "key": "grok-4 Run 3",
+      "vector": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "grok-4 Run 6",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "grok-4 Run 8",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "claude-opus-4-5-20251101 Run 0",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "claude-opus-4-5-20251101 Run 4",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "claude-opus-4-5-20251101 Run 5",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "key": "claude-opus-4-5-20251101 Run 9",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "formula_5": [
+    {
+      "key": "gpt-5 Run 3",
+      "vector": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "key": "grok-4 Run 0",
+      "vector": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "grok-4 Run 2",
+      "vector": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "key": "grok-4 Run 3",
+      "vector": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "grok-4 Run 4",
+      "vector": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "grok-4 Run 5",
+      "vector": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "grok-4 Run 9",
+      "vector": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "grok-4 Run 10",
+      "vector": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "grok-4 Run 7",
+      "vector": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "claude-opus-4-5-20251101 Run 0",
+      "vector": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "claude-opus-4-5-20251101 Run 1",
+      "vector": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "claude-opus-4-5-20251101 Run 2",
+      "vector": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "claude-opus-4-5-20251101 Run 3",
+      "vector": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "claude-opus-4-5-20251101 Run 4",
+      "vector": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "claude-opus-4-5-20251101 Run 6",
+      "vector": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "claude-opus-4-5-20251101 Run 6",
+      "vector": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "claude-opus-4-5-20251101 Run 8",
+      "vector": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "key": "claude-opus-4-5-20251101 Run 10",
+      "vector": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "claude-opus-4-5-20251101 Run 7",
+      "vector": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 0",
+      "vector": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 0",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 1",
+      "vector": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 2",
+      "vector": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 2",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 3",
+      "vector": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 4",
+      "vector": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 4",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 5",
+      "vector": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 5",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 6",
+      "vector": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 6",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 7",
+      "vector": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 8",
+      "vector": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 8",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 9",
+      "vector": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 9",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 10",
+      "vector": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": "gemini-3-pro-preview Run 10",
+      "vector": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

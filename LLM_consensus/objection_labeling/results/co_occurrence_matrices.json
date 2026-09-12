@@ -1,0 +1,65 @@
+{
+  "formula_4": {
+    "co_occurrence": {
+      "Swelling_Performance-Thrombogenicity": 5,
+      "SMC_inhibition-Swelling_Performance": 4,
+      "Mechanical_Safety-Swelling_Performance": 1,
+      "Mechanical_Safety-SMC_inhibition": 1,
+      "SMC_inhibition-Thrombogenicity": 1,
+      "Endothelialization-SMC_inhibition": 1,
+      "Other-Swelling_Performance": 2
+    },
+    "dimension_counts": {
+      "Thrombogenicity": 6,
+      "Swelling_Performance": 14,
+      "SMC_inhibition": 8,
+      "Mechanical_Safety": 1,
+      "Endothelialization": 1,
+      "Other": 2
+    }
+  },
+  "formula_5": {
+    "co_occurrence": {
+      "SMC_inhibition-Thrombogenicity": 1,
+      "Endothelialization-SMC_inhibition": 3,
+      "Endothelialization-Thrombogenicity": 1,
+      "Mechanical_Safety-Swelling_Performance": 13,
+      "Anti_inflammation-Endothelialization": 1,
+      "Endothelialization-Mechanical_Safety": 2,
+      "Endothelialization-Swelling_Performance": 1
+    },
+    "dimension_counts": {
+      "SMC_inhibition": 4,
+      "Thrombogenicity": 2,
+      "Endothelialization": 15,
+      "Mechanical_Safety": 15,
+      "Swelling_Performance": 21,
+      "Anti_inflammation": 1,
+      "Other": 1
+    }
+  },
+  "combined": {
+    "co_occurrence": {
+      "Swelling_Performance-Thrombogenicity": 5,
+      "SMC_inhibition-Swelling_Performance": 4,
+      "Mechanical_Safety-Swelling_Performance": 14,
+      "Mechanical_Safety-SMC_inhibition": 1,
+      "SMC_inhibition-Thrombogenicity": 2,
+      "Endothelialization-SMC_inhibition": 4,
+      "Other-Swelling_Performance": 2,
+      "Endothelialization-Thrombogenicity": 1,
+      "Anti_inflammation-Endothelialization": 1,
+      "Endothelialization-Mechanical_Safety": 2,
+      "Endothelialization-Swelling_Performance": 1
+    },
+    "dimension_counts": {
+      "Thrombogenicity": 8,
+      "Swelling_Performance": 35,
+      "SMC_inhibition": 12,
+      "Mechanical_Safety": 16,
+      "Endothelialization": 16,
+      "Other": 3,
+      "Anti_inflammation": 1
+    }
+  }
+}
