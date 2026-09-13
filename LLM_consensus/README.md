@@ -186,6 +186,16 @@ LLM_consensus/
 │       ├── dimension_network_formula_5.png
 │       └── objection_panels.png    # Two-panel figure
 │
+├── prompt_sensitivity/             # Prompt sensitivity (robustness) module
+│   ├── __init__.py
+│   ├── make_variants.py            # Build prompt variants from prompt.md
+│   ├── run_variants.py             # Resume-safe API runner (temp 0.0)
+│   ├── analyze_sensitivity.py      # Winner/rank/drift metrics vs split-half noise
+│   ├── make_figures.py             # 3-panel Nature-style summary figure
+│   ├── report.md                   # Full analysis report (Chinese)
+│   ├── variants/                   # Generated prompt variant texts
+│   └── results/                    # Raw responses, metrics JSON, figure PNG/PDF
+│
 ├── reporting/                      # Report generation module
 │   ├── __init__.py
 │   ├── generate_tex.py             # Chinese report generation
@@ -252,6 +262,16 @@ The project adopts a modular architecture with main analysis functions encapsula
 - **Exports**: `load_labeled_arguments()`, `labels_to_vector()`, `vector_to_labels()`, `DIMENSIONS`
 - **Function**: LLM-assisted multi-label annotation of objections against Formulas 4/5 (target-formula scoped, codebook prompt, temperature=0), with 7-dim multi-hot encoding
 - **Output**: `labeled_arguments.json` (labels + vectors), multi-hot matrices, statistics, co-occurrence networks, two-panel figure
+
+#### prompt_sensitivity Module
+- **Exports**: `make_variants.py`, `run_variants.py`, `analyze_sensitivity.py`, `make_figures.py` (pipeline scripts)
+- **Function**: Test the robustness of the consensus scoring framework against
+  benign (candidate reorder, paraphrase) and structural (paradigm ablation)
+  perturbations of the scoring prompt; all metrics are interpreted against a
+  split-half baseline noise reference
+- **Output**: `prompt_sensitivity/results/` - raw responses, `sensitivity_results.json`
+  (winner stability, Spearman rho, top-3 Jaccard, dimension drift vs noise floor),
+  `nature_figure_sensitivity.png/.pdf`, and `report.md` (Chinese analysis report)
 
 #### reporting Module
 - **Exports**: `generate_tex()`, `generate_tex_en()`, `LaTeXReportGenerator`
@@ -358,6 +378,13 @@ Files generated after completion:
   - `dimension_network_formula_4.png` - Formula 4 co-occurrence network
   - `dimension_network_formula_5.png` - Formula 5 co-occurrence network
   - `objection_panels.png` - Two-panel figure: grouped bars (a) + co-occurrence heatmap (b)
+
+### Prompt Sensitivity Analysis Results
+- `prompt_sensitivity/results/` - Prompt sensitivity output directory
+  - `raw/<variant>/<model>.md` - Raw LLM responses per prompt variant and model
+  - `sensitivity_results.json` - All robustness metrics (winner stability, Spearman
+    rho, top-3 Jaccard, dimension drift vs split-half noise floor)
+  - `nature_figure_sensitivity.png/.pdf` - 3-panel robustness figure
 
 ### Visualizations
 - `visualizations/overall_comparison_radar.png` - Overall comparison radar chart

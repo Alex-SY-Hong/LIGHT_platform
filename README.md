@@ -26,7 +26,7 @@ This module explores the distribution and clustering patterns of hydrogels in th
 
 ### 6. LLM Consensus Reliability Analysis Module
 
-This model use LLM to analyze materials, employing multiple runs and rigorous statistical methods to analyze stability, consistency and parse llm-generated arguments against materials. Objections against the leading formulas are further labeled by dimension via LLM-assisted multi-label annotation and encoded as multi-hot binary vectors.
+This model use LLM to analyze materials, employing multiple runs and rigorous statistical methods to analyze stability, consistency and parse llm-generated arguments against materials. Objections against the leading formulas are further labeled by dimension via LLM-assisted multi-label annotation and encoded as multi-hot binary vectors. A prompt sensitivity analysis additionally verifies that the consensus conclusions (per-model winners and rankings) are robust to benign and structural perturbations of the scoring prompt, benchmarked against each model's own run-to-run noise.
 
 
 ## Installation
