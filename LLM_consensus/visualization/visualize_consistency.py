@@ -96,7 +96,7 @@ def plot_winner_consistency(
     ax1.set_ylim(0, 105)
 
     # Right plot: Winner distribution grouped bar chart
-    # 首先收集所有配方编号
+    # First collect all formula numbers
     all_formulas = set()
     for model in models:
         wc = data[model]["winner_consistency"]
@@ -107,15 +107,15 @@ def plot_winner_consistency(
     if all_formulas:
         formulas_sorted = sorted(all_formulas)
 
-        # 为每个模型在所有配方位置上画柱状图
+        # Draw bars for each model at all formula positions
         for i, model in enumerate(models):
             wc = data[model]["winner_consistency"]
             if "error" not in wc and "winner_distribution" in wc:
                 dist = wc["winner_distribution"]
-                # 获取该模型在所有配方上的计数，没有则为0
+                # Get this model's count on every formula, 0 if missing
                 counts = [dist.get(f, 0) for f in formulas_sorted]
 
-                # 使用偏移避免重叠
+                # Use an offset to avoid overlap
                 offset = (i - len(models) / 2 + 0.5) * 0.2
                 x_pos = np.arange(len(formulas_sorted)) + offset
 

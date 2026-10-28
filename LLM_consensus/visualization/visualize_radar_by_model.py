@@ -20,15 +20,15 @@ from .visualize_utils import MODEL_NAMES, get_output_dir
 # Formula colors from gpt-final.svg (色盘.html palette)
 # Using lowercase hex codes to match SVG exactly
 FORMULA_COLORS = {
-    1: '#435485',   # Deep Indigo (深靛蓝) - Gel & GelMA
-    2: '#7d5fad',   # Lavender (薰衣草) - PAM & Gel
-    3: '#615a99',   # Starry Purple (星空紫) - CS & GelMA
-    4: '#9e66a0',   # Mallow Purple (锦葵紫) - GelMA & Silk Fibroin
-    5: '#f17554',   # Vibrant Orange (活力橙) - GelMA & PEG
-    6: '#ffb03a',   # Warm Sun Yellow (暖阳黄) - Starch & GelMA
-    7: '#c37b9f',   # Rose Pink (玫瑰粉紫) - Chitin & GelMA
+    1: '#435485',   # Deep Indigo - Gel & GelMA
+    2: '#7d5fad',   # Lavender - PAM & Gel
+    3: '#615a99',   # Starry Purple - CS & GelMA
+    4: '#9e66a0',   # Mallow Purple - GelMA & Silk Fibroin
+    5: '#f17554',   # Vibrant Orange - GelMA & PEG
+    6: '#ffb03a',   # Warm Sun Yellow - Starch & GelMA
+    7: '#c37b9f',   # Rose Pink Purple - Chitin & GelMA
     8: '#a8a2b9',   # Medium Gray Purple - GelMA & Cellulose
-    9: '#37a294',   # Lake Pine Green (湖松绿) - PAM & PVA
+    9: '#37a294',   # Lake Pine Green - PAM & PVA
     10: '#2c2a3a'   # Deep Charcoal Purple - PAM & PEG
 }
 

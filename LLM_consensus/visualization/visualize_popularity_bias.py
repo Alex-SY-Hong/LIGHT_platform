@@ -1,13 +1,13 @@
 """
-流行性偏倚分析可视化模块
+Popularity bias analysis visualization module
 
-生成以下图表：
-1. 材料频度分布柱状图
-2. 每个模型的相关性热力图（7个维度）
-3. 每个模型的原始vs去偏对比图
-4. 每个模型的雷达图（6个维度，不含Total_Score）
+Generates the following charts:
+1. Material frequency distribution bar chart
+2. Correlation heatmap per model (7 dimensions)
+3. Original vs debiased comparison chart per model
+4. Radar chart per model (6 dimensions, excluding Total_Score)
 
-关键原则：每个模型独立可视化
+Key principle: each model is visualized independently
 """
 
 import os
@@ -21,39 +21,39 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from matplotlib.patches import Rectangle
 
-# 添加父目录到路径
+# Add the parent directory to the path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 class PopularityBiasVisualizer:
-    """流行性偏倚可视化器"""
+    """Popularity bias visualizer"""
 
     def __init__(self, base_dir: str = "."):
         """
-        初始化可视化器
+        Initialize the visualizer
 
         Args:
-            base_dir: 项目根目录
+            base_dir: project root directory
         """
         self.base_dir = base_dir
         self.output_dir = os.path.join(base_dir, "analysis", "popularity_bias_analysis")
         self.vis_dir = os.path.join(self.output_dir, "visualization")
 
-        # 创建可视化目录
+        # Create the visualization directory
         os.makedirs(self.vis_dir, exist_ok=True)
 
-        # 配方列表
+        # Formula list
         self.formulas = list(range(1, 11))
         self.formula_names = [f"Formula {i}" for i in self.formulas]
 
-        # 评分维度（6个，不含Total_Score用于雷达图）
+        # Scoring dimensions (6, excluding Total_Score, used for radar charts)
         self.dimensions = [
             "Mechanical_Safety", "Swelling_Performance", "Endothelialization",
             "SMC_inhibition", "Anti_inflammation", "Thrombogenicity"
         ]
         self.all_dimensions = self.dimensions + ["Total_Score"]
 
-        # 模型名称映射
+        # Model name mapping
         self.model_names_map = {
             "gpt-5": "GPT-5",
             "grok-4": "Grok-4",
@@ -61,7 +61,7 @@ class PopularityBiasVisualizer:
             "gemini-3-pro-preview": "Gemini 3 Pro"
         }
 
-        # 维度名称映射（用于显示）
+        # Dimension name mapping (for display)
         self.dimension_names_map = {
             "Mechanical_Safety": "Mechanical Safety",
             "Swelling_Performance": "Swelling Performance",
@@ -72,35 +72,35 @@ class PopularityBiasVisualizer:
             "Total_Score": "Total Score"
         }
 
-        # 设置绘图风格
+        # Set the plotting style
         plt.style.use('seaborn-v0_8-whitegrid')
         sns.set_palette("husl")
 
     def load_material_frequencies(self) -> Dict[str, int]:
-        """加载材料频度"""
+        """Load material frequencies"""
         with open(os.path.join(self.output_dir, "material_frequencies.json"), 'r', encoding='utf-8') as f:
             return json.load(f)
 
     def load_relative_frequencies(self) -> Dict[int, float]:
-        """加载配方相对频度"""
+        """Load formula relative frequencies"""
         with open(os.path.join(self.output_dir, "relative_frequencies.json"), 'r', encoding='utf-8') as f:
             return json.load(f)
 
     def load_correlation_results(self, model: str) -> Dict:
-        """加载指定模型的相关性结果"""
+        """Load the correlation results for a given model"""
         with open(os.path.join(self.output_dir, f"{model}_correlation_results.json"), 'r', encoding='utf-8') as f:
             return json.load(f)
 
     def load_debiased_scores(self, model: str) -> pd.DataFrame:
-        """加载指定模型的去偏后分数"""
+        """Load the debiased scores for a given model"""
         path = os.path.join(self.output_dir, f"{model}_debiased_scores.json")
         return pd.read_json(path)
 
     def plot_material_popularity_bar(self):
-        """绘制材料频度分布柱状图"""
+        """Draw the material frequency distribution bar chart"""
         material_freqs = self.load_material_frequencies()
 
-        # 按频度排序
+        # Sort by frequency
         sorted_materials = sorted(material_freqs.items(), key=lambda x: x[1], reverse=True)
 
         fig, ax = plt.subplots(figsize=(12, 6))
@@ -110,7 +110,7 @@ class PopularityBiasVisualizer:
 
         bars = ax.barh(materials, freqs, color='steelblue', edgecolor='navy', alpha=0.7)
 
-        # 添加数值标签
+        # Add value labels
         for bar, freq in zip(bars, freqs):
             ax.text(freq, bar.get_y() + bar.get_height()/2, f'{freq:,}',
                    ha='left', va='center', fontsize=10, fontweight='bold')
@@ -129,24 +129,24 @@ class PopularityBiasVisualizer:
 
     def plot_correlation_heatmap(self, model: str):
         """
-        绘制相关性热力图（每个模型独立）
+        Draw the correlation heatmap (each model independently)
 
         Args:
-            model: 模型名称
+            model: model name
         """
         corr_results = self.load_correlation_results(model)
 
-        # 准备数据
+        # Prepare data
         dimensions_display = [self.dimension_names_map[d] for d in self.all_dimensions]
         rho_values = [corr_results[d]["median_rho"] for d in self.all_dimensions]
 
-        # 创建DataFrame（只包含相关系数）
+        # Create a DataFrame (correlation coefficients only)
         df = pd.DataFrame(rho_values, index=dimensions_display, columns=['Spearman ρ'])
 
-        # 绘制热力图
+        # Draw the heatmap
         fig, ax = plt.subplots(figsize=(8, 6))
 
-        # 使用颜色映射
+        # Use a color map
         cmap = 'RdBu_r'
         vmin, vmax = -1, 1
 
@@ -157,22 +157,22 @@ class PopularityBiasVisualizer:
                     f"Between Scores and Material Popularity",
                     fontsize=13, fontweight='bold', pad=15)
 
-        # 添加边框标记
+        # Add border markers
         for i, dimension in enumerate(self.all_dimensions):
             needs_debias = corr_results[dimension]["needs_debiasing"]
-            for j in range(1):  # 只有一列
+            for j in range(1):  # only one column
                 if abs(rho_values[i]) > 0.6:
-                    # 强相关：实线边框
+                    # Strong correlation: solid border
                     rect = Rectangle((j, i), 1, 1, fill=False, edgecolor='red',
                                    linewidth=3, linestyle='-')
                     ax.add_patch(rect)
                 elif abs(rho_values[i]) > 0.5:
-                    # 中等相关：虚线边框
+                    # Moderate correlation: dashed border
                     rect = Rectangle((j, i), 1, 1, fill=False, edgecolor='orange',
                                    linewidth=2, linestyle='--')
                     ax.add_patch(rect)
 
-        # 添加图例
+        # Add legend
         legend_elements = [
             plt.Line2D([0], [0], color='red', lw=3, linestyle='-', label='Strong (|ρ|>0.6)'),
             plt.Line2D([0], [0], color='orange', lw=2, linestyle='--', label='Moderate (0.5<|ρ|≤0.6)')
@@ -191,22 +191,22 @@ class PopularityBiasVisualizer:
 
     def plot_debias_comparison(self, model: str):
         """
-        绘制原始vs去偏对比图（每个模型独立）
+        Draw the original vs debiased comparison chart (each model independently)
 
         Args:
-            model: 模型名称
+            model: model name
         """
         df = self.load_debiased_scores(model)
         corr_results = self.load_correlation_results(model)
 
-        # 计算每个配方的平均分数
+        # Compute the mean score per formula
         avg_original = df.groupby('Formula')[self.all_dimensions].mean()
 
-        # 获取去偏后的分数列
+        # Get the debiased score columns
         debiased_cols = [f"{d}_debiased" for d in self.all_dimensions]
         avg_debiased = df.groupby('Formula')[debiased_cols].mean()
 
-        # 绘制每个维度的对比图
+        # Draw a comparison chart per dimension
         for i, dimension in enumerate(self.all_dimensions):
             fig, ax = plt.subplots(figsize=(12, 5))
 
@@ -216,10 +216,10 @@ class PopularityBiasVisualizer:
             original_vals = avg_original[dimension].values
             debiased_vals = avg_debiased[f"{dimension}_debiased"].values
 
-            # 检查是否去偏
+            # Check whether debiasing applies
             needs_debias = corr_results[dimension]["needs_debiasing"]
 
-            # 绘制柱状图
+            # Draw the bar chart
             bars1 = ax.bar(x - width/2, original_vals, width, label='Original',
                           color='steelblue', alpha=0.7, edgecolor='navy')
             bars2 = ax.bar(x + width/2, debiased_vals, width, label='Debiased',
@@ -250,60 +250,61 @@ class PopularityBiasVisualizer:
 
     def plot_radar_chart(self, model: str):
         """
-        绘制雷达图（每个模型独立，6个维度不含Total_Score）
+        Draw the radar chart (each model independently, 6 dimensions excluding
+        Total_Score)
 
         Args:
-            model: 模型名称
+            model: model name
         """
         df = self.load_debiased_scores(model)
         corr_results = self.load_correlation_results(model)
 
-        # 计算平均分数
+        # Compute mean scores
         avg_original = df.groupby('Formula')[self.dimensions].mean()
         avg_debiased = df.groupby('Formula')[[f"{d}_debiased" for d in self.dimensions]].mean()
 
-        # 计算全局平均（所有配方的平均）
+        # Compute global means (mean over all formulas)
         original_means = avg_original.mean().values
         debiased_means = avg_debiased.mean().values
 
-        # 准备雷达图数据
+        # Prepare radar chart data
         angles = np.linspace(0, 2 * np.pi, len(self.dimensions), endpoint=False).tolist()
-        angles += angles[:1]  # 闭合
+        angles += angles[:1]  # close the polygon
 
         original_means_radar = np.concatenate([original_means, [original_means[0]]])
         debiased_means_radar = np.concatenate([debiased_means, [debiased_means[0]]])
 
         dimension_labels = [self.dimension_names_map[d] for d in self.dimensions]
 
-        # 绘制雷达图
+        # Draw the radar chart
         fig, ax = plt.subplots(figsize=(10, 10), subplot_kw=dict(projection='polar'))
 
-        # 绘制原始分数
+        # Plot the original scores
         ax.plot(angles, original_means_radar, 'o-', linewidth=2, color='steelblue',
                label='Original', markersize=8)
         ax.fill(angles, original_means_radar, color='steelblue', alpha=0.25)
 
-        # 绘制去偏分数
+        # Plot the debiased scores
         ax.plot(angles, debiased_means_radar, 'o--', linewidth=2, color='coral',
                label='Debiased', markersize=8)
         ax.fill(angles, debiased_means_radar, color='coral', alpha=0.25)
 
-        # 设置角度标签
+        # Set angle labels
         ax.set_xticks(angles[:-1])
         ax.set_xticklabels(dimension_labels, fontsize=11, fontweight='bold')
 
-        # 设置y轴
+        # Set the y axis
         ax.set_ylim(0, 10)
         ax.set_yticks([2, 4, 6, 8, 10])
         ax.set_yticklabels(['2', '4', '6', '8', '10'], fontsize=9)
         ax.grid(True, alpha=0.3)
 
-        # 标题和图例
+        # Title and legend
         ax.set_title(f"Radar Chart - Original vs Debiasing\n{self.model_names_map.get(model, model)}",
                     fontsize=14, fontweight='bold', pad=20)
         ax.legend(loc='upper right', bbox_to_anchor=(1.3, 1.1), fontsize=11)
 
-        # 添加方向标签
+        # Add direction labels
         plt.tight_layout()
 
         model_name_safe = model.replace('/', '_')
@@ -315,20 +316,20 @@ class PopularityBiasVisualizer:
 
     def generate_all_visualizations(self, models: List[str]):
         """
-        生成所有可视化（每个模型独立）
+        Generate all visualizations (each model independently)
 
         Args:
-            models: 要可视化的模型列表
+            models: list of models to visualize
         """
         print("\n" + "=" * 80)
         print("开始生成可视化")
         print("=" * 80)
 
-        # 1. 材料频度分布图
+        # 1. Material frequency distribution chart
         print("\n[1/2] 绘制材料频度分布图...")
         self.plot_material_popularity_bar()
 
-        # 2. 每个模型的可视化
+        # 2. Per-model visualizations
         print(f"\n[2/2] 为 {len(models)} 个模型生成可视化...")
         for model in models:
             print(f"\n处理模型: {model}")
@@ -342,10 +343,10 @@ class PopularityBiasVisualizer:
 
     def create_summary_report(self, models: List[str]):
         """
-        创建分析摘要报告
+        Create the analysis summary report
 
         Args:
-            models: 模型列表
+            models: list of models
         """
         material_freqs = self.load_material_frequencies()
         relative_freqs = self.load_relative_frequencies()
@@ -395,7 +396,7 @@ class PopularityBiasVisualizer:
                 report.append("**弱/无相关维度（|ρ|≤0.5）**\n")
                 report.extend(weak)
 
-        # 保存报告
+        # Save the report
         report_path = os.path.join(self.output_dir, "visualization", "summary.md")
         with open(report_path, 'w', encoding='utf-8') as f:
             f.writelines(report)
@@ -404,10 +405,10 @@ class PopularityBiasVisualizer:
 
 
 def main():
-    """主函数"""
+    """Main function"""
     visualizer = PopularityBiasVisualizer()
 
-    # 获取需要可视化的模型
+    # Collect the models to visualize
     output_dir = os.path.join(".", "analysis", "popularity_bias_analysis")
     models = []
     for filename in os.listdir(output_dir):
@@ -415,10 +416,10 @@ def main():
             model = filename.replace("_correlation_results.json", "")
             models.append(model)
 
-    # 生成所有可视化
+    # Generate all visualizations
     visualizer.generate_all_visualizations(models)
 
-    # 创建摘要报告
+    # Create the summary report
     visualizer.create_summary_report(models)
 
 

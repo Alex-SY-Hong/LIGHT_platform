@@ -1,6 +1,6 @@
 """
-LLM可靠性分析可视化脚本
-生成各种图表来展示分析结果
+LLM reliability analysis visualization script
+Generate various charts to present the analysis results
 """
 
 import json
@@ -13,21 +13,21 @@ from typing import Dict, List, Optional
 import sys
 import io
 
-# 设置标准输出为UTF-8编码（解决Windows系统下的编码问题）
+# Force UTF-8 stdout (fixes encoding issues on Windows)
 if sys.platform == 'win32':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
-# 设置英文字体
+# Use English fonts
 plt.rcParams['font.sans-serif'] = ['Arial', 'DejaVu Sans']
-plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
+plt.rcParams['axes.unicode_minus'] = False  # fix minus-sign rendering
 
-# 设置seaborn样式
+# Set seaborn style
 sns.set_style("whitegrid")
 sns.set_palette("husl")
 
 
 class LLMResultVisualizer:
-    """LLM可靠性分析结果可视化"""
+    """Visualize LLM reliability analysis results"""
 
     def __init__(self, base_dir: str = "."):
         self.base_dir = Path(base_dir)
@@ -35,7 +35,7 @@ class LLMResultVisualizer:
         self.output_dir = self.base_dir / "visualizations"
         self.output_dir.mkdir(exist_ok=True)
 
-        # 颜色方案
+        # Color scheme
         self.model_colors = {
             'gpt-5': '#FF6B6B',
             'grok-4': '#4ECDC4',
@@ -44,7 +44,7 @@ class LLMResultVisualizer:
         }
 
     def load_data(self) -> Dict:
-        """加载分析结果数据"""
+        """Load the analysis results data"""
         if not self.data_file.exists():
             raise FileNotFoundError(f"数据文件不存在: {self.data_file}")
 
@@ -54,36 +54,36 @@ class LLMResultVisualizer:
         return data
 
     def plot_overall_comparison(self, data: Dict, save: bool = True) -> None:
-        """绘制整体对比图 - 雷达图"""
-        # 准备数据
+        """Draw the overall comparison chart - radar chart"""
+        # Prepare data
         models = list(data.keys())
         metrics = ['平均CV', '平均ICC', '决策一致性']
 
         model_scores = {}
         for model in models:
-            # 计算平均CV
+            # Compute the average CV
             avg_cv = np.mean([s['overall_cv'] for s in data[model]['scoring_reliability'].values()])
 
-            # 计算平均ICC
+            # Compute the average ICC
             avg_icc = np.mean(list(data[model]['icc_scores'].values()))
 
-            # 决策一致性
+            # Decision consistency
             winner_cons = data[model]['winner_consistency']['consistency_rate']
 
             model_scores[model] = {
-                '平均CV': 100 - avg_cv,  # CV越低越好，转换为分数
-                '平均ICC': avg_icc * 100,  # ICC转换为百分制
+                '平均CV': 100 - avg_cv,  # lower CV is better, convert to a score
+                '平均ICC': avg_icc * 100,  # convert ICC to a percentage scale
                 '决策一致性': winner_cons
             }
 
-        # 创建雷达图
+        # Create the radar chart
         fig, ax = plt.subplots(figsize=(10, 8), subplot_kw=dict(polar=True))
 
-        # 计算角度
+        # Compute the angles
         angles = np.linspace(0, 2 * np.pi, len(metrics), endpoint=False).tolist()
         angles += angles[:1]
 
-        # 绘制每个模型
+        # Draw each model
         for model in models:
             values = [model_scores[model][metric] for metric in metrics]
             values += values[:1]
@@ -92,7 +92,7 @@ class LLMResultVisualizer:
                    label=model, color=self.model_colors[model])
             ax.fill(angles, values, alpha=0.15, color=self.model_colors[model])
 
-        # 设置标签和网格
+        # Set labels and grid
         ax.set_xticks(angles[:-1])
         ax.set_xticklabels(metrics, fontsize=12)
         ax.set_ylim(0, 100)
@@ -100,7 +100,7 @@ class LLMResultVisualizer:
         ax.set_yticklabels(['20', '40', '60', '80', '100'], fontsize=10)
         ax.grid(True, linestyle='--', alpha=0.7)
 
-        # 标题和图例
+        # Title and legend
         plt.title('LLM模型可靠性综合对比\n(数值越高表示越可靠)',
                  fontsize=14, fontweight='bold', pad=20)
         plt.legend(loc='upper right', bbox_to_anchor=(1.3, 1.1), fontsize=10)
@@ -115,8 +115,8 @@ class LLMResultVisualizer:
         plt.close()
 
     def plot_cv_comparison(self, data: Dict, save: bool = True) -> None:
-        """绘制CV对比柱状图"""
-        # 准备数据
+        """Draw the CV comparison bar chart"""
+        # Prepare data
         models = list(data.keys())
         criteria = ['Mechanical_Safety', 'Swelling_Performance', 'Endothelialization',
                    'SMC_inhibition', 'Anti_inflammation', 'Thrombogenicity', 'Total_Score']
@@ -133,7 +133,7 @@ class LLMResultVisualizer:
 
         df = pd.DataFrame(cv_data)
 
-        # 创建分组柱状图
+        # Create the grouped bar chart
         fig, ax = plt.subplots(figsize=(14, 6))
 
         models_list = list(df['Model'].unique())
@@ -145,7 +145,7 @@ class LLMResultVisualizer:
             ax.bar(x + i * width, model_data, width,
                    label=model, color=self.model_colors[model], alpha=0.8)
 
-        # 添加参考线
+        # Add reference lines
         ax.axhline(y=10, color='green', linestyle='--', alpha=0.5, label='优秀 (CV<10%)')
         ax.axhline(y=20, color='orange', linestyle='--', alpha=0.5, label='一般 (CV≥20%)')
 
@@ -168,13 +168,13 @@ class LLMResultVisualizer:
         plt.close()
 
     def plot_icc_comparison(self, data: Dict, save: bool = True) -> None:
-        """绘制ICC对比热图"""
-        # 准备数据
+        """Draw the ICC comparison heatmap"""
+        # Prepare data
         models = list(data.keys())
         criteria = ['Mechanical_Safety', 'Swelling_Performance', 'Endothelialization',
                    'SMC_inhibition', 'Anti_inflammation', 'Thrombogenicity', 'Total_Score']
 
-        # 创建ICC矩阵
+        # Build the ICC matrix
         icc_matrix = pd.DataFrame(index=criteria, columns=models)
 
         for model in models:
@@ -184,7 +184,7 @@ class LLMResultVisualizer:
 
         icc_matrix = icc_matrix.astype(float)
 
-        # 绘制热图
+        # Draw the heatmap
         fig, ax = plt.subplots(figsize=(10, 8))
 
         sns.heatmap(icc_matrix, annot=True, fmt='.4f', cmap='RdYlGn',
@@ -196,7 +196,7 @@ class LLMResultVisualizer:
         ax.set_xlabel('模型', fontsize=12, fontweight='bold')
         ax.set_ylabel('评分维度', fontsize=12, fontweight='bold')
 
-        # 旋转标签
+        # Rotate labels
         plt.xticks(rotation=45, ha='right')
         plt.yticks(rotation=0)
 
@@ -210,8 +210,8 @@ class LLMResultVisualizer:
         plt.close()
 
     def plot_winner_consistency(self, data: Dict, save: bool = True) -> None:
-        """绘制决策一致性对比图"""
-        # 准备数据
+        """Draw the decision consistency comparison chart"""
+        # Prepare data
         models = list(data.keys())
 
         consistency_data = []
@@ -227,20 +227,20 @@ class LLMResultVisualizer:
 
         df = pd.DataFrame(consistency_data)
 
-        # 创建图表
+        # Create the figure
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
 
-        # 左图: 一致性率柱状图
+        # Left panel: consistency rate bar chart
         colors = [self.model_colors[model] for model in df['Model']]
         bars = ax1.bar(df['Model'], df['一致性率 (%)'], color=colors, alpha=0.8, edgecolor='black')
 
-        # 添加数值标签
+        # Add value labels
         for bar in bars:
             height = bar.get_height()
             ax1.text(bar.get_x() + bar.get_width()/2., height,
                     f'{height:.1f}%', ha='center', va='bottom', fontsize=10, fontweight='bold')
 
-        # 添加参考线
+        # Add reference lines
         ax1.axhline(y=80, color='green', linestyle='--', alpha=0.5, label='优秀 (≥80%)')
         ax1.axhline(y=60, color='orange', linestyle='--', alpha=0.5, label='良好 (≥60%)')
 
@@ -251,7 +251,7 @@ class LLMResultVisualizer:
         ax1.grid(axis='y', alpha=0.3)
         ax1.set_ylim(0, 105)
 
-        # 右图: 获胜配方分布堆叠柱状图
+        # Right panel: winning formula distribution stacked bar chart
         all_formulas = set()
         for model in models:
             wc = data[model]['winner_consistency']
@@ -261,7 +261,7 @@ class LLMResultVisualizer:
                 all_formulas.update(formulas)
                 counts = [dist[f] for f in formulas]
 
-                # 使用偏移量避免重叠
+                # Use an offset to avoid overlap
                 offset = list(models).index(model) * 0.15
                 x_pos = np.arange(len(formulas)) + offset
 
@@ -289,24 +289,24 @@ class LLMResultVisualizer:
         plt.close()
 
     def plot_reliability_ranking(self, data: Dict, save: bool = True) -> None:
-        """绘制可靠性排名图"""
-        # 计算综合得分
+        """Draw the reliability ranking chart"""
+        # Compute the composite score
         models = list(data.keys())
         scores = []
 
         for model in models:
-            # CV得分 (越低越好，转换为分数)
+            # CV score (lower is better, converted to a score)
             avg_cv = np.mean([s['overall_cv'] for s in data[model]['scoring_reliability'].values()])
             cv_score = max(0, 100 - avg_cv * 2)
 
-            # ICC得分
+            # ICC score
             avg_icc = np.mean(list(data[model]['icc_scores'].values()))
             icc_score = avg_icc * 100
 
-            # 决策一致性得分
+            # Decision consistency score
             winner_cons = data[model]['winner_consistency']['consistency_rate']
 
-            # 综合得分 (加权平均)
+            # Composite score (weighted average)
             overall_score = cv_score * 0.3 + icc_score * 0.3 + winner_cons * 0.4
 
             scores.append({
@@ -319,7 +319,7 @@ class LLMResultVisualizer:
 
         df = pd.DataFrame(scores).sort_values('综合得分', ascending=True)
 
-        # 创建水平条形图
+        # Create the horizontal bar chart
         fig, ax = plt.subplots(figsize=(10, 6))
 
         y_pos = np.arange(len(df))
@@ -327,7 +327,7 @@ class LLMResultVisualizer:
 
         ax.barh(y_pos, df['综合得分'], color=colors, alpha=0.8, edgecolor='black')
 
-        # 添加数值标签
+        # Add value labels
         for i, (idx, row) in enumerate(df.iterrows()):
             ax.text(row['综合得分'] + 1, i, f"{row['综合得分']:.1f}",
                    va='center', fontsize=10, fontweight='bold')
@@ -340,7 +340,7 @@ class LLMResultVisualizer:
         ax.set_xlim(0, 100)
         ax.grid(axis='x', alpha=0.3)
 
-        # 添加图例
+        # Add legend
         legend_text = '评分权重:\n• 评分一致性: 30%\n• 组内相关性: 30%\n• 决策稳定性: 40%'
         ax.text(0.98, 0.5, legend_text, transform=ax.transAxes,
                fontsize=9, verticalalignment='center', horizontalalignment='right',
@@ -356,18 +356,18 @@ class LLMResultVisualizer:
         plt.close()
 
     def plot_model_detail(self, data: Dict, model_name: str, save: bool = True) -> None:
-        """绘制单个模型的详细分析图"""
+        """Draw the detailed analysis chart for a single model"""
         if model_name not in data:
             print(f"✗ 模型 {model_name} 不存在")
             return
 
         model_data = data[model_name]
 
-        # 创建子图
+        # Create the subplots
         fig = plt.figure(figsize=(16, 10))
         gs = fig.add_gridspec(2, 3, hspace=0.3, wspace=0.3)
 
-        # 1. CV雷达图
+        # 1. CV radar chart
         ax1 = fig.add_subplot(gs[0, 0])
         criteria = list(model_data['scoring_reliability'].keys())
         cv_values = [model_data['scoring_reliability'][c]['overall_cv'] for c in criteria]
@@ -384,7 +384,7 @@ class LLMResultVisualizer:
         ax1.set_title('评分变异系数', fontweight='bold', fontsize=11)
         ax1.grid(True)
 
-        # 2. ICC柱状图
+        # 2. ICC bar chart
         ax2 = fig.add_subplot(gs[0, 1])
         icc_criteria = list(model_data['icc_scores'].keys())
         icc_values = [model_data['icc_scores'][c] for c in icc_criteria]
@@ -401,7 +401,7 @@ class LLMResultVisualizer:
         ax2.legend(fontsize=8)
         ax2.grid(axis='x', alpha=0.3)
 
-        # 3. 获胜配方分布饼图
+        # 3. Winning formula distribution pie chart
         ax3 = fig.add_subplot(gs[0, 2])
         wc = model_data['winner_consistency']
         if 'error' not in wc and 'winner_distribution' in wc:
@@ -416,16 +416,16 @@ class LLMResultVisualizer:
             ax3.set_title(f'获胜配方分布\n(一致性率: {wc["consistency_rate"]:.1f}%)',
                          fontweight='bold', fontsize=11)
 
-        # 4. 评分范围箱线图
+        # 4. Score range box plot
         ax4 = fig.add_subplot(gs[1, :])
 
-        # 准备数据: 每个评分维度在11轮中的值
+        # Prepare data: values of each scoring dimension across the 11 runs
         criterion_data = {}
         for criterion in criteria:
             criterion_data[criterion] = []
 
-        # 注意: 这里需要原始数据，我们从JSON中无法直接获取
-        # 所以我们显示统计摘要
+        # Note: this needs the raw data, which is not directly available from
+        # the JSON, so we show a statistical summary instead
         summary_data = []
         for criterion in criteria:
             stats = model_data['scoring_reliability'][criterion]
@@ -452,7 +452,7 @@ class LLMResultVisualizer:
         ax4.legend(fontsize=10)
         ax4.grid(axis='y', alpha=0.3)
 
-        # 总标题
+        # Overall title
         fig.suptitle(f'{model_name} - 详细可靠性分析',
                     fontsize=16, fontweight='bold', y=0.995)
 
@@ -464,7 +464,7 @@ class LLMResultVisualizer:
         plt.close()
 
     def plot_entropy_analysis(self, data: Dict, save: bool = True) -> None:
-        """绘制熵分析图"""
+        """Draw the entropy analysis chart"""
         models = list(data.keys())
 
         entropy_data = []
@@ -480,10 +480,10 @@ class LLMResultVisualizer:
 
         df = pd.DataFrame(entropy_data)
 
-        # 创建图表
+        # Create the figure
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
 
-        # 左图: 熵值对比
+        # Left panel: entropy comparison
         x = np.arange(len(df))
         width = 0.35
 
@@ -501,14 +501,14 @@ class LLMResultVisualizer:
         ax1.legend(fontsize=10)
         ax1.grid(axis='y', alpha=0.3)
 
-        # 添加数值标签
+        # Add value labels
         for bars in [bars1, bars2]:
             for bar in bars:
                 height = bar.get_height()
                 ax1.text(bar.get_x() + bar.get_width()/2., height,
                        f'{height:.3f}', ha='center', va='bottom', fontsize=8)
 
-        # 右图: 一致性率 vs 熵值散点图
+        # Right panel: consistency rate vs entropy scatter plot
         for i, row in df.iterrows():
             ax2.scatter(row['实际熵'], row['一致性率'],
                       s=200, color=self.model_colors[row['Model']],
@@ -522,7 +522,7 @@ class LLMResultVisualizer:
                      fontsize=12, fontweight='bold')
         ax2.grid(True, alpha=0.3)
 
-        # 添加趋势线
+        # Add a trend line
         z = np.polyfit(df['实际熵'], df['一致性率'], 1)
         p = np.poly1d(z)
         x_trend = np.linspace(df['实际熵'].min(), df['实际熵'].max(), 100)
@@ -539,12 +539,12 @@ class LLMResultVisualizer:
         plt.close()
 
     def generate_all_visualizations(self, show: bool = False) -> None:
-        """生成所有可视化图表"""
+        """Generate all visualization charts"""
         print("=" * 80)
         print("LLM可靠性分析 - 可视化生成")
         print("=" * 80)
 
-        # 加载数据
+        # Load data
         try:
             data = self.load_data()
             print(f"\n✓ 成功加载分析数据")
@@ -557,7 +557,7 @@ class LLMResultVisualizer:
         print(f"输出目录: {self.output_dir}")
         print("-" * 80)
 
-        # 生成各种图表
+        # Generate the various charts
         self.plot_overall_comparison(data)
         self.plot_cv_comparison(data)
         self.plot_icc_comparison(data)
@@ -565,7 +565,7 @@ class LLMResultVisualizer:
         self.plot_reliability_ranking(data)
         self.plot_entropy_analysis(data)
 
-        # 为每个模型生成详细图
+        # Generate the detail chart for each model
         print("-" * 80)
         print("\n生成各模型详细分析图:")
         for model in data.keys():
@@ -575,7 +575,7 @@ class LLMResultVisualizer:
         print(f"\n✓ 所有图表已生成！共 {len(list(self.output_dir.glob('*.png')))} 个文件")
         print(f"✓ 保存位置: {self.output_dir}")
 
-        # 显示图表统计
+        # Show chart statistics
         png_files = list(self.output_dir.glob('*.png'))
         total_size = sum(f.stat().st_size for f in png_files) / 1024  # KB
 
@@ -596,7 +596,7 @@ class LLMResultVisualizer:
 
 
 def main():
-    """主函数"""
+    """Main function"""
     visualizer = LLMResultVisualizer()
     visualizer.generate_all_visualizations(show=False)
 
