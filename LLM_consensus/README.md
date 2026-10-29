@@ -74,8 +74,7 @@ python run_pipeline.py
 This will automatically execute:
 1. Data extraction
 2. Reliability analysis
-3. Visualization generation
-4. LaTeX report generation
+3. LaTeX report generation
 
 ### Running Individual Modules (Traditional)
 
@@ -111,7 +110,6 @@ LLM_consensus/
 ├── llm_concensus.py                # LLM API calling script (reads prompt.md)
 ├── run_pipeline.py                 # One-click run script
 ├── prompt.md                       # Prompt template sent to the LLM
-├── example_visualization.py        # Example visualization generation
 ├── fix_quotes.py                   # Quote fixing utility
 ├── test_optimal_formula.py         # Optimal formula test
 │
@@ -137,8 +135,7 @@ LLM_consensus/
 │   │   ├── fetch_material_frequencies.py
 │   │   ├── test_apis.py
 │   │   ├── test_pubchem_two_step.py
-│   │   ├── test_pubchem_urls.py
-│   │   └── run_popularity_bias_analysis.py
+│   │   └── test_pubchem_urls.py
 │   ├── data/                       # Input data
 │   │   ├── material_frequencies.json
 │   │   ├── relative_frequencies.json
@@ -148,8 +145,7 @@ LLM_consensus/
 │   └── results/                    # Output results
 │       ├── *_debiased_rigorous_v2.json
 │       ├── rigorous_analysis_v2_summary.json
-│       ├── rigorous_analysis_v2.log
-│       └── *.png
+│       └── rigorous_analysis_v2.log
 │
 ├── anti_analysis/                  # Anti-formula analysis module (recommended)
 │   ├── __init__.py
@@ -167,25 +163,9 @@ LLM_consensus/
 │   ├── generate_tex.py             # Chinese report generation
 │   └── generate_tex_en.py          # English report generation
 │
-├── visualization/                  # Visualization module
-│   ├── __init__.py
-│   ├── visualize_comparison.py
-│   ├── visualize_consistency.py
-│   ├── visualize_cv.py
-│   ├── visualize_debias_heatmap.py # Popularity bias visualizations
-│   ├── visualize_entropy.py
-│   ├── visualize_formula_bias_impact.py
-│   ├── visualize_icc.py
-│   ├── visualize_model_detail.py
-│   ├── visualize_popularity_bias.py
-│   ├── visualize_ranking.py
-│   ├── visualize_results.py
-│   ├── visualize_results_en.py
-│   ├── visualize_utils.py
-│   ├── plot_decision_flow.py       # Decision flow diagram
-│   ├── nature_figure_reliability_bias.py  # Nature-style reliability/bias figure
-│   ├── visualize_radar_nature.py   # Nature-style radar comparison
-│   └── visualize_radar_by_model.py # Per-model radar charts
+├── visualization/                  # Visualization scripts (standalone)
+│   ├── plot_decision_flow.py       # Decision flow diagram (per-run selection matrix + debiased winner comparison)
+│   └── nature_figure_reliability_bias.py  # Nature-style reliability/bias summary figure
 │
 ├── database/                       # Data storage
 │   ├── formula_materials.json      # Formula-material mapping
@@ -290,13 +270,6 @@ Files generated after completion:
   - `{model}_debiased_rigorous_v2.json` - Debiasing results per model
   - `rigorous_analysis_v2_summary.json` - Analysis summary
   - `rigorous_analysis_v2.log` - Analysis log
-  - `*.png` - Visualization charts:
-    - `debias_heatmap_comprehensive.png` - Comprehensive bias heatmap (partial correlation coefficients)
-    - `debias_heatmap_pvalue.png` - P-value heatmap
-    - `debias_heatmap_summary.png` - Bias summary heatmap (0/1 matrix)
-    - `debias_stacked_chart.png` - Model bias comparison chart
-    - `debias_dimension_bar.png` - Dimension bias distribution chart
-    - `model_formula_pvalue_heatmap.png` - Model vs Formula p-value heatmap (bias impact by dimensions)
 
 ### Anti-Formula Analysis Results
 - `anti_analysis/results/` - Anti-formula analysis output directory
@@ -304,13 +277,9 @@ Files generated after completion:
   - `anti-Formula 5.md` - Arguments against Formula 5 (Markdown format)
 
 ### Visualizations
-- `visualizations/overall_comparison_radar.png` - Overall comparison radar chart
-- `visualizations/cv_comparison.png` - CV comparison bar chart
-- `visualizations/icc_heatmap.png` - ICC heatmap
-- `visualizations/winner_consistency.png` - Winner consistency chart
-- `visualizations/reliability_ranking.png` - Reliability ranking chart
-- `visualizations/entropy_analysis.png` - Entropy analysis chart
-- `visualizations/{model}_detail.png` - Model-specific detailed analysis charts
+- `visualizations/decision_flow.png` - Decision flow figure (panel i: per-run selection matrix; panel j: original vs debiased winner comparison)
+- `visualization/plot_decision_flow.py` - Script that generates the decision flow figure
+- `visualization/nature_figure_reliability_bias.py` - Script that generates the Nature-style reliability/bias summary figure (`visualizations/nature_figure_reliability_bias.*`)
 
 ### Reports
 - `LLM_Reliability_Report.tex/.pdf` - Chinese report
