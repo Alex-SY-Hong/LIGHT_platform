@@ -1,12 +1,17 @@
-"""Reproducibility gate: run a script twice, compare outputs field by field.
+"""Reproducibility gate: run a script repeatedly, compare outputs field by field.
 
 Task 4 of the minimal-tier work package. Contract:
-- runs ``cmd`` N times (default 2) in ``cwd``;
-- after each run snapshots the declared artifact files;
-- compares consecutive runs pairwise (CSV per-cell, JSON recursive,
-  anything else byte-exact);
-- appends an immutable, timestamped record to reports/run_log.jsonl (P9);
+- runs ``cmd`` N times (N >= 2) in ``cwd``;
+- snapshots the declared artifact files after EVERY run;
+- compares every consecutive run pair (CSV per-cell, JSON recursive,
+  anything else byte-exact); any pair difference is a FAIL;
+- appends an immutable, timestamped record to reports/run_log.jsonl (P9)
+  even when the check itself crashes;
 - exits non-zero on any FAIL. The gate never modifies artifacts.
+
+Comparison policy: exact match by default. NaN == NaN passes; NaN vs any
+value fails; bool vs int fails (type drift); int vs float passes if
+numerically equal (documented policy).
 
 Usage:
     python reproducibility_check.py \
@@ -18,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import shutil
 import subprocess
 import sys
@@ -43,12 +49,12 @@ class Diff:
     location: str
     run1: Any
     run2: Any
-    kind: str = "value"  # "value" | "missing" | "shape"
+    kind: str = "value"  # "value" | "missing" | "shape" | "error"
 
 
 @dataclass(frozen=True)
 class ArtifactResult:
-    """Comparison outcome for one artifact across one run pair."""
+    """Comparison outcome for one artifact (worst pair collapsed)."""
 
     artifact: str
     diffs: Tuple[Diff, ...]
@@ -56,23 +62,29 @@ class ArtifactResult:
 
 @dataclass
 class ReproResult:
-    """Aggregate outcome of a double-run check."""
+    """Aggregate outcome of a repeat-run check."""
 
     cmd: str
     cwd: Optional[str]
     runs: int
+    float_tol: float = 0.0
+    artifacts_resolved: List[str] = field(default_factory=list)
     return_codes: List[int] = field(default_factory=list)
     artifacts: List[ArtifactResult] = field(default_factory=list)
+    errors: List[str] = field(default_factory=list)
 
     @property
     def status(self) -> str:
-        commands_ok = all(rc == 0 for rc in self.return_codes)
-        diffs_ok = all(not a.diffs for a in self.artifacts)
-        return "PASS" if commands_ok and diffs_ok else "FAIL"
+        commands_ok = all(rc == 0 for rc in self.return_codes) and not self.errors
+        compared_ok = self.artifacts and not any(a.diffs for a in self.artifacts)
+        return "PASS" if commands_ok and compared_ok else "FAIL"
 
     def summary(self) -> str:
         n_diffs = sum(len(a.diffs) for a in self.artifacts)
-        lines = [f"[{self.status}] cmd={self.cmd!r} runs={self.runs} rc={self.return_codes}"]
+        lines = [
+            f"[{self.status}] cmd={self.cmd!r} runs={self.runs} "
+            f"rc={self.return_codes} errors={self.errors or 'none'}"
+        ]
         for a in self.artifacts:
             head = "; ".join(
                 f"{d.location}: {d.run1!r} != {d.run2!r}" for d in a.diffs[:5]
@@ -96,13 +108,14 @@ def read_table(path: Path) -> pd.DataFrame:
 def _numeric_diffs(
     col: str, s1: pd.Series, s2: pd.Series, float_tol: float
 ) -> List[Diff]:
-    """Field diffs for one numeric column (NaN == NaN counts as equal)."""
+    """Field diffs for one numeric column. NaN==NaN equal, one-side-NaN fails."""
     both_nan = s1.isna() & s2.isna()
+    one_nan = s1.isna() ^ s2.isna()
     if float_tol > 0:
         delta = (s1.astype(float) - s2.astype(float)).abs()
-        bad = (delta > float_tol) & ~both_nan
+        bad = one_nan | (~both_nan & (delta > float_tol))
     else:
-        bad = (s1 != s2) & ~both_nan
+        bad = (s1 != s2) & ~both_nan  # s1 != s2 already flags one-side NaN
     return [
         Diff(f"row {i}, col {col}", s1.iloc[i], s2.iloc[i])
         for i in np.flatnonzero(bad.to_numpy())
@@ -121,7 +134,9 @@ def _object_diffs(col: str, s1: pd.Series, s2: pd.Series) -> List[Diff]:
 def compare_tables(
     a: pd.DataFrame, b: pd.DataFrame, float_tol: float = 0.0
 ) -> List[Diff]:
-    """Cell-by-cell comparison; exact match required by default."""
+    """Cell-by-cell comparison. Column names/order must match exactly."""
+    if list(a.columns) != list(b.columns):
+        return [Diff("columns", list(a.columns), list(b.columns), kind="shape")]
     if a.shape != b.shape:
         return [Diff("shape", a.shape, b.shape, kind="shape")]
     diffs: List[Diff] = []
@@ -139,7 +154,11 @@ def compare_tables(
 def compare_json(
     a: Any, b: Any, float_tol: float = DEFAULT_JSON_FLOAT_TOL, path: str = "$"
 ) -> List[Diff]:
-    """Recursive comparison of JSON-like structures (dict/list/scalar)."""
+    """Recursive comparison of JSON-like structures (dict/list/scalar).
+
+    NaN==NaN and inf==inf pass; NaN vs value fails; bool vs int fails
+    (type-checked); int vs float passes when numerically equal.
+    """
     if isinstance(a, dict) and isinstance(b, dict):
         diffs: List[Diff] = []
         for k in sorted(set(a) | set(b)):
@@ -156,8 +175,13 @@ def compare_json(
             out.extend(compare_json(x, y, float_tol, f"{path}[{i}]"))
         return out
     if isinstance(a, bool) or isinstance(b, bool):
-        return [] if a == b else [Diff(path, a, b)]
+        ok = type(a) is type(b) and a == b
+        return [] if ok else [Diff(path, a, b)]
     if isinstance(a, (int, float)) and isinstance(b, (int, float)):
+        if math.isnan(a) or math.isnan(b):
+            return [] if (math.isnan(a) and math.isnan(b)) else [Diff(path, a, b)]
+        if math.isinf(a) or math.isinf(b):
+            return [] if a == b else [Diff(path, a, b)]
         if abs(a - b) > float_tol:
             return [Diff(path, a, b)]
         return []
@@ -165,13 +189,14 @@ def compare_json(
 
 
 def _run_command(cmd: str, cwd: Optional[Path]) -> int:
-    """Execute one run; return exit code. Output streams are swallowed."""
+    """Execute one run; return exit code. Output is discarded (utf-8 safe)."""
     proc = subprocess.run(
         cmd,
         cwd=str(cwd) if cwd else None,
         shell=True,
         capture_output=True,
-        text=True,
+        encoding="utf-8",
+        errors="replace",
         timeout=RUN_TIMEOUT_SECONDS,
     )
     if proc.returncode != 0:
@@ -180,22 +205,41 @@ def _run_command(cmd: str, cwd: Optional[Path]) -> int:
     return proc.returncode
 
 
+def _load_json(path: Path) -> Any:
+    with open(path, encoding="utf-8-sig") as f:  # BOM-tolerant
+        return json.load(f)
+
+
 def _compare_artifact(run1: Path, run2: Path, float_tol: float) -> Tuple[Diff, ...]:
     """Compare one artifact file between two run snapshots by suffix."""
     if run2.suffix.lower() == ".csv":
         return tuple(compare_tables(read_table(run1), read_table(run2), float_tol))
     if run2.suffix.lower() == ".json":
-        with open(run1, encoding="utf-8") as f1, open(run2, encoding="utf-8") as f2:
-            return tuple(
-                compare_json(
-                    json.load(f1), json.load(f2), max(float_tol, DEFAULT_JSON_FLOAT_TOL)
-                )
-            )
+        return tuple(compare_json(_load_json(run1), _load_json(run2), float_tol))
     return (
         ()
         if run1.read_bytes() == run2.read_bytes()
         else (Diff("bytes", "run1", "run2", kind="value"),)
     )
+
+
+def _resolve(art: Path, cwd: Optional[Path]) -> Path:
+    """Artifact paths resolve against --cwd, never the gate's own cwd."""
+    return art if art.is_absolute() else (Path(cwd) if cwd else Path.cwd()) / art
+
+
+def _snapshot(artifacts: Sequence[Path], snap_dir: Path) -> List[Optional[Path]]:
+    """Copy artifacts into snap_dir index-keyed; None where absent."""
+    copied: List[Optional[Path]] = []
+    snap_dir.mkdir(parents=True, exist_ok=True)
+    for i, art in enumerate(artifacts):
+        if art.exists():
+            dest = snap_dir / f"{i:03d}_{art.name}"
+            shutil.copy2(art, dest)
+            copied.append(dest)
+        else:
+            copied.append(None)
+    return copied
 
 
 def check_reproducible(
@@ -205,37 +249,66 @@ def check_reproducible(
     runs: int = 2,
     float_tol: float = 0.0,
 ) -> ReproResult:
-    """Run ``cmd`` ``runs`` times and compare artifacts between consecutive runs."""
-    result = ReproResult(cmd=cmd, cwd=str(cwd) if cwd else None, runs=runs)
-    with tempfile.TemporaryDirectory(prefix="repro-check-") as tmp:
-        tmp_dir = Path(tmp)
-        prev_snap: Optional[Path] = None
-        for n in range(1, runs + 1):
-            result.return_codes.append(_run_command(cmd, cwd))
-            if n < runs:
-                snap = tmp_dir / f"run{n}"
-                snap.mkdir()
-                for art in artifacts:
-                    if Path(art).exists():
-                        shutil.copy2(art, snap / Path(art).name)
-                prev_snap = snap
-                continue
-            if prev_snap is None:
-                continue
-            for art in artifacts:
-                a1, a2 = prev_snap / art.name, Path(art)
-                if not a2.exists():
-                    result.artifacts.append(
-                        ArtifactResult(
-                            str(art),
-                            (Diff(str(art), "present", "missing", kind="missing"),),
+    """Run ``cmd`` ``runs`` times, compare every consecutive run pair."""
+    if runs < 2:
+        raise ValueError(f"runs must be >= 2, got {runs}")
+    artifacts = [Path(a) for a in artifacts]
+    if not artifacts:
+        raise ValueError("at least one --artifact is required")
+    cwd_path = Path(cwd) if cwd else None
+    resolved = [_resolve(a, cwd_path) for a in artifacts]
+
+    result = ReproResult(
+        cmd=cmd,
+        cwd=str(cwd_path) if cwd_path else None,
+        runs=runs,
+        float_tol=float_tol,
+        artifacts_resolved=[str(p) for p in resolved],
+    )
+    per_artifact: List[List[Diff]] = [[] for _ in resolved]
+    try:
+        with tempfile.TemporaryDirectory(prefix="repro-check-") as tmp:
+            tmp_dir = Path(tmp)
+            prev: Optional[List[Optional[Path]]] = None
+            for n in range(1, runs + 1):
+                result.return_codes.append(_run_command(cmd, cwd_path))
+                snap = _snapshot(resolved, tmp_dir / f"run{n}")
+                if prev is not None:
+                    for i, (p_old, p_new) in enumerate(zip(prev, snap)):
+                        if p_old is None and p_new is None:
+                            continue
+                        if p_old is None or p_new is None:
+                            state_old = "present" if p_old else "missing"
+                            state_new = "present" if p_new else "missing"
+                            per_artifact[i].append(
+                                Diff(
+                                    f"run{n-1}->run{n}",
+                                    state_old,
+                                    state_new,
+                                    kind="missing",
+                                )
+                            )
+                            continue
+                        per_artifact[i].extend(
+                            _compare_artifact(p_old, p_new, float_tol)
                         )
-                    )
-                    continue
-                diffs = _compare_artifact(a1, a2, float_tol)
-                result.artifacts.append(ArtifactResult(str(art), diffs))
+                prev = snap
+    except Exception as exc:  # crash cluster guard: never bypass the log
+        result.errors.append(f"{type(exc).__name__}: {exc}")
+
+    for art, diffs in zip(resolved, per_artifact):
+        result.artifacts.append(ArtifactResult(str(art), tuple(diffs)))
     append_run_log(result)
     return result
+
+
+def _jsonable(v: Any) -> Any:
+    """Normalize scalars for the JSON log (np types -> python)."""
+    if isinstance(v, np.generic):
+        return v.item()
+    if isinstance(v, (np.floating, float)) and math.isnan(float(v)):
+        return "NaN"
+    return v
 
 
 def append_run_log(result: ReproResult) -> None:
@@ -246,10 +319,20 @@ def append_run_log(result: ReproResult) -> None:
         "cmd": result.cmd,
         "cwd": result.cwd,
         "runs": result.runs,
+        "float_tol": result.float_tol,
         "status": result.status,
+        "return_codes": result.return_codes,
+        "artifacts": result.artifacts_resolved,
         "n_diffs": sum(len(a.diffs) for a in result.artifacts),
+        "errors": result.errors,
         "diffs": [
-            {"artifact": a.artifact, "items": [d.__dict__ for d in a.diffs[:20]]}
+            {
+                "artifact": a.artifact,
+                "items": [
+                    {k: _jsonable(v) for k, v in d.__dict__.items()}
+                    for d in a.diffs[:20]
+                ],
+            }
             for a in result.artifacts
             if a.diffs
         ],
@@ -260,17 +343,17 @@ def append_run_log(result: ReproResult) -> None:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--cmd", required=True, help="Command to run twice")
+    ap.add_argument("--cmd", required=True, help="Command to run repeatedly")
     ap.add_argument(
         "--artifact",
         required=True,
         action="append",
         type=Path,
-        help="Artifact file to compare (repeatable)",
+        help="Artifact file to compare, resolved against --cwd (repeatable)",
     )
     ap.add_argument("--cwd", type=Path, default=None, help="Working directory")
     ap.add_argument("--runs", type=int, default=2)
-    ap.add_argument("--float-tol", type=float, default=0.0, help="CSV float tolerance")
+    ap.add_argument("--float-tol", type=float, default=0.0, help="Float tolerance")
     args = ap.parse_args()
 
     result = check_reproducible(
