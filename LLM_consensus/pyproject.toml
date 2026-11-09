@@ -2,7 +2,7 @@
 name = "llm-consensus"
 version = "0.1.0"
 description = ""
-authors = ["Alex H"]
+authors = ["Alex-SY-Hong"]
 readme = "README.md"
 package-mode = false
 
