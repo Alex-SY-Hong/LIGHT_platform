@@ -97,6 +97,50 @@ Statistical analysis of LLM model reliability in materials science decision-maki
 
 See `LLM_consensus/README.md` for detailed documentation.
 
+## Reproduce key results
+
+The key published numbers can be re-verified locally with **zero API calls**
+(all checks read tracked artifacts; model scoring runs on CPU):
+
+```bash
+cd LLM_consensus && poetry install   # once; poetry.lock pins every version
+
+# from the repo root, inside that environment:
+python ../Agent/verification/verify_key_numbers.py --check all
+```
+
+Expected output — four PASS lines:
+
+```
+[PASS] 1_ym_oof_r2           recomputed_r2 ≈ 0.528   (n = 1629)
+[PASS] 2_cls_oof_acc_f1      accuracy ≈ 0.719, F1 ≈ 0.591 (n = 360)
+[PASS] 3_consensus_regeneration  0 field diffs vs archived JSON
+[PASS] 4_popularity_seeded   byte-identical double run
+```
+
+Notes:
+
+- Checks 1–2 recompute pooled OOF metrics from the archived prediction
+  tables (`cv10_oof.csv`) in pure NumPy and match the paper values at
+  their stated precision (±0.0005 rounding). The ±0.005 budget applies
+  only to full retraining, which these checks do not perform.
+- Check 3 regenerates the reliability report via the pipeline entry
+  declared in `run_pipeline.py` (`reliability_analysis.analyze_reliability`)
+  and compares it field-by-field with the archived
+  `reliability_analysis_results.json`. Note: the legacy standalone script
+  `analyze_llm_reliability.py` writes the same filename WITHOUT the
+  `winner_margin` section — use the pipeline entry, not the legacy script.
+- Check 4 runs the popularity-bias analysis twice; the seeded script must
+  produce byte-identical output.
+- Literature extraction and the final agent selection depend on external
+  LLM APIs; the tracked databases and raw responses are the citable
+  snapshot for those stages.
+- Environment snapshots: each module directory contains a
+  `requirements-frozen.txt` (captured from the matching conda environment)
+  alongside the looser `requirements.txt`. For bit-level reproduction of
+  trained-model artifacts, install the frozen file — the scikit-learn
+  version there matches the archived pickles.
+
 ## File Structure
 
 ```text
@@ -380,8 +424,11 @@ LIGHT_platform
 ```
 
 ## Note
-This codebase was developed and tested on Linux or Windows systems.  
-A standard workstation with an NVIDIA GPU (supporting CUDA 11.6) is recommended for model training.
+This codebase was developed and tested on Linux or Windows systems.
+An NVIDIA GPU (CUDA 11.6) **speeds up model training** but is not required:
+the random-forest models train in minutes on a CPU, and every analysis and
+verification step in this repository — including "Reproduce key results"
+above — runs on CPU with no API calls.
 
 
 ## About
