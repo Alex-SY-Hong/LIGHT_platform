@@ -153,6 +153,39 @@ def assert_join_rowcounts(*csvs: Path) -> SchemaCheckResult:
     return SchemaCheckResult(True, f"row counts equal ({n})", tuple())
 
 
+def assert_join_alignment(csv_a: Path, csv_b: Path, key_col: str) -> SchemaCheckResult:
+    """Key-column SEQUENCE must match position by position.
+
+    Guards the misalignment class where row counts are equal but rows
+    are permuted relative to each other (prototype: kmeans 14/630) —
+    a row-count check is blind to it by construction.
+    """
+    a, b = read_table(Path(csv_a)), read_table(Path(csv_b))
+    for name, df in ((Path(csv_a).name, a), (Path(csv_b).name, b)):
+        if key_col not in df.columns:
+            return SchemaCheckResult(
+                False, f"key column {key_col!r} missing from {name}", ()
+            )
+    seq_a = [str(v) for v in a[key_col].tolist()]
+    seq_b = [str(v) for v in b[key_col].tolist()]
+    if len(seq_a) != len(seq_b):
+        return SchemaCheckResult(
+            False,
+            f"length differs: {len(seq_a)} vs {len(seq_b)} (run row-count check too)",
+            (),
+        )
+    bad = [i for i, (x, y) in enumerate(zip(seq_a, seq_b)) if x != y]
+    if bad:
+        first = bad[0]
+        return SchemaCheckResult(
+            False,
+            f"key sequence misaligned at position {first}: "
+            f"{seq_a[first]!r} vs {seq_b[first]!r} ({len(bad)} positions differ)",
+            tuple(str(i) for i in bad[:20]),
+        )
+    return SchemaCheckResult(True, f"key sequences aligned ({len(seq_a)} rows)", ())
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = ap.add_subparsers(dest="mode", required=True)
