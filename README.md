@@ -99,13 +99,13 @@ See `LLM_consensus/README.md` for detailed documentation.
 
 ## Reproduce key results
 
-The key published numbers can be re-verified locally with **zero API calls**
-(all checks read tracked artifacts; model scoring runs on CPU):
+The key published numbers can be re-verified locally with **zero API calls** —
+every check reads tracked artifacts:
 
 ```bash
 cd LLM_consensus && poetry install   # once; poetry.lock pins every version
 
-# from the repo root, inside that environment:
+# then, still inside LLM_consensus with that environment active:
 python ../Agent/verification/verify_key_numbers.py --check all
 ```
 
@@ -150,17 +150,29 @@ LIGHT_platform
 ├─Agent
 │  │  Agent_unsupervised.py							— Automated Unsupervised pipline
 │  │  Agent_workflow.py								— Main workflow of LIGHT_platform
-│  │  Selection_API.py								— API used for Selection 
+│  │  Selection_API.py								— API used for Selection
 │  │  Selection_pipeline.py							— Automated Selection pipeline
 │  │  Supervised_pipline.py							— Automated Supervised pipline
 │  │  README.md
 │  │  __init__.py
+│  │
+│  └─verification										— Read-only verification layer (gates flag, never modify)
+│     │  FMEA.md										— Component failure modes / detection / human escalation
+│     │  ACCEPTANCE.md								— Machine-checked acceptance criteria
+│     │  physical_plausibility.py					— YM/SR range gates (externally anchored)
+│     │  reproducibility_check.py					— Double-run field-by-field comparison
+│     │  schema_check.py								— Feature fingerprint + join alignment gates
+│     │  fault_injection.py							— Mutation-testing suite (5 corruption families)
+│     │  verify_key_numbers.py						— Paper key-number verification (checks 1-4)
+│     │  pytest.ini									— Test runner config
+│     └─tests/										— 54 pytest cases (real-artifact checks marked slow)
 │          
 ├─Automated_Data_Extraction							— Automated data extraction folder
 │  │  pipeline_config.json					
 │  │  pipeline_main.py					
 │  │  README.md					
 │  │  requirements.txt					
+│  │  requirements-frozen.txt						— Exact environment snapshot (see Reproduce)
 │  │  Split_pdf.py									— PDF splitting
 │  │  Standardize_Units.py							— Standardize units in tables
 │  │  Table_Generation.py							— Convert extracted information into tables
@@ -193,7 +205,8 @@ LIGHT_platform
 │      Agent_Final_Selection.csv
 │      
 ├─Supervised_Learning								— Supervised learning folder
-│  │  requirements.txt			
+│  │  requirements.txt				
+│  │  requirements-frozen.txt						— Exact environment snapshot (see Reproduce)
 │  │  			
 │  ├─Classification_Model							— Classification model scripts
 │  │  │  classification_main.py			
@@ -299,6 +312,7 @@ LIGHT_platform
 │   │  morgan_pooling.py										— Morgan generate and pooling script
 │   │  README.md
 │   │  requirements.txt
+│   │  requirements-frozen.txt								— Exact environment snapshot (see Reproduce)
 │   │  
 │   ├─candidate_umap											— Candidate component distribution plots
 │   │      all_AB_smiles2morgan.py								— Generate all SMILES pairs and 1024-bit Morgan fingerprints
@@ -424,11 +438,8 @@ LIGHT_platform
 ```
 
 ## Note
-This codebase was developed and tested on Linux or Windows systems.
-An NVIDIA GPU (CUDA 11.6) **speeds up model training** but is not required:
-the random-forest models train in minutes on a CPU, and every analysis and
-verification step in this repository — including "Reproduce key results"
-above — runs on CPU with no API calls.
+This codebase was developed and tested on Linux and Windows systems equipped
+with NVIDIA GPUs (CUDA 11.6).
 
 
 ## About
