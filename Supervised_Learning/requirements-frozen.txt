@@ -2,6 +2,9 @@
 # Purpose: bit-level environment snapshot for reproducing published results.
 # Install AFTER creating the matching conda env: pip install -r requirements-frozen.txt
 # NOTE: scikit-learn version matches the archived trained-model artifacts (pickle compatibility).
+# NOTE: torch/torchaudio/torchvision CUDA builds (+cu116) present in the source
+# environment are omitted: they are not published on PyPI and are not imported
+# by this module; install them from the PyTorch cu116 index if GPU work is needed.
 annotated-types==0.7.0
 anyio==4.12.1
 argcomplete==3.5.3
@@ -48,9 +51,6 @@ six==1.17.0
 sniffio==1.3.1
 threadpoolctl==3.6.0
 tomli==2.2.1
-torch==1.12.1+cu116
-torchaudio==0.12.1+cu116
-torchvision==0.13.1+cu116
 tqdm==4.67.3
 typing-inspection==0.4.2
 typing_extensions==4.15.0

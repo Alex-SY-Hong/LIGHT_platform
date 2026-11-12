@@ -1,6 +1,8 @@
 # requirements-frozen: conda env 'extraction' (Python 3.12.3), captured 2026-11-11
 # Purpose: bit-level environment snapshot for reproducing published results.
 # Install AFTER creating the matching conda env: pip install -r requirements-frozen.txt
+# NOTE: 'packaging' was a conda-built install without PyPI-installable metadata;
+# pinned here by its exact in-environment version (25.0).
 annotated-types==0.7.0
 anyio==4.12.1
 asttokens==3.0.1
@@ -46,7 +48,7 @@ nbformat==5.10.4
 networkx==3.6.1
 numpy==2.4.2
 openai==1.65.1
-packaging @ file:///C:/miniconda3/conda-bld/packaging_1761049137378/work
+packaging==25.0
 pandas==2.2.2
 parso==0.8.5
 pdfminer.six==20250327
