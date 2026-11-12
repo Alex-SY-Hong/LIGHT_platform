@@ -275,7 +275,7 @@ def append_log(results: List[CheckResult]) -> None:
         "timestamp": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "results": [{"name": r.name, "ok": r.ok, "detail": r.detail} for r in results],
         "all_ok": all(r.ok for r in results),
-        "note": "run evidence only, not acceptance (P4/P9)",
+        "note": "run evidence only, not acceptance",
     }
     with open(LOG_PATH, "a", encoding="utf-8") as f:
         f.write(json.dumps(record, ensure_ascii=False, default=str) + "\n")

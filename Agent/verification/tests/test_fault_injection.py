@@ -8,13 +8,13 @@ User journeys:
   clean data, so that PASS verdicts are trustworthy.
 
 Families (each anchored to a real prototype, not invented):
-- value shift +3 on log10 domain  -> the 4 mixed-unit YM rows (§3.6)
+- value shift +3 on log10 domain  -> the 4 mixed-unit YM rows
 - SR x100 scale corruption         -> the known SR=300 row
 - unseeded randomness             -> historical double-run drift
 - column shuffle                  -> feature-order drift at predict time
-- row shuffle                     -> kmeans 14/630 SMILES misalignment
+- row shuffle                     -> candidate-table row misalignment
 
-Acceptance (taskfile §2.6): 100% interception on injected faults,
+Acceptance: 100% interception on injected faults,
 zero false positives on a clean synthetic corpus, and the real-DB
 plausibility baseline stays exactly the four documented rows.
 """
@@ -76,7 +76,7 @@ def _features(tmp: Path) -> Path:
 
 class TestValueCorruption:
     def test_plus3_log10_intercepted(self, tmp_path: Path) -> None:
-        # Arrange — §3.6 prototype: Pa values mixed into kPa-log column
+        # Arrange — mixed-unit prototype: Pa values mixed into kPa-log column
         csv = _clean_ym(tmp_path)
         corrupt_shift_log10(csv, YM_COL, delta=+3.0)
 
@@ -127,7 +127,7 @@ class TestSchemaCorruption:
         assert not result.ok
 
     def test_row_shuffle_intercepted(self, tmp_path: Path) -> None:
-        # Arrange — kmeans 14/630 prototype: same rows, same count,
+        # Arrange — row-permutation prototype: same rows, same count,
         # wrong order -> row-count join check CANNOT see this; the
         # alignment gate on the key column must.
         left = _features(tmp_path)

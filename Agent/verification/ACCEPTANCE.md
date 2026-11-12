@@ -19,7 +19,7 @@ the branch under review.
 
 ## schema_check (task 5)
 
-- Stamping the deployed rf_cv10 fold-8 payload yields the 1024-column
+- Stamping the deployed rf_cv10 best-fold payload yields the 1024-column
   contract; the 630-candidate feature table matches it in set AND order
   (validated once on the real artifacts).
 - Missing, extra, or reordered columns FAIL loudly; padding/truncation
@@ -31,8 +31,8 @@ the branch under review.
 ## physical_plausibility (task 3)
 
 - YM rules are gel-scope only; on the real database they flag exactly
-  the four mixed-unit rows documented for collaborators (0/1045/1534/
-  1536, Tier A) plus one suspect row (Tier B) — pinned by a slow-marked
+  the four mixed-unit rows caught by the gel-scope rules (Tier A) plus
+  one suspect row (Tier B) — pinned by a slow-marked
   test; any rule change that moves this baseline turns the suite red.
 - SR rules: sub-1 domain findings and the SR=300 suspect row are
   recorded as run evidence (append-only log); they are triage input,
@@ -46,7 +46,7 @@ the branch under review.
   ratio scale, unseeded randomness, column shuffle, row shuffle) are
   intercepted by the gate named in the FMEA.
 - Clean corpus: zero false positives across all gates.
-- Every suite run appends an immutable record (P9).
+- Every suite run appends an immutable append-only record.
 
 ## Package-level
 

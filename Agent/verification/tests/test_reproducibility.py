@@ -262,7 +262,7 @@ class TestReviewerFindings:
         assert result.status == "PASS", result.summary()
 
     def test_log_record_fields(self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-        # Arrange — P9 log contract: timestamp, cmd, status, return_codes
+        # Arrange — log contract: timestamp, cmd, status, return_codes
         log = tmp_path / "run_log.jsonl"
         monkeypatch.setattr(rc, "REPORTS_DIR", tmp_path)
         monkeypatch.setattr(rc, "RUN_LOG_PATH", log)

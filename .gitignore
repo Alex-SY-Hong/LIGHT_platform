@@ -16,7 +16,7 @@ __pycache__/
 .ruff_cache/
 .pytest_cache/
 
-# agent verification run logs (P9: local, append-only)
+# agent verification run logs (local, append-only)
 Agent/verification/reports/
 
 # latex

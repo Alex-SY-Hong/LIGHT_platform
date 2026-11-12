@@ -1,13 +1,13 @@
 """Physical plausibility gate: first-principles range checks for YM and SR.
 
 Task 3 of the minimal-tier work package. Symmetric rule structure over the
-two property columns (P4); every threshold is externally anchored (P8) or
+two property columns; every threshold is externally anchored or
 explicitly provisional. The gate NEVER modifies the database: Tier A
 findings emit an isolation-review recommendation, Tier B findings are
 report-only (failure -> more human review, never more automation).
 
 First-run results against the current DB go to the append-only run log
-only (P9) -- they are run evidence, not acceptance evidence (P4).
+only -- they are run evidence, not acceptance evidence.
 
 Usage:
     python physical_plausibility.py --csv youngs_modulus.csv --target YM
@@ -42,18 +42,18 @@ TARGET_COLUMNS = {
     "SR": "Swelling Ratio (times)",
 }
 
-# Anchors (P8): externally published ranges, never fitted to our own data.
+# Anchors: externally published ranges, never fitted to our own data.
 DOI_KPA_MPA_TUNABLE = "10.1021/acs.iecr.9b06769"  # hydrogel E tuned kPa -> MPa
-DOI_UNIT_APP = "10.1002/app.33461"  # unit-mismatch evidence (taskfile)
-DOI_UNIT_JBM = "10.1002/jbm.a.37336"  # unit-mismatch evidence (taskfile)
+DOI_UNIT_APP = "10.1002/app.33461"  # unit-mismatch evidence (DOI)
+DOI_UNIT_JBM = "10.1002/jbm.a.37336"  # unit-mismatch evidence (DOI)
 DOI_EQUIL_SWELLING = "10.1007/s42558-020-00032-5"  # equilibrium swelling model
 DOI_SUPERABSORBENT = "10.1063/1.4995098"  # superabsorbent swelling capacities
 
 # The YM database is a mixed polymer corpus: plastics/fibers legitimately
 # reach GPa in log10(kPa); the gel thresholds apply ONLY to gel-class
 # rows, identified by source keywords. Calibration evidence: the four
-# rows this scope flags are exactly the four unit-mismatch rows
-# documented for collaborators (rows 0/1045/1534/1536, 0-based).
+# rows this scope flags are exactly the four rows with mixed unit
+# conventions in the source data (pinned by a slow-marked test).
 GEL_SOURCE_PATTERN = r"gel|hydrogel|GelMA|SilMA|凝胶|水凝胶"
 
 
@@ -220,7 +220,7 @@ def evaluate_value(target: str, v: float) -> List[Finding]:
 
 
 def check_db(csv_path: Path, target: str) -> PlausibilityReport:
-    """Scan one property DB; findings to console + append-only log (P9)."""
+    """Scan one property DB; findings to console + append-only log."""
     if target not in TARGET_COLUMNS:
         raise ValueError(f"target must be YM or SR, got {target!r}")
     column = TARGET_COLUMNS[target]
@@ -267,7 +267,7 @@ def check_db(csv_path: Path, target: str) -> PlausibilityReport:
 
 
 def append_log(report: PlausibilityReport) -> None:
-    """Append one immutable record (P9). First-run evidence, not acceptance."""
+    """Append one immutable record. First-run evidence, not acceptance."""
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
     record = {
         "timestamp": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -275,7 +275,7 @@ def append_log(report: PlausibilityReport) -> None:
         "target": report.target,
         "n_rows": report.n_rows,
         "n_findings": len(report.findings),
-        "note": "run evidence only, not acceptance (P4/P9)",
+        "note": "run evidence only, not acceptance",
         "findings": [
             {
                 "row_index": f.row_index,

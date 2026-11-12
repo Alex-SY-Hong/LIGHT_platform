@@ -2,7 +2,7 @@
 
 Covers: boundary semantics, tier routing (A=flag/isolation vs B=suspicion),
 rule symmetry across YM and SR, zero false positives on clean values,
-encoding fallback, and the P9 append-only log record.
+encoding fallback, and the append-only log record.
 """
 
 import json
@@ -43,14 +43,14 @@ def _sr_csv(path: Path, values: list) -> Path:
 
 class TestRuleRegistry:
     def test_symmetric_coverage(self) -> None:
-        # Arrange / Act / Assert — P4: YM and SR get the same structure
+        # Arrange / Act / Assert — YM and SR get the same structure
         for target in ("YM", "SR"):
             tiers = {r.tier for r in RULES if r.target == target}
             assert "flag" in tiers or "domain" in tiers, target
             assert "suspicious" in tiers, target
 
     def test_all_rules_anchored_or_provisional(self) -> None:
-        # P8: every threshold carries an external anchor or is marked provisional
+        # every threshold carries an external anchor or is marked provisional
         for r in RULES:
             assert r.anchors or r.provisional, f"{r.rule_id} lacks anchor"
             assert r.rationale, f"{r.rule_id} lacks rationale"
@@ -110,7 +110,7 @@ class TestCheckDb:
         assert check_db(csv, "YM").findings == []
 
     def test_clean_db_zero_findings(self, tmp_path: Path) -> None:
-        # Arrange — zero false positives on plausible values (P5 acceptance)
+        # Arrange — zero false positives on plausible values (acceptance)
         csv = _sr_csv(tmp_path / "sr.csv", [1.2, 5.0, 80.0, 150.0])
 
         # Act / Assert
@@ -128,7 +128,7 @@ class TestCheckDb:
     def test_log_appended(
         self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
     ) -> None:
-        # Arrange — P9: append-only record with timestamp
+        # Arrange — append-only record with timestamp
         log = tmp_path / "plausibility_log.jsonl"
         monkeypatch.setattr(pp, "REPORTS_DIR", tmp_path)
         monkeypatch.setattr(pp, "LOG_PATH", log)

@@ -5,7 +5,7 @@ Task 4 of the minimal-tier work package. Contract:
 - snapshots the declared artifact files after EVERY run;
 - compares every consecutive run pair (CSV per-cell, JSON recursive,
   anything else byte-exact); any pair difference is a FAIL;
-- appends an immutable, timestamped record to reports/run_log.jsonl (P9)
+- appends an immutable, timestamped record to reports/run_log.jsonl
   even when the check itself crashes;
 - exits non-zero on any FAIL. The gate never modifies artifacts.
 
@@ -312,7 +312,7 @@ def _jsonable(v: Any) -> Any:
 
 
 def append_run_log(result: ReproResult) -> None:
-    """Append one immutable record (P9: append-only, UTC ISO-8601 timestamp)."""
+    """Append one immutable record (append-only, UTC ISO-8601 timestamp)."""
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
     record = {
         "timestamp": datetime.now(timezone.utc).isoformat(timespec="seconds"),

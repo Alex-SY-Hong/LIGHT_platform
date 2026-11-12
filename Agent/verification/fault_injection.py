@@ -3,10 +3,10 @@
 Each fault family corrupts a copy of clean data using a mechanism anchored
 to a real historical prototype (never an invented one), then verifies the
 matching gate intercepts it. Clean runs must stay green: 100% interception
-with zero false positives is the acceptance bar (taskfile §2.6).
+with zero false positives is the acceptance bar.
 
 Families and gates:
-- value-shift (+3 on a log10 column)   -> physical_plausibility (§3.6 rows)
+- value-shift (+3 on a log10 column)   -> physical_plausibility (mixed-unit rows)
 - value-scale (x100 on a ratio column) -> physical_plausibility (SR=300)
 - determinism (unseeded corruption)     -> reproducibility_check compare
 - column-shuffle                       -> schema_check fingerprint
@@ -90,7 +90,7 @@ def shuffle_columns(csv_path: Path) -> None:
 
 def shuffle_rows(csv_path: Path, key: Optional[str] = None) -> Path:
     """Permute row order into a NEW file (counts preserved) — the
-    14/630 misalignment mechanism. Returns the shuffled copy's path."""
+    row-permutation misalignment mechanism. Returns the shuffled copy's path."""
     df = read_table(Path(csv_path))
     shuffled = df.sample(frac=1.0, random_state=99).reset_index(drop=True)
     out = Path(csv_path).with_name(
@@ -115,7 +115,7 @@ FAULTS: Tuple[FaultSpec, ...] = (
     FaultSpec(
         "ym-plus3-log10",
         "value-shift",
-        "four mixed-unit YM rows (taskfile 3.6)",
+        "four mixed-unit YM rows (unit-convention audit)",
         "physical_plausibility",
     ),
     FaultSpec(
@@ -139,7 +139,7 @@ FAULTS: Tuple[FaultSpec, ...] = (
     FaultSpec(
         "row-shuffle",
         "row-shuffle",
-        "kmeans 14/630 SMILES misalignment",
+        "candidate-table row misalignment",
         "schema_check.join_alignment",
     ),
 )
@@ -269,7 +269,7 @@ def run_suite(
 
 
 def append_log(report: MutationReport) -> None:
-    """Append one immutable record (P9): run evidence, not acceptance."""
+    """Append one immutable record: run evidence, not acceptance."""
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
     record = {
         "timestamp": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -278,7 +278,7 @@ def append_log(report: MutationReport) -> None:
         "intercepted": report.intercepted,
         "escaped": report.escaped,
         "clean_false_positives": report.clean_false_positives,
-        "note": "run evidence only, not acceptance (P4/P9)",
+        "note": "run evidence only, not acceptance",
     }
     with open(LOG_PATH, "a", encoding="utf-8") as f:
         f.write(json.dumps(record, ensure_ascii=False, default=str) + "\n")

@@ -4,7 +4,7 @@ and refuse prediction inputs that do not match (task 5).
 Replaces predict.py's silent pad-zero/truncate behaviour with a hard
 contract: ordered column names are hashed at training time (``stamp``)
 and asserted before every prediction (``check``). Optional join row-count
-assertion guards two-stage merges (history: 14/630 SMILES misalignment).
+assertion guards two-stage merges (row-permutation misalignment).
 
 Usage:
     python schema_check.py stamp  --feature-csv train_features.csv \
@@ -157,7 +157,7 @@ def assert_join_alignment(csv_a: Path, csv_b: Path, key_col: str) -> SchemaCheck
     """Key-column SEQUENCE must match position by position.
 
     Guards the misalignment class where row counts are equal but rows
-    are permuted relative to each other (prototype: kmeans 14/630) —
+    are permuted relative to each other (the row-permutation prototype) —
     a row-count check is blind to it by construction.
     """
     a, b = read_table(Path(csv_a)), read_table(Path(csv_b))
