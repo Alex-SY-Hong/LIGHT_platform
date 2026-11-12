@@ -70,8 +70,8 @@ pip install -r requirements.txt
 #### For LLM Consensus Analysis:
 ```bash
 cd LLM_consensus
-poetry install
-poetry shell
+poetry install        # requires Python >= 3.12 (pinned in pyproject.toml)
+# Run commands inside the locked environment with: poetry run <command>
 
 # Configure API access (required before running the pipeline)
 cp .env.example .env
@@ -105,21 +105,25 @@ every check reads tracked artifacts:
 ```bash
 cd LLM_consensus && poetry install   # once; poetry.lock pins every version
 
-# then, still inside LLM_consensus with that environment active:
-python ../Agent/verification/verify_key_numbers.py --check all
+# then, still inside LLM_consensus:
+poetry run python ../Agent/verification/verify_key_numbers.py --check all
 ```
 
 Expected output — four PASS lines:
 
 ```
-[PASS] 1_ym_oof_r2           recomputed_r2 ≈ 0.528   (n = 1629)
-[PASS] 2_cls_oof_acc_f1      accuracy ≈ 0.719, F1 ≈ 0.591 (n = 360)
-[PASS] 3_consensus_regeneration  0 field diffs vs archived JSON
-[PASS] 4_popularity_seeded   byte-identical double run
+[PASS] 1_ym_oof_r2: {"recomputed_r2": 0.527952, "claim": 0.528, "n": 1629, "tolerance": "rounds to 3 decimals (retrain budget 0.005 is a separate tier)"}
+[PASS] 2_cls_oof_acc_f1: {"recomputed_acc": 0.719444, "recomputed_f1": 0.591093, "claims": [0.719, 0.591], "n": 360}
+[PASS] 3_consensus_regeneration: {"n_field_diffs": 0, "first_diffs": [], "winner_margin_present": true, "entry": "reliability_analysis.analyze_reliability"}
+[PASS] 4_popularity_seeded: {"byte_identical": true, "p_value_count_run1": 24, "p_value_count_run2": 24}
+[LOG] appended -> .../Agent/verification/reports/verify_key_numbers_log.jsonl
 ```
 
 Notes:
 
+- A final `[LOG]` line appends the run to an append-only log under
+  `Agent/verification/reports/` (git-ignored); it is bookkeeping, not
+  part of the checks.
 - Checks 1–2 recompute pooled OOF metrics from the archived prediction
   tables (`cv10_oof.csv`) in pure NumPy and match the paper values at
   their stated precision (±0.0005 rounding). The ±0.005 budget applies
