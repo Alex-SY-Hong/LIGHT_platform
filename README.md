@@ -367,6 +367,8 @@ LIGHT_platform
 │       │      cluster_5.csv
 │       │      cluster_statistics.csv
 │       │      
+│       ├─clustering_benchmark							— Clustering benchmark (pca64_kmeans vs hdbscan_umap2d)
+│       │
 │       └─clusters-from-umap									— Reproduce the unsupervised results of the article
 │               cluster_0.csv
 │               cluster_1.csv
